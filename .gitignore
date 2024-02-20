@@ -126,4 +126,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-.vscode/
+### VisualStudioCode ###
+.vscode/**/*
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+**/.history
