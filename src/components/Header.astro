@@ -1,0 +1,31 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { Image } from 'astro:assets'
+import logoLightText from '../images/logo-light-text.svg'
+
+const currentLocale = Astro.currentLocale ?? 'en'
+---
+
+<header class="layout-header" data-scroll="false">
+	<div class="layout-header--content">
+		<a class="header-logo" href={ getRelativeLocaleUrl(currentLocale, '') } title="">
+			<Image src={ logoLightText } alt="" loading="eager" />
+		</a>
+
+		<nav class="primary-nav">
+			<button class="primary-nav--button" aria-controls="primary-nav" aria-expanded="false">
+				<div class="primary-nav--button-text">Menú</div>
+				<div class="primary-nav--button-icon" aria-hidden="true"></div>
+			</button>
+
+			<ul class="primary-nav--list" id="primary-nav" data-status="closed">
+				<li><a href={ getRelativeLocaleUrl(currentLocale, '') } title="" class="primary-nav--item" aria-current="page"><span>Inicio</span></a></li>
+				<li><a href="#" title="" class="primary-nav--item"><span>Qué ofrecemos</span></a></li>
+				<li><a href="./galeria.php" title="" class="primary-nav--item"><span>Galería</span></a></li>
+				<li><a href="#" title="" class="primary-nav--item"><span>Blog</span></a></li>
+				<li><a href="./contacto.php" title="" class="primary-nav--item nav-call-to-action"><span>Contacto</span></a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="layout-header--border"></div>
+</header>

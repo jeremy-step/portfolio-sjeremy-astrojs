@@ -1,0 +1,29 @@
+$spacers: (
+	'0': 0,
+	'100': 10px,
+	'200': 20px,
+	'300': 30px,
+	'400': 40px,
+	'500': 50px,
+	'600': 60px,
+	'700': 70px,
+	'800': 80px,
+	'900': 90px,
+	'1000': 100px
+);
+
+:root, ::before, ::after {
+	/* Spacing */
+
+	@include spacer-vars();
+
+	/* Layout */
+
+	--header-height: 55px;
+	--header-space-block: var(--spacer-100);
+
+	/* Content */
+
+	--content-width: 75rem;
+	--content-width-expanded: 100%;
+}
