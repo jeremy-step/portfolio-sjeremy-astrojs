@@ -1,0 +1,121 @@
+* {
+	scrollbar-width: var(--scrollbar-width-alt);
+	scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar {
+	width: calc(var(--scrollbar-width) + (var(--scrollbar-padding) * 2));
+	height: calc(var(--scrollbar-width) + (var(--scrollbar-padding) * 2));
+}
+
+::-webkit-scrollbar-track {
+	background: var(--scrollbar-track);
+	border-radius: var(--scrollbar-track-radius);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--scrollbar-thumb);
+    border-width: var(--scrollbar-padding);
+    border-style: solid;
+    border-color: var(--scrollbar-track);
+	border-radius: var(--scrollbar-thumb-radius);
+
+	&:hover {
+		background: var(--scrollbar-thumb-hover);
+	}
+}
+
+:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: .15em;
+    border-radius: 0;
+}
+
+html {
+	min-height: 100%;
+
+	font-size: var(--global-font-size-base);
+	text-size-adjust: 100%;
+	hanging-punctuation: first last;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+	min-height: 100%;
+	overflow-x: hidden;
+
+	background-color: var(--color-background);
+
+	-webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+	font-family: var(--global-font-family);
+    font-size: var(--global-font-size);
+    font-weight: var(--global-font-weight);
+	line-height: var(--global-line-height);
+    color: var(--color-font-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--heading-font-family);
+	font-weight: var(--heading-font-weight);
+	line-height: var(--heading-line-height);
+	text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--font-size-4);
+}
+
+h2 {
+    font-size: var(--font-size-3);
+}
+
+h3 {
+    font-size: var(--font-size-2);
+}
+
+h4 {
+    font-size: var(--font-size-1);
+}
+
+h5, h6 {
+    font-size: var(--font-size-0);
+}
+
+p, ul, ol, li, table, tr, td, th {
+	text-wrap: pretty;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        color: var(--color-font-link);
+    }
+}
+
+input, textarea, select, button {
+    padding: 0;
+}
+
+ul, ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+strong {
+	font-weight: var(--font-weight-bold);
+}
+
+em {
+	font-style: italic;
+}
