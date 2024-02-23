@@ -1,0 +1,49 @@
+---
+import { getAbsoluteLocaleUrl, getRelativeLocaleUrl, getRelativeLocaleUrlList } from 'astro:i18n';
+import { config } from 'astro.config.mjs';
+
+const currentLocale = Astro.currentLocale ?? config.defaultLocale;
+const currentPath = Astro.url.pathname.replace(new RegExp('^(' + getRelativeLocaleUrlList().reverse().join('|') + ')'), '').replace(/\/$/, '');
+
+function isCurrentF(path: string): any {
+	if (path === currentPath) {
+		return 'page';
+	}
+
+	return null;
+}
+
+function linkF(path?: string, locale: string = currentLocale, absolute: boolean = false): string {
+	return absolute ? getAbsoluteLocaleUrl(locale, path) : getRelativeLocaleUrl(locale, path);
+}
+
+const { element, path, isCurrent } = Astro.props;
+
+let attributes = { ...Astro.props };
+
+delete attributes.element;
+delete attributes.path;
+delete attributes.isCurrent;
+
+const Element = element ?? 'a';
+
+if (attributes.href === undefined && Element === 'a') {
+	attributes.href = '{%URL%}';
+}
+
+if (isCurrent) {
+	attributes['aria-current'] = isCurrentF(path ?? '');
+}
+
+for (const [key, value] of Object.entries(attributes)) {
+	if (typeof value === 'string' || value instanceof String) {
+		attributes[key] = value.replaceAll('{%URL%}', linkF(path ?? ''));
+	}
+};
+
+console.log(attributes);
+---
+
+<Element {...attributes}>
+	<slot />
+</Element>

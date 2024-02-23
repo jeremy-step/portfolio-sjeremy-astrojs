@@ -1,4 +1,15 @@
 import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
+//import { links } from '@/integrations/links';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export const config = {
+	defaultLocale: 'en',
+	locales: ['en', 'es', 'cs']
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -7,10 +18,27 @@ export default defineConfig({
 	inlineStylesheets: 'never',
 	trailingSlash: 'always',
 	i18n: {
-		defaultLocale: 'en',
-		locales: ['es', 'en', 'cs'],
+		defaultLocale: config.defaultLocale,
+		locales: config.locales,
 		routing: {
 			prefixDefaultLocale: false
+		}
+	},
+	vite: {
+		resolve: {
+			alias: {
+				'@/': `${ path.resolve(__dirname, 'src') }/`
+			}
+		},
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `
+						@import "@/scss/inc/defaults/vars-sass";
+						@import "@/scss/inc/mixins";
+					`
+				}
+			}
 		}
 	}
 });

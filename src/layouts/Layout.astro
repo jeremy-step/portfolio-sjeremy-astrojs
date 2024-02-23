@@ -1,13 +1,36 @@
 ---
-import Header from '../components/Header.astro'
-import { Image, Picture } from 'astro:assets'
-import imageProgramming from '../images/programming.jpg'
-import imageJavascript from '../images/javascript.jpg'
-import iconFacebookWhite from '../images/facebook-white.svg'
-import iconTwitterWhite from '../images/twitter-white.svg'
-import iconInstagramWhite from '../images/instagram-white.svg'
-import iconPinterestWhite from '../images/pinterest-white.svg'
-import '../scss/styles.scss'
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+import { Picture, getImage } from 'astro:assets';
+import imageProgramming from '@/images/programming.jpg';
+import imageJavascript from '@/images/javascript.jpg';
+import '@/scss/styles.scss';
+
+
+import faviconPngSrc from '@/images/favicon.png';
+import faviconTouchPngSrc from '@/images/favicon-touch.png';
+import faviconSvgSrc from '@/images/favicon.svg';
+
+const faviconTouchPng = await getImage({
+  	src: faviconTouchPngSrc,
+  	width: 180,
+  	height: 180,
+  	format: 'png'
+});
+
+const faviconPng = await getImage({
+  	src: faviconPngSrc,
+  	width: 32,
+  	height: 32,
+  	format: 'png'
+});
+
+const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' });
+
+let { title } = Astro.props;
+
+title = title === null || title === undefined ? '' : title + ' |';
 ---
 
 <!DOCTYPE html>
@@ -15,8 +38,15 @@ import '../scss/styles.scss'
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href={ faviconPng.src }>
+		<link rel="icon" href={ faviconSvg.src }>
+		<link rel="mask-icon" href={ faviconSvg.src } color="#000000">
+		<link rel="apple-touch-icon" href={ faviconTouchPng.src }>
+		<meta name="theme-color" content="#ffffff">
+		
 
-		<title>CimaAlfa Template</title>
+
+		<title>{ title } Jeremy's Portfolio</title>
 
 		<script src="../js/app.js"></script>
 	</head>
@@ -103,49 +133,25 @@ import '../scss/styles.scss'
 				</div>
 			</main>
 
-			<footer class="layout-footer">
-				<div class="layout-footer--border"></div>
-
-				<div class="layout-footer--content">
-					<div class="footer-content--columns row">
-						<div class="footer-content col xmedium-4">
-							<div class="footer-title">Lorem ipsum, dolor sit.</div>
-							<p>
-								Amet consectetur adipisicing elit. Minus magnam necessitatibus blanditiis! Alias cum architecto odit veniam? Eius, est autem eos sint ducimus enim blanditiis labore harum doloremque sequi officia adipisci amet?
-							</p>
-						</div>
-						<div class="footer-content col xmedium-4">
-							<div class="footer-title">Lorem ipsum, dolor sit.</div>
-							<ul>
-								<li><strong>Dirección</strong>: Calle Mayor 20, Madrid, 28013</li>
-								<li><strong>Correo electrónico</strong>: <a href="#" title="">mail@cima-alfa.com</a></li>
-								<li><strong>Teléfono</strong>: <a href="#" title="">+34 123 456 789</a></li>
-							</ul>
-						</div>
-						<div class="footer-content col xmedium-4">
-							<div class="footer-title">Lorem ipsum, dolor sit.</div>
-							<p>
-								Amet consectetur adipisicing elit. Minus magnam necessitatibus blanditiis! Alias cum architecto odit veniam? Eius, est autem eos sint ducimus enim blanditiis.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="layout-footer--bar">
-					<div class="footer-bar">
-						<ul class="footer-bar--social">
-							<li><a href="#" title="Facebook" rel="nofollow"><Image src={ iconFacebookWhite } alt="Facebook" width="18" loading="eager" /></a></li>
-							<li><a href="#" title="Twitter" rel="nofollow"><Image src={ iconTwitterWhite } alt="Twitter" width="18" loading="eager" /></a></li>
-							<li><a href="#" title="Instagram" rel="nofollow"><Image src={ iconInstagramWhite } alt="Instagram" width="18" loading="eager" /></a></li>
-							<li><a href="#" title="Pinterest" rel="nofollow"><Image src={ iconPinterestWhite } alt="Pinterest" width="18" loading="eager" /></a></li>
-						</ul>
-
-						<div class="footer-bar--copyright">
-							&copy; { new Date().getFullYear() } CimaAlfa - Agencia de publicidad. Todos los derechos reservados.
-						</div>
-					</div>
-				</div>
-			</footer>
+			<Footer />
 		</div>
 	</body>
 </html>
+
+<style lang="scss">
+	.layout-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-height: 100%;
+
+		display: grid;
+		grid-template-areas: 
+			'header'
+			'content'
+			'footer'
+		;
+		grid-template-rows: auto 1fr auto;
+	}
+</style>
