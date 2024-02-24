@@ -17,12 +17,13 @@ function linkF(path?: string, locale: string = currentLocale, absolute: boolean 
 	return absolute ? getAbsoluteLocaleUrl(locale, path) : getRelativeLocaleUrl(locale, path);
 }
 
-const { element, path, isCurrent } = Astro.props;
+const { element, path, isCurrent, query } = Astro.props;
 
 let attributes = { ...Astro.props };
 
 delete attributes.element;
-delete attributes.path;
+delete attributes.path
+delete attributes.query;
 delete attributes.isCurrent;
 
 const Element = element ?? 'a';
@@ -37,13 +38,11 @@ if (isCurrent) {
 
 for (const [key, value] of Object.entries(attributes)) {
 	if (typeof value === 'string' || value instanceof String) {
-		attributes[key] = value.replaceAll('{%URL%}', linkF(path ?? ''));
+		attributes[key] = value.replaceAll('{%URL%}', linkF(path ?? '') + (query ?? ''));
 	}
 };
-
-console.log(attributes);
 ---
 
-<Element {...attributes}>
+<Element { ...attributes }>
 	<slot />
 </Element>

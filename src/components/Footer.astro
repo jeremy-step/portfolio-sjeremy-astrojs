@@ -1,36 +1,40 @@
 ---
 import { Image } from 'astro:assets';
+import Link from './Link.astro';
 import iconFacebookWhite from '@/images/facebook-white.svg';
 import iconTwitterWhite from '@/images/twitter-white.svg';
 import iconInstagramWhite from '@/images/instagram-white.svg';
 import iconPinterestWhite from '@/images/pinterest-white.svg';
+
+import { getCollection } from 'astro:content';
+import { config } from 'astro.config.mjs';
+
+const currentLocale = Astro.currentLocale ?? config.defaultLocale;
+
+const footerCollection = await getCollection('footer', ({ id }) => {
+  	return id.startsWith(currentLocale + '/');
+});
+
+const footer = footerCollection.map(async (entry: any) => {
+	const { Content } = await entry.render();
+
+	return { entry: entry, Content: Content };
+});
 ---
 
 <footer class="layout-footer">
 	<div class="layout-footer--border"></div>
 
 	<div class="layout-footer--content">
-		<div class="footer-content--columns row">
-			<div class="footer-content col xmedium-4">
-				<div class="footer-title">Lorem ipsum, dolor sit.</div>
-				<p>
-					Amet consectetur adipisicing elit. Minus magnam necessitatibus blanditiis! Alias cum architecto odit veniam? Eius, est autem eos sint ducimus enim blanditiis labore harum doloremque sequi officia adipisci amet?
-				</p>
-			</div>
-			<div class="footer-content col xmedium-4">
-				<div class="footer-title">Lorem ipsum, dolor sit.</div>
-				<ul>
-					<li><strong>Dirección</strong>: Calle Mayor 20, Madrid, 28013</li>
-					<li><strong>Correo electrónico</strong>: <a href="#" title="">mail@cima-alfa.com</a></li>
-					<li><strong>Teléfono</strong>: <a href="#" title="">+34 123 456 789</a></li>
-				</ul>
-			</div>
-			<div class="footer-content col xmedium-4">
-				<div class="footer-title">Lorem ipsum, dolor sit.</div>
-				<p>
-					Amet consectetur adipisicing elit. Minus magnam necessitatibus blanditiis! Alias cum architecto odit veniam? Eius, est autem eos sint ducimus enim blanditiis.
-				</p>
-			</div>
+		<div class="footer-content--columns row gap-0 padding-0">
+			{footer.map((promise: any) => (
+				promise.then(({ entry, Content }: any) => (
+				<div class="footer-content col xmedium-4">
+					<div class="footer-title">{ entry.data.title }</div>
+					<Content />
+				</div>
+				))
+			))}
 		</div>
 	</div>
 
@@ -44,7 +48,7 @@ import iconPinterestWhite from '@/images/pinterest-white.svg';
 			</ul>
 
 			<div class="footer-bar--copyright">
-				&copy; { new Date().getFullYear() } CimaAlfa - Agencia de publicidad. Todos los derechos reservados.
+				&copy; { new Date().getFullYear() } <Link title="">Jeremy's Portfolio</Link>
 			</div>
 		</div>
 	</div>
@@ -77,11 +81,7 @@ import iconPinterestWhite from '@/images/pinterest-white.svg';
 	}
 
 	.footer-content--columns {
-		column-gap: 0;
-		row-gap: 0;
-
 		width: min(calc(var(--content-width) + var(--spacer-400)), 100%);
-		padding: 0;
 	}
 
 	.footer-content {
@@ -150,7 +150,7 @@ import iconPinterestWhite from '@/images/pinterest-white.svg';
 				transition: transform 100ms linear;
 			}
 
-			&:hover {
+			&:hover, &:active, &:focus-visible {
 				img {
 					transform: scale(1.2);
 				}
@@ -163,5 +163,12 @@ import iconPinterestWhite from '@/images/pinterest-white.svg';
 
 		color: var(--color-font-secondary);
 		font-size: .725rem;
+
+		a {
+			&:hover, &:active, &:focus-visible {
+				color: inherit;
+				text-decoration: underline;
+			}
+		}
 	}
 </style>

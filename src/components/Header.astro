@@ -2,13 +2,12 @@
 import Link from './Link.astro';
 import { Image } from 'astro:assets';
 import logoLightText from '@/images/logo-light-text.svg';
-console.log(Link)
 ---
 
 <header class="layout-header" data-scroll="false">
 	<div class="layout-header--content">
-		<Link class="header-logo" title="">
-			<Image src={ logoLightText } alt="" loading="eager" />
+		<Link class="header-logo" title="Jeremy's Portfolio">
+			<Image src={ logoLightText } alt="Jeremy's Portfolio" loading="eager" />
 		</Link>
 		<nav class="primary-nav">
 			<button class="primary-nav--button" aria-controls="primary-nav" aria-expanded="false">
@@ -70,7 +69,8 @@ console.log(Link)
 	}
 
 	.header-logo {
-		height: 100%;
+		height: var(--header-height);
+		justify-self: start;
 		
 		img {
 			display: block;
@@ -81,6 +81,7 @@ console.log(Link)
 	}
 
 	.primary-nav {
+		justify-self: right;
 		align-self: center;
 	}
 
@@ -184,47 +185,49 @@ console.log(Link)
 
 	@keyframes primaryNavButtonOpen {
 		0% {
-			clip-path: polygon(0 87.5%, 50% 87.5%, 50% 87.5%, 100% 87.5%, 100% 72.5%, 0 72.5%, 0 57.5%, 100% 57.5%, 100% 42.5%, 0 42.5%, 0 27.5%, 100% 27.5%, 100% 12.5%, 50% 12.5%, 50% 12.5%, 0 12.5%);
+			clip-path: var(--__icon-start);
 
 			rotate: 0deg;
 		}
 
-		49.99% {
+		50% {
+			clip-path: var(--__icon-half-first);
 
-			clip-path: polygon(12.5% 87.5%, 50% 87.5%, 50% 87.5%, 87.5% 87.5%, 87.5% 72.5%, 87.5% 72.5%, 87.5% 57.5%, 87.5% 57.5%, 87.5% 42.5%, 87.5% 42.5%, 87.5% 27.5%, 87.5% 27.5%, 87.5% 12.5%, 50% 12.5%, 50% 12.5%, 12.5% 12.5%);
+			rotate: 90deg;
 		}
 
 		50.01% {
-			clip-path: polygon(12.5% 87.5%, 25% 87.5%, 50% 87.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 87.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 12.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 12.5% 50%, 12.5% 75%);
+			clip-path: var(--__icon-half-last);
 		}
 
 		100% {
-			clip-path: polygon(12.5% 87.5%, 25% 87.5%, 50% 62.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 62.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 37.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 37.5% 50%, 12.5% 75%);
+			clip-path: var(--__icon-finish);
 
-			rotate: 180deg;
+			rotate: 90deg;
 		}
 	}
 
 	@keyframes primaryNavButtonClose {
 		100% {
-			clip-path: polygon(0 87.5%, 50% 87.5%, 50% 87.5%, 100% 87.5%, 100% 72.5%, 0 72.5%, 0 57.5%, 100% 57.5%, 100% 42.5%, 0 42.5%, 0 27.5%, 100% 27.5%, 100% 12.5%, 50% 12.5%, 50% 12.5%, 0 12.5%);
+			clip-path: var(--__icon-start);
 
 			rotate: 0deg;
 		}
 
 		50.01% {
-
-			clip-path: polygon(12.5% 87.5%, 50% 87.5%, 50% 87.5%, 87.5% 87.5%, 87.5% 72.5%, 87.5% 72.5%, 87.5% 57.5%, 87.5% 57.5%, 87.5% 42.5%, 87.5% 42.5%, 87.5% 27.5%, 87.5% 27.5%, 87.5% 12.5%, 50% 12.5%, 50% 12.5%, 12.5% 12.5%);
+			clip-path: var(--__icon-half-first);
 		}
 
-		49.99% {
-			clip-path: polygon(12.5% 87.5%, 25% 87.5%, 50% 87.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 87.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 12.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 12.5% 50%, 12.5% 75%);
+		50% {
+			clip-path: var(--__icon-half-last);
+
+			rotate: 90deg;
 		}
 
 		0% {
-			clip-path: polygon(12.5% 87.5%, 25% 87.5%, 50% 62.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 62.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 37.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 37.5% 50%, 12.5% 75%);
+			clip-path: var(--__icon-finish);
 
-			rotate: 180deg;
+			rotate: 90deg;
 		}
 	}
 
@@ -267,9 +270,9 @@ console.log(Link)
 			cursor: pointer;
 
 			&[aria-expanded="true"] .primary-nav--button-icon {
-				clip-path: polygon(12.5% 87.5%, 25% 87.5%, 50% 62.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 62.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 37.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 37.5% 50%, 12.5% 75%);
+				clip-path: var(--__icon-finish);
 
-				animation: primaryNavButtonOpen 150ms linear forwards;
+				animation: primaryNavButtonOpen 175ms ease-in-out forwards;
 			}
 		}
 
@@ -281,14 +284,19 @@ console.log(Link)
 		}
 
 		.primary-nav--button-icon {
+			--__icon-start: polygon(0 87.5%, 50% 87.5%, 50% 87.5%, 100% 87.5%, 100% 72.5%, 0 72.5%, 0 57.5%, 100% 57.5%, 100% 42.5%, 0 42.5%, 0 27.5%, 100% 27.5%, 100% 12.5%, 50% 12.5%, 50% 12.5%, 0 12.5%);
+			--__icon-half-first: polygon(12.5% 87.5%, 50% 87.5%, 50% 87.5%, 87.5% 87.5%, 87.5% 72.5%, 87.5% 72.5%, 87.5% 57.5%, 87.5% 57.5%, 87.5% 42.5%, 87.5% 42.5%, 87.5% 27.5%, 87.5% 27.5%, 87.5% 12.5%, 50% 12.5%, 50% 12.5%, 12.5% 12.5%);
+			--__icon-half-last: polygon(12.5% 87.5%, 25% 87.5%, 50% 87.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 87.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 12.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 12.5% 50%, 12.5% 75%);
+			--__icon-finish: polygon(12.5% 87.5%, 25% 87.5%, 50% 62.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 62.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 37.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 37.5% 50%, 12.5% 75%);
+
 			width: 24px;
 			height: 24px;
 
 			background-color: var(--color-font-secondary);
 
-			clip-path: polygon(0 87.5%, 50% 87.5%, 50% 87.5%, 100% 87.5%, 100% 72.5%, 0 72.5%, 0 57.5%, 100% 57.5%, 100% 42.5%, 0 42.5%, 0 27.5%, 100% 27.5%, 100% 12.5%, 50% 12.5%, 50% 12.5%, 0 12.5%);
+			clip-path: var(--__icon-start);
 			
-			animation: primaryNavButtonClose 150ms linear forwards;
+			animation: primaryNavButtonClose 175ms ease-in-out forwards;
 		}
 
 		.primary-nav--list {

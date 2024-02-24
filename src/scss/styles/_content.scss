@@ -94,61 +94,6 @@
 		}
 	}
 
-	// picture {
-	// 	display: contents;
-
-	// 	img {
-	// 		display: block;
-	// 		margin-bottom: 15px;
-	// 		max-width: 100%;
-	// 		height: auto;
-			
-	// 		@include breakpoint(medium, up) {
-	// 			&.align-right, &.align-left {
-	// 				& + h1, & + h2, & + h3, & + h4, & + h5, & + h6, & + p, & + ul, & + ol, & + table {
-	// 					padding-top: 0;
-	// 				}
-	// 			}
-
-	// 			&.align-left {
-	// 				margin-right: 20px;
-	// 				float: left;
-	// 			}
-
-	// 			&.align-right {
-	// 				margin-left: 20px;
-	// 				float: right;
-
-	// 				&:not(:first-child) {
-	// 					margin-top: 15px;
-	// 				}
-	// 			}
-	// 		}
-
-	// 		&.align-center {
-	// 			margin: 0 auto 15px;
-	// 		}
-
-	// 		@include breakpoint(small, only) {
-	// 			width: auto;
-	// 		}
-	// 	}
-
-	// 	&:not(:first-child) {
-	// 		img {
-	// 			@include breakpoint(medium, up) {
-	// 				&.align-left {
-	// 					margin-top: 15px;
-	// 				}
-	
-	// 				&.align-right {
-	// 					margin-top: 15px;
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
-
 	img {
 		display: block;
 		margin-bottom: 15px;
@@ -199,8 +144,11 @@
 
 				position: absolute;
 				top: 1em;
-				left: 0;
-				transform: translateY(-1em);
+				right: 100%;
+				transform: translate(.75em, -1em);
+
+				width: 1.5em;
+				text-align: right;
 
 				font-weight: var(--font-weight-bold);
 			}
@@ -280,150 +228,6 @@
 			object-position: center center;
 		}
 	}
-}
-
-.content-form {
-	--label-padding-bottom: 7px;
-
-	--input-padding-inline: 8px;
-	--input-padding-block: 5px;
-	--input-border-radius: 3px;
-	--input-box-shadow: 0 0 3px 0 hsl(0 0% 0% / .085);
-
-	--select-arrow-width: 30px;
-
-	.form-label {
-		padding-bottom: var(--label-padding-bottom);
-
-		font-size: .95rem;
-		font-weight: var(--font-weight-bold);
-		line-height: 1.1;
-	}
-
-	.form-label-inline {
-		user-select: none;
-
-		font-size: .95rem;
-		font-weight: var(--font-weight-bold);
-	}
-
-	input:not([type="checkbox"], [type="radio"], [type="submit"]), select, textarea {
-		appearance: none;
-		width: 100%;
-		padding-block: var(--input-padding-block);
-		padding-inline: var(--input-padding-inline);
-
-		background-color: var(--color-primary-900);
-		border: 1px solid var(--color-primary-500);
-		border-radius: var(--input-border-radius);
-		box-shadow: var(--input-box-shadow);
-
-		transition: border-color 100ms linear;
-
-		&:focus {
-			outline: none;
-			border-color: var(--color-accent-500);
-		}
-	}
-
-	input:is([type="checkbox"], [type="radio"]) {
-		margin: 0 4px 0 0;
-
-		accent-color: var(--color-accent-300);
-	}
-
-	.form-select {
-		position: relative;	
-		
-		overflow: hidden;
-
-		border: 1px solid var(--color-primary-500);
-		border-radius: var(--input-border-radius);
-		box-shadow: var(--input-box-shadow);
-
-		&::before {
-			content: '';
-
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: -2;
-
-			width: 100%;
-			height: 100%;
-
-			background-color: var(--color-primary-900);
-		}
-
-		&::after {
-			content: '';
-
-			position: absolute;
-			top: 50%;
-			right: calc(var(--select-arrow-width) / 2);
-			z-index: -1;
-			transform: translate(50%, -50%);
-
-			width: 0;
-			height: 0;
-			border-style: solid;
-			border-width: 8.7px 5px 0 5px;
-			border-color: var(--color-font-primary) transparent transparent transparent;
-		}
-
-		&:focus-within {
-			border-color: var(--color-accent-500);
-		}
-	}
-
-	select {
-		padding-right: calc(var(--select-arrow-width) + var(--input-padding-inline));
-
-		background-color: transparent;
-		border: none;
-		border-radius: 0;
-		box-shadow: none;
-	}
-
-	textarea {
-		resize: vertical;
-		min-height: 150px;
-		max-height: 250px;
-	}
-
-	.form-submit {
-		appearance: none;
-		padding: var(--spacer-100) var(--spacer-200);
-		min-width: 200px;
-
-		background-color: var(--color-accent-600);
-		background: linear-gradient(var(--color-accent-700), var(--color-accent-500));
-		border: 1px solid var(--color-accent-700);
-		border-radius: var(--input-border-radius);
-		box-shadow: var(--input-box-shadow), inset 0 0 2px 0 hsl(0 0% 0% / .5);
-
-		font-size: .95rem;
-		font-weight: var(--font-weight-bold);
-		text-align: center;
-		color: var(--color-font-primary);
-
-		transition: border-color 100ms ease-in;
-
-		cursor: pointer;
-		user-select: none;
-
-		&:hover, &:active, &:focus-visible {
-			border-color: var(--color-accent-300);
-		}
-
-		&:active {
-			background: linear-gradient(var(--color-accent-500), var(--color-accent-700));
-		}
-	}
-}
-
-.content-form--text {
-	font-size: .9rem;
 }
 
 .gallery {
