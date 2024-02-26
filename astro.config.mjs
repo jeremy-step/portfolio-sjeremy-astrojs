@@ -1,3 +1,4 @@
+import { pageConfig } from './src/page.config.mjs';
 import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
@@ -6,21 +7,15 @@ import mdx from "@astrojs/mdx";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export const config = {
-  defaultLocale: 'es',
-  locales: ['es', 'en', 'cs']
-};
-
-
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://portfolio.sjeremy.dev',
+  site: pageConfig.site,
   compressHTML: false,
   inlineStylesheets: 'never',
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   i18n: {
-    defaultLocale: config.defaultLocale,
-    locales: config.locales,
+    defaultLocale: pageConfig.defaultLocale,
+    locales: pageConfig.locales,
     routing: {
       prefixDefaultLocale: false
     }

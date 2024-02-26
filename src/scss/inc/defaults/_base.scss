@@ -41,9 +41,12 @@ html {
 
 	font-size: var(--global-font-size-base);
 	text-size-adjust: none;
-	hanging-punctuation: first last;
+	//hanging-punctuation: first last;
 
     -webkit-tap-highlight-color: transparent;
+
+	scroll-behavior: smooth;
+	scroll-padding-block: 1em;
 }
 
 body {

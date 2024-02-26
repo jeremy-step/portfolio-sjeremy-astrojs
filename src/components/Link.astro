@@ -1,8 +1,8 @@
 ---
 import { getAbsoluteLocaleUrl, getRelativeLocaleUrl, getRelativeLocaleUrlList } from 'astro:i18n';
-import { config } from 'astro.config.mjs';
+import { getCurrentLocale } from '@/i18n.mjs';
 
-const currentLocale = Astro.currentLocale ?? config.defaultLocale;
+const currentLocale = getCurrentLocale(Astro);
 const currentPath = Astro.url.pathname.replace(new RegExp('^(' + getRelativeLocaleUrlList().reverse().join('|') + ')'), '').replace(/\/$/, '');
 
 function isCurrentF(path: string): any {
@@ -43,6 +43,4 @@ for (const [key, value] of Object.entries(attributes)) {
 };
 ---
 
-<Element { ...attributes }>
-	<slot />
-</Element>
+<Element { ...attributes }><slot /></Element>

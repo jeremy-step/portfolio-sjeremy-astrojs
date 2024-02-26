@@ -1,4 +1,6 @@
 ---
+import { pageConfig } from '@/page.config.mjs';
+
 import Layout from '@/layouts/Layout.astro';
 import ContactForm from '@/components/Forms/ContactForm.astro';
 ---
@@ -9,9 +11,16 @@ import ContactForm from '@/components/Forms/ContactForm.astro';
 			<h1>Ponte en contacto conmigo</h1>
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas asperiores tenetur atque? Soluta animi laborum, atque temporibus ab nihil facilis consectetur!</p>
 			<ul>
-				<li><strong>Dirección</strong>: Calle Mayor 20, Madrid, 28013</li>
-				<li><strong>Correo electrónico</strong>: <a href="#" title="">mail@cima-alfa.com</a></li>
-				<li><strong>Teléfono</strong>: <a href="#" title="">+34 123 456 789</a></li>
+				<li>
+					<span>
+						<strong>Dirección</strong>: { pageConfig.address }
+					</span>
+				</li>
+				<li>
+					<span>
+						<strong>Correo electrónico</strong>: <a href={ 'mailto:' + pageConfig.email } target="_blank" rel="nofollow" title="Mi correo electrónico">{ pageConfig.email }</a>
+					</span>
+				</li>
 			</ul>
 		</div>
 		<div class="col xmedium-6">

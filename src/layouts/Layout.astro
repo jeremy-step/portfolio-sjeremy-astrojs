@@ -1,4 +1,7 @@
 ---
+import { pageConfig } from '@/page.config.mjs';
+import { getCurrentLocale } from '@/i18n.mjs';
+
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
@@ -26,25 +29,35 @@ const faviconPng = await getImage({
 
 const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' });
 
-let { title } = Astro.props;
+const currentLocale = getCurrentLocale(Astro);
 
-title = title === null || title === undefined ? '' : title + ' |';
+let { title, robots } = Astro.props;
+
+title = !title ? pageConfig.siteName : title + ' | ' + pageConfig.siteName;
 ---
 
 <!DOCTYPE html>
-<html lang="es" dir="ltr" data-disable-motion>
+<html lang={ currentLocale } dir="ltr" data-disable-motion>
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" href={ faviconPng.src }>
 		<link rel="icon" href={ faviconSvg.src }>
 		<link rel="mask-icon" href={ faviconSvg.src } color="#000000">
 		<link rel="apple-touch-icon" href={ faviconTouchPng.src }>
 		<meta name="theme-color" content="#ffffff">
-		
 
+		<meta name="robots" content={ robots }>
+  		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content={ pageConfig.siteName }>
+		<meta name="publisher" content={ pageConfig.site }>
+		<meta name="copyright" content={ '(C) ' + new Date().getFullYear() + ' ' + pageConfig.siteName }>
+		<meta name="audience" content="All">
+		<meta name="language" content={ currentLocale }>
 
-		<title>{ title } Jeremy's Portfolio</title>
+		<title>{ title }</title>
 
 		<script src="../js/app.js"></script>
 	</head>

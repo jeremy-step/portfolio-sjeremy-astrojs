@@ -1,14 +1,25 @@
 ---
+import { getCurrentLocale, translate } from '@/i18n.mjs';
+
 import Form from './Controls/Form.astro';
 import Input from './Controls/Input.astro';
 import InputInline from './Controls/InputInline.astro';
 import TextArea from './Controls/TextArea.astro';
 import Submit from './Controls/Submit.astro';
-import FormText from './Controls/FormText.astro';
+
+import { getCollection } from 'astro:content';
+
+const currentLocale = getCurrentLocale(Astro);
+
+const entry = await getCollection('forms', ({ slug }) => {
+  	return slug === currentLocale + '/contact/legaltext';
+});
+
+const { Content } = await entry[0].render();
 ---
 
-<Form action="contact" query="?form=contact" method="post" novalidate>
-	<p class="bg-success info-message" style="display: none">Gracias por contactarme!</p>
+<Form action="contact" query="?form=contact#contact-form" method="post" novalidate id="contact-form">
+	<p class="bg-alert info-message" style="display: none">Error</p>
 	<script>
 		const query = new URLSearchParams(location.search);
 		
@@ -21,26 +32,23 @@ import FormText from './Controls/FormText.astro';
 	</script>
 	<div class="row">
 		<div class="col medium-6">
-			<Input type="text" name="name" label="Nombre"/>
+			<Input type="text" name="name" label={ translate(currentLocale, 'name')} />
 		</div>
 		<div class="col medium-6">
-			<Input type="text" name="surname" label="Apellido(s)"/>
+			<Input type="text" name="surname" label={ translate(currentLocale, 'surname')} />
 		</div>
 		<div class="col medium-6">
-			<Input type="email" name="email" label="Correo electrónico"/>
+			<Input type="email" name="email" label={ translate(currentLocale, 'email')} />
 		</div>
 		<div class="col">
-			<TextArea name="message" label="Mensaje"></TextArea>
+			<TextArea name="message" label={ translate(currentLocale, 'message')}></TextArea>
 		</div>
 		<div class="col">
-			<FormText>
-				He leído los <a href="#" title="" target="_blank">términos logales</a>, la <a href="#" title="" target="_blank">política de privacidad</a> y <a href="#" title="" target="_blank">uso de cookies</a>.<br>
-				Los datos que nos facilites a través de éste formulario sólo se utilzarán para responderte y no quedarán almacenados ni registrados en ninguna base de datos.
-			</FormText>
-			<InputInline type="checkbox" name="legal" label="Acepto"/>
+			<Content />
+			<InputInline type="checkbox" name="legal" label={ translate(currentLocale, 'accept')} value="1" />
 		</div>
 		<div class="col justify-right">
-			<Submit label="Enviar mensaje" />
+			<Submit label={ translate(currentLocale, 'sendMessage')} />
 		</div>
 	</div>
 </Form>

@@ -1,13 +1,18 @@
 ---
+import { pageConfig } from '@/page.config.mjs';
+import { translate, getCurrentLocale } from '@/i18n.mjs';
+
 import Link from './Link.astro';
 import { Image } from 'astro:assets';
 import logoLightText from '@/images/logo-light-text.svg';
+
+const currentLocale = getCurrentLocale(Astro);
 ---
 
 <header class="layout-header" data-scroll="false">
 	<div class="layout-header--content">
-		<Link class="header-logo" title="Jeremy's Portfolio">
-			<Image src={ logoLightText } alt="Jeremy's Portfolio" loading="eager" />
+		<Link class="header-logo" title={ pageConfig.siteName }>
+			<Image src={ logoLightText } alt={ pageConfig.siteName } loading="eager" />
 		</Link>
 		<nav class="primary-nav">
 			<button class="primary-nav--button" aria-controls="primary-nav" aria-expanded="false">
@@ -16,9 +21,9 @@ import logoLightText from '@/images/logo-light-text.svg';
 			</button>
 
 			<ul class="primary-nav--list" id="primary-nav" data-status="closed">
-				<li><Link title="" class="primary-nav--item" isCurrent><span>Inicio</span></Link></li>
-				<li><Link path="projects" title="" class="primary-nav--item" isCurrent><span>Mis proyectos</span></Link></li>
-				<li><Link path="contact" title="" class="primary-nav--item nav-call-to-action" isCurrent><span>Contacto</span></Link></li>
+				<li><Link title={ translate(currentLocale, 'pages.home.title') } class="primary-nav--item" isCurrent><span>{ translate(currentLocale, 'pages.home.text') }</span></Link></li>
+				<li><Link path="projects" title={ translate(currentLocale, 'pages.projects.title') } class="primary-nav--item" isCurrent><span>{ translate(currentLocale, 'pages.projects.text') }</span></Link></li>
+				<li><Link path="contact" title={ translate(currentLocale, 'pages.contact.title') } class="primary-nav--item nav-call-to-action" isCurrent><span>{ translate(currentLocale, 'pages.contact.text') }</span></Link></li>
 			</ul>
 		</nav>
 	</div>
@@ -187,13 +192,13 @@ import logoLightText from '@/images/logo-light-text.svg';
 		0% {
 			clip-path: var(--__icon-start);
 
-			rotate: 0deg;
+			//rotate: 0deg;
 		}
 
 		50% {
 			clip-path: var(--__icon-half-first);
 
-			rotate: 90deg;
+			//rotate: 0deg;
 		}
 
 		50.01% {
@@ -203,7 +208,7 @@ import logoLightText from '@/images/logo-light-text.svg';
 		100% {
 			clip-path: var(--__icon-finish);
 
-			rotate: 90deg;
+			//rotate: 90deg;
 		}
 	}
 
@@ -211,7 +216,7 @@ import logoLightText from '@/images/logo-light-text.svg';
 		100% {
 			clip-path: var(--__icon-start);
 
-			rotate: 0deg;
+			//rotate: 0deg;
 		}
 
 		50.01% {
@@ -221,13 +226,13 @@ import logoLightText from '@/images/logo-light-text.svg';
 		50% {
 			clip-path: var(--__icon-half-last);
 
-			rotate: 90deg;
+			//rotate: 90deg;
 		}
 
 		0% {
 			clip-path: var(--__icon-finish);
 
-			rotate: 90deg;
+			//rotate: 90deg;
 		}
 	}
 
@@ -272,7 +277,7 @@ import logoLightText from '@/images/logo-light-text.svg';
 			&[aria-expanded="true"] .primary-nav--button-icon {
 				clip-path: var(--__icon-finish);
 
-				animation: primaryNavButtonOpen 175ms ease-in-out forwards;
+				animation: primaryNavButtonOpen 150ms linear forwards;
 			}
 		}
 
@@ -284,10 +289,20 @@ import logoLightText from '@/images/logo-light-text.svg';
 		}
 
 		.primary-nav--button-icon {
-			--__icon-start: polygon(0 87.5%, 50% 87.5%, 50% 87.5%, 100% 87.5%, 100% 72.5%, 0 72.5%, 0 57.5%, 100% 57.5%, 100% 42.5%, 0 42.5%, 0 27.5%, 100% 27.5%, 100% 12.5%, 50% 12.5%, 50% 12.5%, 0 12.5%);
-			--__icon-half-first: polygon(12.5% 87.5%, 50% 87.5%, 50% 87.5%, 87.5% 87.5%, 87.5% 72.5%, 87.5% 72.5%, 87.5% 57.5%, 87.5% 57.5%, 87.5% 42.5%, 87.5% 42.5%, 87.5% 27.5%, 87.5% 27.5%, 87.5% 12.5%, 50% 12.5%, 50% 12.5%, 12.5% 12.5%);
-			--__icon-half-last: polygon(12.5% 87.5%, 25% 87.5%, 50% 87.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 87.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 12.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 12.5% 50%, 12.5% 75%);
-			--__icon-finish: polygon(12.5% 87.5%, 25% 87.5%, 50% 62.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 62.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 37.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 37.5% 50%, 12.5% 75%);
+			// From center to sides to cross
+
+			--__icon-start: polygon(0 12.5%, 100% 12.5%, 100% 27.5%, 50% 27.5%, 50% 42.5%, 100% 42.5%, 100% 57.5%, 50% 57.5%, 50% 72.5%, 100% 72.5%, 100% 87.5%, 0 87.5%, 0 72.5%, 50% 72.5%, 50% 57.5%, 0 57.5%, 0 42.5%, 50% 42.5%, 50% 27.5%, 0 27.5%);
+			--__icon-half-first: polygon(12.5% 12.5%, 87.5% 12.5%, 87.5% 27.5%, 87.5% 27.5%, 87.5% 42.5%, 87.5% 42.5%, 87.5% 57.5%, 12.5% 57.5%, 12.5% 72.5%, 87.5% 72.5%, 87.5% 87.5%, 12.5% 87.5%, 12.5% 72.5%, 87.5% 72.5%, 87.5% 57.5%, 12.5% 57.5%, 12.5% 42.5%, 12.5% 42.5%, 12.5% 27.5%, 12.5% 27.5%);
+			--__icon-half-last: polygon(27.5% 12.5%, 50% 12.5%, 72.5% 12.5%, 87.5% 12.5%, 87.5% 27.5%, 87.5% 50%, 87.5% 72.5%, 87.5% 87.5%, 78% 87.5%, 50% 87.5%, 27.5% 87.5%, 12.5% 87.5%, 12.5% 72.5%, 12.5% 50%, 12.5% 50%, 12.5% 50%, 12.5% 50%, 12.5% 50%, 12.5% 27.5%, 12.5% 12.5%);
+			--__icon-finish: polygon(25% 12.5%, 50% 37.5%, 75% 12.5%, 87.5% 12.5%, 87.5% 25%, 62.5% 50%, 87.5% 75%, 87.5% 87.5%, 75% 87.5%, 50% 62.5%, 25% 87.5%, 12.5% 87.5%, 12.5% 75%, 37.5% 50%, 37.5% 50%, 37.5% 50%, 37.5% 50%, 37.5% 50%, 12.5% 25%, 12.5% 12.5%);
+
+			// From left to right to cross
+			/* 
+				--__icon-start: polygon(0 87.5%, 50% 87.5%, 50% 87.5%, 100% 87.5%, 100% 72.5%, 0 72.5%, 0 57.5%, 100% 57.5%, 100% 42.5%, 0 42.5%, 0 27.5%, 100% 27.5%, 100% 12.5%, 50% 12.5%, 50% 12.5%, 0 12.5%);
+				--__icon-half-first: polygon(12.5% 87.5%, 50% 87.5%, 50% 87.5%, 87.5% 87.5%, 87.5% 72.5%, 87.5% 72.5%, 87.5% 57.5%, 87.5% 57.5%, 87.5% 42.5%, 87.5% 42.5%, 87.5% 27.5%, 87.5% 27.5%, 87.5% 12.5%, 50% 12.5%, 50% 12.5%, 12.5% 12.5%);
+				--__icon-half-last: polygon(12.5% 87.5%, 25% 87.5%, 50% 87.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 87.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 12.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 12.5% 50%, 12.5% 75%);
+				--__icon-finish: polygon(12.5% 87.5%, 25% 87.5%, 50% 62.5%, 75% 87.5%, 87.5% 87.5%, 87.5% 75%, 62.5% 50%, 87.5% 25%, 87.5% 12.5%, 75% 12.5%, 50% 37.5%, 25% 12.5%, 12.5% 12.5%, 12.5% 25%, 37.5% 50%, 12.5% 75%);
+			*/
 
 			width: 24px;
 			height: 24px;
@@ -296,7 +311,7 @@ import logoLightText from '@/images/logo-light-text.svg';
 
 			clip-path: var(--__icon-start);
 			
-			animation: primaryNavButtonClose 175ms ease-in-out forwards;
+			animation: primaryNavButtonClose 150ms linear forwards;
 		}
 
 		.primary-nav--list {

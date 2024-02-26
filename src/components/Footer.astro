@@ -7,9 +7,10 @@ import iconInstagramWhite from '@/images/instagram-white.svg';
 import iconPinterestWhite from '@/images/pinterest-white.svg';
 
 import { getCollection } from 'astro:content';
-import { config } from 'astro.config.mjs';
+import { pageConfig } from '@/page.config.mjs';
+import { getCurrentLocale } from '@/i18n.mjs';
 
-const currentLocale = Astro.currentLocale ?? config.defaultLocale;
+const currentLocale = getCurrentLocale(Astro);
 
 const footerCollection = await getCollection('footer', ({ id }) => {
   	return id.startsWith(currentLocale + '/');
@@ -48,7 +49,7 @@ const footer = footerCollection.map(async (entry: any) => {
 			</ul>
 
 			<div class="footer-bar--copyright">
-				&copy; { new Date().getFullYear() } <Link title="">Jeremy's Portfolio</Link>
+				&copy; { new Date().getFullYear() } <Link title={ pageConfig.siteName }>{ pageConfig.siteName }</Link>
 			</div>
 		</div>
 	</div>

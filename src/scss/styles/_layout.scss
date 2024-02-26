@@ -52,6 +52,24 @@
 		font-size: .8rem;
 		line-height: 1.5;
 	}
+
+	.list {
+		& > li {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			column-gap: .375em;
+			justify-items: start;
+
+			&::before {
+				content: '\00BB';
+	
+				transform: translateY(.25em);
+				
+				font-weight: var(--font-weight-bold);
+				line-height: 1;
+			}
+		}
+	}
 }
 
 .footer-title {
