@@ -1,87 +1,34 @@
----
-import Layout from '@/layouts/Layout.astro';
+<!DOCTYPE html>
+<html lang="es" dir="ltr" data-disable-motion>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-import { Picture } from 'astro:assets';
-import imageProgramming from '@/images/programming.jpg';
-import imageJavascript from '@/images/javascript.jpg';
----
+		<title>Adam Jeremy</title>
 
-<Layout>
-	<div class="content-wrapper bg-image">
-		<div class="bg-image-wrapper" data-bg-image-overlay="8" data-bg-image-blur="1">
-			<Picture src={ imageProgramming } formats={['avif', 'webp']} alt="" width="1920" loading="eager" />
-		</div>
-		<div class="row padding-500 content-text">
-			<div class="col">
-				<h1>Lorem, ipsum dolor.</h1>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est illum commodi ab ipsam adipisci impedit porro, facere sunt repellat voluptates animi? Ullam doloribus ex sapiente laudantium distinctio voluptate totam unde, fuga sunt dolorum similique quae, necessitatibus excepturi, cupiditate deserunt dolores consectetur esse eius aspernatur! Earum aliquam repellat quia cupiditate voluptates adipisci quis dignissimos quaerat qui. Voluptatibus exercitationem natus ipsam hic molestias consequatur ratione modi dolore nam quis nemo quo quibusdam tempora, esse cumque fuga tenetur ducimus dicta possimus perspiciatis quos nisi autem. Eveniet nam, tempora harum a distinctio dolore perspiciatis quidem earum repudiandae nemo ipsa voluptatum, vel, impedit similique!</p>
-			</div>
-		</div>
-	</div>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
 
-	<div class="row">
-		<div class="col medium-6 content-image">
-			<div class="content-image-wrapper">
-				<Picture src={ imageJavascript } formats={['avif', 'webp']} alt="" width="600" />
-			</div>
-		</div>
+			html {
+				font-size: 36px;
+				font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			}
 
-		<div class="col medium-6 content-image">
-			<div class="content-image-wrapper">
-				<Picture src={ imageJavascript } formats={['avif', 'webp']} alt="" width="600" />
-			</div>
+			.layout-wrapper {
+				display: grid;
+				widows: 100%;
+				height: 100vh;
+				height: 100dvh;
+				place-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layout-wrapper">
+			Maintenance
 		</div>
-	</div>
-
-	<div class="row content-text">
-		<div class="col">
-			<h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, cupiditate?</h2>
-			<p><Picture src={ imageJavascript } formats={['avif', 'webp']} alt="" width="300" class="align-left" />Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est illum commodi ab ipsam adipisci impedit porro, facere sunt repellat voluptates animi? Ullam doloribus ex sapiente laudantium distinctio voluptate totam unde, fuga sunt dolorum similique quae, necessitatibus excepturi, cupiditate deserunt dolores consectetur esse eius aspernatur! Earum aliquam repellat quia cupiditate voluptates adipisci quis dignissimos quaerat qui. Voluptatibus exercitationem natus ipsam hic molestias consequatur ratione modi dolore nam quis nemo quo quibusdam tempora, esse cumque fuga tenetur ducimus dicta possimus perspiciatis quos nisi autem. Eveniet nam, tempora harum a distinctio dolore perspiciatis quidem earum repudiandae nemo ipsa voluptatum, vel, impedit similique!</p>
-			<h2>Lorem ipsum dolor sit amet.</h2>
-			<h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
-			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem, vero architecto voluptatum repudiandae soluta consequuntur? Ipsam molestias fugiat aliquid dolores sunt fuga alias. Dolorem odio quas modi placeat recusandae non eligendi quam? Enim eligendi corporis commodi atque nostrum, illo cumque rem unde nobis cupiditate repudiandae quis voluptatem, officia, veniam dolore!</p>
-			<ul>
-				<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ad?</li>
-				<li>
-					<ul>
-						<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam dignissimos nisi veritatis provident, dolore maiores quidem laborum? Maxime.</li>
-						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla fuga incidunt sequi!</li>
-					</ul>
-				</li>
-				<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam omnis laboriosam, doloremque itaque nemo eius molestias dolorem ratione ea quo a, expedita modi perferendis culpa.</li>
-				<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati vero fuga tenetur!</li>
-				<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel assumenda odit, sit asperiores exercitationem provident ad blanditiis praesentium.</li>
-			</ul>
-			<h2>Lorem ipsum dolor sit amet consectetur.</h2>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure officiis dolores veritatis odio suscipit esse rerum ipsam consectetur at possimus quae odit corporis facilis libero, ea pariatur nostrum, nesciunt quos! Blanditiis maiores alias dolorem. Architecto consequuntur blanditiis ut ad, quidem necessitatibus! Quisquam sit animi sint voluptates tempore magni temporibus voluptatem tempora nemo, illo qui ut autem dolor eius dolores! Quidem incidunt animi voluptas atque, vel error? Quas neque magnam, dolorem officiis atque facilis beatae natus doloribus, eos, at dolorum corrupti.</p>
-			<ol>
-				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
-				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
-				<li>
-					<ol>
-						<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi atque perspiciatis nesciunt dolor iste consectetur quasi obcaecati suscipit. Libero fuga ullam debitis harum quod aut!</li>
-						<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis, sunt autem deserunt delectus iste hic quasi eum non dolore!</li>
-					</ol>
-				</li>
-				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
-				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
-			</ol>
-		</div>
-	</div>
-	<div class="content-wrapper bg-tertiary-200">
-		<div class="row content-text">
-			<div class="col xmedium-7">
-				<h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quisquam ipsum laboriosam veniam.</h3>
-				<h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla accusamus doloribus tempore veritatis nam voluptas, quia ipsa corporis dolore ex! Iusto a totam facilis expedita.</h4>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aspernatur eveniet impedit blanditiis, placeat atque voluptatum eius doloribus cupiditate dicta saepe tempora est optio! Expedita voluptas labore mollitia, distinctio voluptatibus rem quia impedit optio aliquid veritatis eaque quod! Odio ipsa ipsum, libero corrupti unde adipisci! Neque id facere veniam assumenda cumque aut natus nisi voluptatum sequi aperiam labore similique facilis molestias, sapiente consequuntur nam commodi, architecto ex ab ea dolores.</p>
-				<p><Picture src={ imageJavascript } formats={['avif', 'webp']} alt="" width="300" class="align-right" />Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum facere eos excepturi, doloremque aliquid, ipsam unde dolorem soluta beatae ut suscipit neque at animi repudiandae labore id itaque, laborum ad similique incidunt aspernatur facilis omnis officia dolores. Reprehenderit, repellat. Quod at adipisci cupiditate perferendis ratione unde sapiente harum molestiae cum distinctio, voluptates dolores et? Consectetur odit labore animi veniam laudantium et blanditiis neque, tenetur eligendi sed voluptatibus accusantium perferendis sint quam aut quisquam? Atque, temporibus necessitatibus? Nisi dolore perferendis, quos distinctio veritatis excepturi aspernatur officiis possimus quidem, aperiam deleniti? Placeat illum voluptatibus voluptate, necessitatibus temporibus fuga id laudantium repudiandae incidunt?</p>
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit libero similique necessitatibus vero alias hic perspiciatis nemo, vitae quia deserunt illo, voluptates, explicabo dignissimos. Soluta, amet! Praesentium sint molestiae facilis nostrum in sapiente sequi quod? Id harum porro ex nisi.</p>
-			</div>
-			<div class="col xmedium-5">
-				<h3>Lorem, ipsum dolor sit amet.</h3>
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, consectetur vero. Placeat facilis nam quas voluptate quisquam, minima culpa consequuntur molestias dolorem obcaecati est similique libero repellendus dolorum omnis ducimus doloremque accusantium. Fugit provident laboriosam facilis aperiam sapiente, consectetur quas, excepturi perferendis libero dicta ducimus officiis aliquid natus, sed maiores magnam nulla vitae molestias! Tenetur sint architecto explicabo nesciunt laudantium possimus, doloremque molestias corrupti maiores incidunt aspernatur earum nihil at? Sapiente nobis non aut atque error! Quaerat fuga sequi error quibusdam? Libero, aliquid totam! Maxime nulla tempora fuga architecto, obcaecati repudiandae, minus quis a aperiam totam veritatis omnis ullam molestias iusto necessitatibus ut unde facere non libero ratione perspiciatis exercitationem quod laboriosam! Cumque ducimus itaque minus explicabo saepe dignissimos maiores.</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas asperiores tenetur atque? Soluta animi laborum, atque temporibus ab nihil facilis consectetur! Suscipit rerum voluptatum est fugiat quasi eveniet quos ab in nostrum doloribus expedita, perspiciatis itaque voluptatem numquam magnam aspernatur ratione eius pariatur! Ab accusamus facilis aperiam odit voluptas accusantium.</p>
-			</div>
-		</div>
-	</div>
-</Layout>
+	</body>
+</html>
