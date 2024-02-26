@@ -1,0 +1,175 @@
+---
+import { Image } from 'astro:assets';
+import Link from './Link.astro';
+import iconFacebookWhite from '@/images/facebook-white.svg';
+import iconTwitterWhite from '@/images/twitter-white.svg';
+import iconInstagramWhite from '@/images/instagram-white.svg';
+import iconPinterestWhite from '@/images/pinterest-white.svg';
+
+import { getCollection } from 'astro:content';
+import { pageConfig } from '@/page.config.mjs';
+import { getCurrentLocale } from '@/i18n.mjs';
+
+const currentLocale = getCurrentLocale(Astro);
+
+const footerCollection = await getCollection('footer', ({ id }) => {
+  	return id.startsWith(currentLocale + '/');
+});
+
+const footer = footerCollection.map(async (entry: any) => {
+	const { Content } = await entry.render();
+
+	return { entry: entry, Content: Content };
+});
+---
+
+<footer class="layout-footer">
+	<div class="layout-footer--border"></div>
+
+	<div class="layout-footer--content">
+		<div class="footer-content--columns row gap-0 padding-0">
+			{footer.map((promise: any) => (
+				promise.then(({ entry, Content }: any) => (
+				<div class="footer-content col xmedium-4">
+					<div class="footer-title">{ entry.data.title }</div>
+					<Content />
+				</div>
+				))
+			))}
+		</div>
+	</div>
+
+	<div class="layout-footer--bar">
+		<div class="footer-bar">
+			<ul class="footer-bar--social">
+				<li><a href="#" title="Facebook" rel="nofollow"><Image src={ iconFacebookWhite } alt="Facebook" width="18" loading="eager" /></a></li>
+				<li><a href="#" title="Twitter" rel="nofollow"><Image src={ iconTwitterWhite } alt="Twitter" width="18" loading="eager" /></a></li>
+				<li><a href="#" title="Instagram" rel="nofollow"><Image src={ iconInstagramWhite } alt="Instagram" width="18" loading="eager" /></a></li>
+				<li><a href="#" title="Pinterest" rel="nofollow"><Image src={ iconPinterestWhite } alt="Pinterest" width="18" loading="eager" /></a></li>
+			</ul>
+
+			<div class="footer-bar--copyright">
+				&copy; { new Date().getFullYear() } <Link title={ pageConfig.siteName }>{ pageConfig.siteName }</Link>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style lang="scss">
+	.layout-footer {
+		position: relative;
+
+		grid-area: footer;
+	}
+
+	.layout-footer--border {
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+
+		width: 100%;
+		height: 3px;
+
+		background-color: var(--color-primary-800);
+		box-shadow: var(--box-shadow);
+	}
+
+	.layout-footer--content {
+		display: grid;
+		justify-items: center;
+
+		background-color: var(--color-primary-700);
+	}
+
+	.footer-content--columns {
+		width: min(calc(var(--content-width) + var(--spacer-400)), 100%);
+	}
+
+	.footer-content {
+		padding: var(--spacer-200);
+
+		&:nth-child(2) {
+			@include breakpoint(xmedium, up) {
+				border-left: 1px solid var(--color-primary-500);
+				border-right: 1px solid var(--color-primary-500);
+			}
+
+			@include breakpoint(medium, down) {
+				border-top: 1px solid var(--color-primary-500);
+				border-bottom: 1px solid var(--color-primary-500);
+			}
+		}
+
+		p, ul, ol {
+			font-size: .8rem;
+			line-height: 1.5;
+		}
+	}
+
+	.footer-title {
+		font-size: .9rem;
+		font-weight: var(--font-weight-bold);
+		line-height: var(--heading-line-height);
+		padding-bottom: .4rem;
+	}
+
+	.layout-footer--bar {
+		display: grid;
+		justify-items: center;
+
+		padding: var(--spacer-100) var(--spacer-200);
+
+		background-color: var(--color-secondary-300);
+		background: linear-gradient(var(--color-secondary-200), var(--color-secondary-500));
+		border-top: 1px solid var(--color-primary-800);
+		box-shadow: var(--box-shadow);
+	}
+
+	.footer-bar {
+		display: grid;
+		grid-template-columns: auto minmax(50%, 1fr);
+		align-items: center;
+		column-gap: var(--spacer-400);
+
+		width: min(var(--content-width), 100%);
+	}
+
+	.footer-bar--social {
+		justify-self: start;
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacer-100);
+
+		a {
+			color: var(--color-font-secondary);
+
+			img {
+				width: 18px;
+				height: 18px;
+
+				transition: transform 100ms linear;
+			}
+
+			&:hover, &:active, &:focus-visible {
+				img {
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+
+	.footer-bar--copyright {
+		justify-self: end;
+
+		color: var(--color-font-secondary);
+		font-size: .725rem;
+
+		a {
+			&:hover, &:active, &:focus-visible {
+				color: inherit;
+				text-decoration: underline;
+			}
+		}
+	}
+</style>

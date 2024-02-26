@@ -1,0 +1,8 @@
+import FormText from '@/components/Forms/Controls/FormText.astro';
+import Link from '@/components/Link.astro';
+import { translate } from '@/i18n.mjs';
+
+<FormText>&#8203;
+	I have read the <Link path="tos" title={ translate('en', 'pages.tos.title') } target="_blank">terms of service</Link>, <Link path="privacy" title={ translate('en', 'pages.privacy.title') } target="_blank">privacy policy</Link> and <Link path="privacy" query="#cookies" title={ translate('en', 'pages.cookies.title') } target="_blank">use of cookies</Link>.\
+	The data you provide us through this form will only be used to respond to you and will not be stored or registered in any database.
+&#8203;</FormText>

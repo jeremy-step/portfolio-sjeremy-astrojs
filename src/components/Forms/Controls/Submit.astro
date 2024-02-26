@@ -1,0 +1,5 @@
+---
+const { label, name, value } = Astro.props;
+---
+
+<button type="submit" class="form-submit" name={ name ?? null } value={ value ?? null }>{ label }</button>

@@ -1,0 +1,54 @@
+---
+import { getCurrentLocale, translate } from '@/i18n.mjs';
+
+import Form from './Controls/Form.astro';
+import Input from './Controls/Input.astro';
+import InputInline from './Controls/InputInline.astro';
+import TextArea from './Controls/TextArea.astro';
+import Submit from './Controls/Submit.astro';
+
+import { getCollection } from 'astro:content';
+
+const currentLocale = getCurrentLocale(Astro);
+
+const entry = await getCollection('forms', ({ slug }) => {
+  	return slug === currentLocale + '/contact/legaltext';
+});
+
+const { Content } = await entry[0].render();
+---
+
+<Form action="contact" query="?form=contact#contact-form" method="post" novalidate id="contact-form">
+	<p class="bg-alert info-message" style="display: none">Error</p>
+	<script>
+		const query = new URLSearchParams(location.search);
+		
+		if (query.get('form') === 'contact') {
+			const msg: HTMLElement | null = document.querySelector('.info-message');
+			if (msg) {
+				msg.style.display = '';
+			}
+		}
+	</script>
+	<div class="row">
+		<div class="col medium-6">
+			<Input type="text" name="name" label={ translate(currentLocale, 'name')} />
+		</div>
+		<div class="col medium-6">
+			<Input type="text" name="surname" label={ translate(currentLocale, 'surname')} />
+		</div>
+		<div class="col medium-6">
+			<Input type="email" name="email" label={ translate(currentLocale, 'email')} />
+		</div>
+		<div class="col">
+			<TextArea name="message" label={ translate(currentLocale, 'message')}></TextArea>
+		</div>
+		<div class="col">
+			<Content />
+			<InputInline type="checkbox" name="legal" label={ translate(currentLocale, 'accept')} value="1" />
+		</div>
+		<div class="col justify-right">
+			<Submit label={ translate(currentLocale, 'sendMessage')} />
+		</div>
+	</div>
+</Form>

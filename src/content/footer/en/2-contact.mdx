@@ -1,0 +1,10 @@
+---
+title: Contact
+---
+
+import { pageConfig } from '@/page.config.mjs';
+import Link from '@/components/Link.astro';
+
+* **Address**: { pageConfig.address }
+* **E-Mail**: <a href={ 'mailto:' + pageConfig.email } target="_blank" rel="nofollow" title="My e-mail">{ pageConfig.email }</a>
+* **Form**: <Link path="contact" query="#contact-form" title="Contact me">Reach me here</Link>

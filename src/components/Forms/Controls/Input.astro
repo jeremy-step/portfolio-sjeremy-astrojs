@@ -1,0 +1,8 @@
+---
+const { label, type, name, value, checked } = Astro.props;
+---
+
+<label>
+	<div class="form-label">{ label }</div>
+	<input type={ type } name={ name ?? null } value={ value ?? null } checked={ checked ?? null }>
+</label>

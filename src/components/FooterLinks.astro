@@ -1,0 +1,23 @@
+---
+import { translate, getCurrentLocale } from '@/i18n.mjs';
+import Link from '@/components/Link.astro';
+
+const currentLocale = getCurrentLocale(Astro);
+---
+
+<div class="row gap-100">
+	<div class="col small-5 xmedium-12 xxmedium-5">
+		<ul class="list">
+			<li><Link title={ translate(currentLocale, 'pages.home.title') }>{ translate(currentLocale, 'pages.home.text') }</Link></li>
+			<li><Link path="projects" title={ translate(currentLocale, 'pages.projects.title') }>{ translate(currentLocale, 'pages.projects.text') }</Link></li>
+			<li><Link path="contact" title={ translate(currentLocale, 'pages.contact.title') }>{ translate(currentLocale, 'pages.contact.text') }</Link></li>
+		</ul>
+	</div>
+	<div class="col small-7 xmedium-12 xxmedium-7">
+		<ul class="list">
+			<li><Link path="tos" title={ translate(currentLocale, 'pages.tos.title') }>{ translate(currentLocale, 'pages.tos.text') }</Link></li>
+			<li><Link path="privacy" title={ translate(currentLocale, 'pages.privacy.title') }>{ translate(currentLocale, 'pages.privacy.text') }</Link></li>
+			<li><Link path="privacy" query="#cookies" title={ translate(currentLocale, 'pages.cookies.title') }>{ translate(currentLocale, 'pages.cookies.text') }</Link></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+---
+import Link from '@/components/Link.astro';
+
+let { action } = Astro.props;
+
+let attributes = { ...Astro.props };
+
+delete attributes.element;
+delete attributes.path;
+delete attributes.action;
+
+attributes.class ??= '';
+attributes.class += ' content-form';
+
+const path = action;
+
+action = '{%URL%}';
+---
+
+<Link element="form" path={ path } action={ action } { ...attributes }>
+	<slot />
+</Link>

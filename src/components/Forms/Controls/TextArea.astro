@@ -1,0 +1,8 @@
+---
+const { label, name } = Astro.props;
+---
+
+<label>
+	<div class="form-label">{ label }</div>
+	<textarea name={ name }>{ Astro.slots.render('default') }</textarea>
+</label>

@@ -1,0 +1,9 @@
+---
+let { element } = Astro.props;
+
+const Element = element ?? 'p';
+---
+
+<Element class="content-form--text">
+	<slot />
+</Element>
