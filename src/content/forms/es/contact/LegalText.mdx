@@ -1,0 +1,8 @@
+import FormText from '@/components/Forms/Controls/FormText.astro';
+import Link from '@/components/Link.astro';
+import { translate } from '@/i18n.mjs';
+
+<FormText>&#8203;
+	He leído los <Link path="tos" title={ translate('es', 'pages.tos.title') } target="_blank">términos legales</Link>, la <Link path="privacy" title={ translate('es', 'pages.privacy.title') } target="_blank">política de privacidad</Link> y <Link path="privacy" query="#cookies" title={ translate('es', 'pages.cookies.title') } target="_blank">uso de cookies</Link>.\
+	Los datos que nos facilites a través de éste formulario sólo se utilzarán para responderte y no quedarán almacenados ni registrados en ninguna base de datos.
+&#8203;</FormText>

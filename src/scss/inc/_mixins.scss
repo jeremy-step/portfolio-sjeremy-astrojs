@@ -127,5 +127,17 @@
 		&.margin-bottom-#{$spacer} {
 			margin-bottom: $space;
 		}
+
+		&.gap-#{$spacer} {
+			gap: $space;
+		}
+
+		&.col-gap-#{$spacer} {
+			column-gap: $space;
+		}
+
+		&.row-gap-#{$spacer} {
+			row-gap: $space;
+		}
 	}
 }

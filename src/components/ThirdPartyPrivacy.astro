@@ -1,0 +1,41 @@
+---
+import { pageConfig } from '@/page.config.mjs';
+import { translate, getCurrentLocale } from '@/i18n.mjs';
+
+const currentLocale = getCurrentLocale(Astro);
+---
+
+<ul>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'privacy.githubPages') }</strong>: 
+			<a href={ pageConfig.privacy.githubPages } title={ translate(currentLocale, 'privacy.githubPages') } class="word-break" target="_blank" rel="nofollow">
+				{ pageConfig.privacy.githubPages }
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'privacy.github') }</strong>: 
+			<a href={ pageConfig.privacy.github } title={ translate(currentLocale, 'privacy.github') } class="word-break" target="_blank" rel="nofollow">
+				{ pageConfig.privacy.github }
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'privacy.cloudflare') }</strong>: 
+			<a href={ pageConfig.privacy.cloudflare } title={ translate(currentLocale, 'privacy.cloudflare') } class="word-break" target="_blank" rel="nofollow">
+				{ pageConfig.privacy.cloudflare }
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'privacy.cloudflare2') }</strong>: 
+			<a href={ pageConfig.privacy.cloudflare2 } title={ translate(currentLocale, 'privacy.cloudflare2') } class="word-break" target="_blank" rel="nofollow">
+				{ pageConfig.privacy.cloudflare2 }
+			</a>
+		</span>
+	</li>
+</ul>
