@@ -2,7 +2,7 @@ export const pageConfig = {
 	site: 'https://portfolio.sjeremy.dev',
 	siteName: 'Jeremy\'s Portfolio',
 	defaultLocale: 'es',
-	locales: ['es', 'en', 'cs'],
+	locales: ['es', 'en'],
 	address: 'Madrid Capital, 28013',
 	email: 'contact@sjeremy.dev',
 	privacy: {
@@ -11,6 +11,11 @@ export const pageConfig = {
 		cloudflare: 'https://www.cloudflare.com/privacypolicy/',
 		cloudflare2: 'https://www.cloudflare.com/trust-hub/privacy-and-data-protection/',
 	},
+	social: {
+		twitter: 'https://twitter.com/YoSoyJ3R3MIAS',
+		instagram: 'https://www.instagram.com/el_j3r3mias',
+		github: 'https://github.com/cima-alfa'
+	}
 };
 
 export default pageConfig;

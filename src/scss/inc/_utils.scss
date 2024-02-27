@@ -559,3 +559,43 @@
 .word-break {
 	word-break: break-all;
 }
+
+.b-shadow {
+	box-shadow: var(--box-shadow);
+}
+
+.b-shadow-top {
+	box-shadow: var(--box-shadow-top);
+}
+
+.b-shadow-bottom {
+	box-shadow: var(--box-shadow-bottom);
+}
+
+.b-shadow-left {
+	box-shadow: var(--box-shadow-left);
+}
+
+.b-shadow-right {
+	box-shadow: var(--box-shadow-right);
+}
+
+.b-shadow-inset {
+	box-shadow: inset var(--box-shadow);
+}
+
+.b-shadow-inset-top {
+	box-shadow: inset var(--box-shadow-top);
+}
+
+.b-shadow-inset-bottom {
+	box-shadow: inset var(--box-shadow-bottom);
+}
+
+.b-shadow-inset-left {
+	box-shadow: inset var(--box-shadow-left);
+}
+
+.b-shadow-inset-right {
+	box-shadow: inset var(--box-shadow-right);
+}

@@ -1,10 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import Link from './Link.astro';
-import iconFacebookWhite from '@/images/facebook-white.svg';
-import iconTwitterWhite from '@/images/twitter-white.svg';
-import iconInstagramWhite from '@/images/instagram-white.svg';
-import iconPinterestWhite from '@/images/pinterest-white.svg';
+import iconGitHubWhite from '@/images/github.svg';
+import iconTwitterWhite from '@/images/x-twitter.svg';
+import iconInstagramWhite from '@/images/instagram.svg';
 
 import { getCollection } from 'astro:content';
 import { pageConfig } from '@/page.config.mjs';
@@ -42,10 +41,9 @@ const footer = footerCollection.map(async (entry: any) => {
 	<div class="layout-footer--bar">
 		<div class="footer-bar">
 			<ul class="footer-bar--social">
-				<li><a href="#" title="Facebook" rel="nofollow"><Image src={ iconFacebookWhite } alt="Facebook" width="18" loading="eager" /></a></li>
-				<li><a href="#" title="Twitter" rel="nofollow"><Image src={ iconTwitterWhite } alt="Twitter" width="18" loading="eager" /></a></li>
-				<li><a href="#" title="Instagram" rel="nofollow"><Image src={ iconInstagramWhite } alt="Instagram" width="18" loading="eager" /></a></li>
-				<li><a href="#" title="Pinterest" rel="nofollow"><Image src={ iconPinterestWhite } alt="Pinterest" width="18" loading="eager" /></a></li>
+				<li><a href={ pageConfig.social.github } title="GitHub" rel="nofollow" target="_blank"><Image src={ iconGitHubWhite } alt="GitHub" width="40" loading="eager" /></a></li>
+				<li><a href={ pageConfig.social.twitter } title="X (Twitter)" rel="nofollow" target="_blank"><Image src={ iconTwitterWhite } alt="X (Twitter)" width="40" loading="eager" /></a></li>
+				<li><a href={ pageConfig.social.instagram } title="Instagram" rel="nofollow" target="_blank"><Image src={ iconInstagramWhite } alt="Instagram" width="40" loading="eager" /></a></li>
 			</ul>
 
 			<div class="footer-bar--copyright">
@@ -145,8 +143,8 @@ const footer = footerCollection.map(async (entry: any) => {
 			color: var(--color-font-secondary);
 
 			img {
-				width: 18px;
-				height: 18px;
+				width: 20px;
+				height: 20px;
 
 				transition: transform 100ms linear;
 			}
