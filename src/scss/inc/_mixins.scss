@@ -141,3 +141,13 @@
 		}
 	}
 }
+
+@mixin single-row() {
+	@each $breakpoint, $width in $breakpoints {
+		@include breakpoint($breakpoint, up) {
+			&.single-row-#{$breakpoint} .col {
+				grid-row: 1 / -1;
+			}
+		}
+	}
+}
