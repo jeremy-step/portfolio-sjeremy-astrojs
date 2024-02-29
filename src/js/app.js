@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
 		html.removeAttribute('data-disable-motion');
 
 		disableMotionTimer = null;
-	}, 0);
+	}, 100);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
