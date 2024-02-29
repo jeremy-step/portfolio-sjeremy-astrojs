@@ -253,55 +253,71 @@
 	--bg-color: var(--color-accent-100);
 
 	background-color: var(--color-accent-100);
-	color: var(--color-font-secondary);
+	color: var(--color-font-bg-tertiary-100);
 }
 
 .bg-accent-200 {
 	--bg-color: var(--color-accent-200);
 
 	background-color: var(--color-accent-200);
+	background-image: radial-gradient(var(--color-accent-200) 0%, var(--color-accent-100) 200%);
+	color: var(--color-font-bg-tertiary-200);
 }
 
 .bg-accent-300 {
 	--bg-color: var(--color-accent-300);
 
 	background-color: var(--color-accent-300);
+	background-image: radial-gradient(var(--color-accent-300) 0%, var(--color-accent-200) 200%);
+	color: var(--color-font-bg-tertiary-300);
 }
 
 .bg-accent-400 {
 	--bg-color: var(--color-accent-400);
 
 	background-color: var(--color-accent-400);
+	background-image: radial-gradient(var(--color-accent-400) 0%, var(--color-accent-300) 200%);
+	color: var(--color-font-bg-tertiary-400);
 }
 
 .bg-accent-500 {
 	--bg-color: var(--color-accent-500);
 
 	background-color: var(--color-accent-500);
+	background-image: radial-gradient(var(--color-accent-500) 0%, var(--color-accent-400) 200%);
+	color: var(--color-font-bg-tertiary-500);
 }
 
 .bg-accent-600 {
 	--bg-color: var(--color-accent-600);
 
 	background-color: var(--color-accent-600);
+	background-image: radial-gradient(var(--color-accent-600) 0%, var(--color-accent-500) 200%);
+	color: var(--color-font-bg-tertiary-600);
 }
 
 .bg-accent-700 {
 	--bg-color: var(--color-accent-700);
 
 	background-color: var(--color-accent-700);
+	background-image: radial-gradient(var(--color-accent-700) 0%, var(--color-accent-600) 200%);
+	color: var(--color-font-bg-tertiary-700);
 }
 
 .bg-accent-800 {
 	--bg-color: var(--color-accent-800);
 
 	background-color: var(--color-accent-800);
+	background-image: radial-gradient(var(--color-accent-800) 0%, var(--color-accent-700) 200%);
+	color: var(--color-font-bg-tertiary-800);
 }
 
 .bg-accent-900 {
 	--bg-color: var(--color-accent-900);
 
 	background-color: var(--color-accent-900);
+	background-image: radial-gradient(var(--color-accent-900) 0%, var(--color-accent-800) 200%);
+	color: var(--color-font-bg-tertiary-900);
 }
 
 .bg-image {
@@ -598,4 +614,16 @@
 
 .b-shadow-inset-right {
 	box-shadow: inset var(--box-shadow-right);
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
 }

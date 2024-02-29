@@ -3,9 +3,10 @@ import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import mdx from "@astrojs/mdx";
-
+import react from "@astrojs/react";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -37,5 +38,5 @@ export default defineConfig({
       }
     }
   },
-  integrations: [mdx()]
+  integrations: [mdx(), react()]
 });

@@ -58,11 +58,7 @@
 
     @include grid-columns();
 
-	&.single-row {
-		.col {
-			grid-row: 1 / -1;
-		}
-	}
+	@include single-row();
 }
 
 .content-text {

@@ -1,9 +1,6 @@
 ---
-import { Image } from 'astro:assets';
 import Link from './Link.astro';
-import iconGitHubWhite from '@/images/github.svg';
-import iconTwitterWhite from '@/images/x-twitter.svg';
-import iconInstagramWhite from '@/images/instagram.svg';
+import { FaSquareGithub, FaSquareXTwitter, FaSquareInstagram } from 'react-icons/fa6';
 
 import { getCollection } from 'astro:content';
 import { pageConfig } from '@/page.config.mjs';
@@ -41,9 +38,9 @@ const footer = footerCollection.map(async (entry: any) => {
 	<div class="layout-footer--bar">
 		<div class="footer-bar">
 			<ul class="footer-bar--social">
-				<li><a href={ pageConfig.social.github } title="GitHub" rel="nofollow" target="_blank"><Image src={ iconGitHubWhite } alt="GitHub" width="40" loading="eager" /></a></li>
-				<li><a href={ pageConfig.social.twitter } title="X (Twitter)" rel="nofollow" target="_blank"><Image src={ iconTwitterWhite } alt="X (Twitter)" width="40" loading="eager" /></a></li>
-				<li><a href={ pageConfig.social.instagram } title="Instagram" rel="nofollow" target="_blank"><Image src={ iconInstagramWhite } alt="Instagram" width="40" loading="eager" /></a></li>
+				<li><a href={ pageConfig.social.github } title="GitHub" rel="nofollow" target="_blank"><FaSquareGithub title="GitHub" role="img" /></a></li>
+				<li><a href={ pageConfig.social.twitter } title="X (Twitter)" rel="nofollow" target="_blank"><FaSquareXTwitter title="X (Twitter)" role="img" /></a></li>
+				<li><a href={ pageConfig.social.instagram } title="Instagram" rel="nofollow" target="_blank"><FaSquareInstagram title="Instagram" role="img" /></a></li>
 			</ul>
 
 			<div class="footer-bar--copyright">
@@ -140,17 +137,19 @@ const footer = footerCollection.map(async (entry: any) => {
 		gap: var(--spacer-100);
 
 		a {
+			display: block;
 			color: var(--color-font-secondary);
 
-			img {
-				width: 20px;
-				height: 20px;
+			svg {
+				display: block;
+				width: 22px;
+				height: 22px;
 
 				transition: transform 100ms linear;
 			}
 
 			&:hover, &:active, &:focus-visible {
-				img {
+				svg {
 					transform: scale(1.2);
 				}
 			}

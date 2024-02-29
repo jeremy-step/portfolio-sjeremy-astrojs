@@ -1,0 +1,101 @@
+---
+import { DiHtml5, DiCss3, DiSass, DiJavascript, DiMysql, DiPhp } from "react-icons/di";
+import { SiAstro, SiNette, SiPlesk } from 'react-icons/si';
+---
+
+<div class="skills-showcase">
+	<div class="skill">
+		<div class="skill-icon">
+			<DiHtml5 size="64" title="HTML 5" role="img" />
+		</div>
+		<strong>HTML 5</strong>
+	</div>
+	<div class="skill">
+		<div class="skill-icon">
+			<DiCss3 size="64" title="CSS 3" role="img" />
+		</div>
+		<strong>CSS 3</strong>
+	</div>
+	<div class="skill">
+		<div class="skill-icon">
+			<DiJavascript size="64" title="JavaScript" role="img" />
+		</div>
+		<strong>JavaScript</strong>
+	</div>
+	<div class="skill">
+		<div class="skill-icon">
+			<SiAstro size="54" title="Astro JS" role="img" />
+		</div>
+		<strong>Astro JS</strong>
+	</div>
+	<div class="skill">
+		<div class="skill-icon">
+			<DiSass size="64" title="SASS | SCSS" role="img" />
+		</div>
+		<strong>SASS | SCSS</strong>
+	</div>
+	<div class="skill">
+		<div class="skill-icon">
+			<DiPhp size="64" title="PHP" role="img" />
+		</div>
+		<strong>PHP</strong>
+	</div>
+	<div class="skill">
+		<div class="skill-icon">
+			<SiNette size="64" title="Nette" role="img" />
+		</div>
+		<strong>Nette</strong>
+	</div>
+	<div class="skill">
+		<div class="skill-icon">
+			<SiPlesk size="64" title="Plesk Linux" role="img" />
+		</div>
+		<strong>Plesk Linux</strong>
+	</div>
+	<div class="skill">
+		<div class="skill-icon">
+			<DiMysql size="64" title="MySQL" role="img" />
+		</div>
+		<strong>MySQL</strong>
+	</div>
+</div>
+
+<style lang="scss">
+	.skills-showcase {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: var(--spacer-200) var(--spacer-500);
+
+		.skill {
+			display: grid;
+			justify-items: center;
+			row-gap: 5px;
+
+			.skill-icon {
+				display: grid;
+				align-content: end;
+				height: 64px;
+
+				transition: transform 100ms linear;
+
+				filter: drop-shadow(0 0 4px hsl(0 0% 0% / 0.25));
+			}
+
+			strong {
+				height: min-content;
+				white-space: nowrap;
+
+				font-size: .9rem;
+
+				cursor: default;
+			}
+
+			&:hover {
+				.skill-icon {
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+</style>
