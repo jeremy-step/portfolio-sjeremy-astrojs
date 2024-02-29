@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import SkillsShowcase from '@/components/SkillsShowcase.astro';
 
 import { Picture } from 'astro:assets';
 import imageWebDeveloper from '@/images/web-developer.jpg';
@@ -132,10 +133,18 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 		</div>
 	</div>
 
-	<div class="row content-text padding-top-400">
-		<div class="col">
-			<h2>My skill set</h2>
+	<div class="content-wrapper bg-tertiary-300">
+		<div class="row content-text padding-500">
+			<div class="col text-center">
+				<h2>My Skill Set: A Reflection of My Passion, Curiosity, and Dedication to Learning</h2>
+			</div>
+			<div class="col">
+				<SkillsShowcase />
+			</div>
 		</div>
+	</div>
+
+	<div class="row content-text padding-top-500">
 		<div class="col xxmedium-6">
 			<h3>HTML, CSS, and JavaScript: The Cornerstones of Web Development</h3>
 
@@ -161,7 +170,7 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 		</div>
 	</div>
 
-	<div class="row content-text padding-bottom-500 single-row">
+	<div class="row content-text padding-bottom-500 single-row-xxmedium">
 		<div class="col xxmedium-7-12">
 			<h3>PHP and MySQL: The Dynamic Duo of Web Development</h3>
 
@@ -170,8 +179,7 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 				Together, they form the backbone of many popular web applications, such as WordPress, Facebook, and Wikipedia.
 			</p>
 			<p>
-				As a web developer, I use PHP and MySQL to build custom and complex web solutions that meet the specific needs of my clients.<br>
-				Whether it's a blog, a custom portfolio site, or a content management system, I can use both technologies to create a robust and scalable web application that delivers a great user experience.
+				Whether it's a blog, a custom portfolio site, or a content management system, I can use both technologies to create robust and scalable web applications that deliver a great user experience and meet the specific needs of my clients.
 			</p>
 			<p>
 				Integrating PHP with other technologies, such as HTML, CSS, JavaScript, and AJAX, allows me to create a rich and interactive web environment.
@@ -184,7 +192,25 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 		</div>
 	</div>
 
+	<div class="content-wrapper bg-accent-300">
+		<div class="row content-text padding-500">
+			<div class="col">
+				<h2>Web Dev Showcase: A Collection of My Projects</h2>
+			</div>
+			<div class="col">
 
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style lang="scss">
+	@include breakpoint(xmedium, down) {
+		.skills-image {
+			max-height: 300px;
+		}
+	}
+</style>
 
 
 <!-- 
@@ -250,12 +276,3 @@ My proficiency extends beyond the front-end—I am equally adept at JavaScript, 
 Furthermore, my familiarity with Linux Plesk server management ensures smooth deployment and maintenance of web applications. I've configured servers, fine-tuned performance settings, and secured sites against potential threats. As technology evolves, so do my skills—I am currently pursuing formal education in web development to deepen my knowledge and earn a well-deserved diploma.
 
 Now based in Madrid, Spain, I am excited about contributing to innovative projects within this vibrant tech community. Let's collaborate on turning ideas into reality—whether it's a sleek e-commerce platform or an engaging portfolio site. Together, we can create digital experiences that leave a lasting impact.-->
-</Layout>
-
-<style lang="scss">
-	@include breakpoint(xmedium, down) {
-		.skills-image {
-			max-height: 300px;
-		}
-	}
-</style>

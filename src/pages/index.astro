@@ -1,15 +1,18 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import SkillsShowcase from '@/components/SkillsShowcase.astro';
 
 import { Picture } from 'astro:assets';
-import imageProgramming from '@/images/programming.jpg';
-import imageJavascript from '@/images/javascript.jpg';
+import imageWebDeveloper from '@/images/web-developer.jpg';
+import imageFrontendSkills from '@/images/frontend-skills.jpg';
+import imageBackendSkills from '@/images/backend-skills.jpg';
 ---
 
 <Layout>
+	<!--
 	<div class="content-wrapper bg-image">
 		<div class="bg-image-wrapper" data-bg-image-overlay="8" data-bg-image-blur="1">
-			<Picture src={ imageProgramming } formats={['avif', 'webp']} alt="" width="1920" loading="eager" />
+			<Picture src={ imageWebDeveloper } formats={['avif', 'webp']} alt="" width="1920" loading="eager" />
 		</div>
 		<div class="row padding-500 content-text">
 			<div class="col">
@@ -22,13 +25,13 @@ import imageJavascript from '@/images/javascript.jpg';
 	<div class="row">
 		<div class="col medium-6 content-image">
 			<div class="content-image-wrapper">
-				<Picture src={ imageJavascript } formats={['avif', 'webp']} alt="" width="600" />
+				<Picture src={ imageFrontendSkills } formats={['avif', 'webp']} alt="" width="600" />
 			</div>
 		</div>
 
 		<div class="col medium-6 content-image">
 			<div class="content-image-wrapper">
-				<Picture src={ imageJavascript } formats={['avif', 'webp']} alt="" width="600" />
+				<Picture src={ imageFrontendSkills } formats={['avif', 'webp']} alt="" width="600" />
 			</div>
 		</div>
 	</div>
@@ -36,7 +39,7 @@ import imageJavascript from '@/images/javascript.jpg';
 	<div class="row content-text">
 		<div class="col">
 			<h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, cupiditate?</h2>
-			<p><Picture src={ imageJavascript } formats={['avif', 'webp']} alt="" width="300" class="align-left" />Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est illum commodi ab ipsam adipisci impedit porro, facere sunt repellat voluptates animi? Ullam doloribus ex sapiente laudantium distinctio voluptate totam unde, fuga sunt dolorum similique quae, necessitatibus excepturi, cupiditate deserunt dolores consectetur esse eius aspernatur! Earum aliquam repellat quia cupiditate voluptates adipisci quis dignissimos quaerat qui. Voluptatibus exercitationem natus ipsam hic molestias consequatur ratione modi dolore nam quis nemo quo quibusdam tempora, esse cumque fuga tenetur ducimus dicta possimus perspiciatis quos nisi autem. Eveniet nam, tempora harum a distinctio dolore perspiciatis quidem earum repudiandae nemo ipsa voluptatum, vel, impedit similique!</p>
+			<p class="clearfix"><Picture src={ imageFrontendSkills } formats={['avif', 'webp']} alt="" width="300" class="align-left" />Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta est illum commodi ab ipsam adipisci impedit porro, facere sunt repellat voluptates animi? Ullam doloribus ex sapiente laudantium distinctio voluptate totam unde, fuga sunt dolorum similique quae, necessitatibus excepturi, cupiditate deserunt dolores consectetur esse eius aspernatur! Earum aliquam repellat quia cupiditate voluptates adipisci quis dignissimos quaerat qui. Voluptatibus exercitationem natus ipsam hic molestias consequatur ratione modi dolore nam quis nemo quo quibusdam tempora, esse cumque fuga tenetur ducimus dicta possimus perspiciatis quos nisi autem. Eveniet nam, tempora harum a distinctio dolore perspiciatis quidem earum repudiandae nemo ipsa voluptatum, vel, impedit similique!</p>
 			<h2>Lorem ipsum dolor sit amet.</h2>
 			<h3>Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
 			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem, vero architecto voluptatum repudiandae soluta consequuntur? Ipsam molestias fugiat aliquid dolores sunt fuga alias. Dolorem odio quas modi placeat recusandae non eligendi quam? Enim eligendi corporis commodi atque nostrum, illo cumque rem unde nobis cupiditate repudiandae quis voluptatem, officia, veniam dolore!</p>
@@ -46,6 +49,12 @@ import imageJavascript from '@/images/javascript.jpg';
 					<ul>
 						<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam dignissimos nisi veritatis provident, dolore maiores quidem laborum? Maxime.</li>
 						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla fuga incidunt sequi!</li>
+						<li><span>test</span>
+							<ul>
+								<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam dignissimos nisi veritatis provident, dolore maiores quidem laborum? Maxime.</li>
+								<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nolla fuga incidunt sequi!</li>
+							</ul>
+						</li>
 					</ul>
 				</li>
 				<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam omnis laboriosam, doloremque itaque nemo eius molestias dolorem ratione ea quo a, expedita modi perferendis culpa.</li>
@@ -61,8 +70,31 @@ import imageJavascript from '@/images/javascript.jpg';
 					<ol>
 						<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi atque perspiciatis nesciunt dolor iste consectetur quasi obcaecati suscipit. Libero fuga ullam debitis harum quod aut!</li>
 						<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis, sunt autem deserunt delectus iste hic quasi eum non dolore!</li>
+						<li>
+							<ol>
+								<li><span><span>Lorem</span>, ipsum dolor sit amet consectetur adipisicing elit. Commodi atque perspiciatis nesciunt dolor iste consectetur quasi obcaecati suscipit. Libero fuga ullam debitis harum quod aut!</span></li>
+								<li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis, sunt autem deserunt delectus iste hic quasi eum non dolore!</li>
+							</ol>
+						</li>
 					</ol>
 				</li>
+				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
+				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
+				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
+				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+
+				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
+				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
+				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
+				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
+				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
+				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
 				<li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae id dicta laudantium.</li>
 				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
 			</ol>
@@ -74,14 +106,173 @@ import imageJavascript from '@/images/javascript.jpg';
 				<h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quisquam ipsum laboriosam veniam.</h3>
 				<h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla accusamus doloribus tempore veritatis nam voluptas, quia ipsa corporis dolore ex! Iusto a totam facilis expedita.</h4>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aspernatur eveniet impedit blanditiis, placeat atque voluptatum eius doloribus cupiditate dicta saepe tempora est optio! Expedita voluptas labore mollitia, distinctio voluptatibus rem quia impedit optio aliquid veritatis eaque quod! Odio ipsa ipsum, libero corrupti unde adipisci! Neque id facere veniam assumenda cumque aut natus nisi voluptatum sequi aperiam labore similique facilis molestias, sapiente consequuntur nam commodi, architecto ex ab ea dolores.</p>
-				<p><Picture src={ imageJavascript } formats={['avif', 'webp']} alt="" width="300" class="align-right" />Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum facere eos excepturi, doloremque aliquid, ipsam unde dolorem soluta beatae ut suscipit neque at animi repudiandae labore id itaque, laborum ad similique incidunt aspernatur facilis omnis officia dolores. Reprehenderit, repellat. Quod at adipisci cupiditate perferendis ratione unde sapiente harum molestiae cum distinctio, voluptates dolores et? Consectetur odit labore animi veniam laudantium et blanditiis neque, tenetur eligendi sed voluptatibus accusantium perferendis sint quam aut quisquam? Atque, temporibus necessitatibus? Nisi dolore perferendis, quos distinctio veritatis excepturi aspernatur officiis possimus quidem, aperiam deleniti? Placeat illum voluptatibus voluptate, necessitatibus temporibus fuga id laudantium repudiandae incidunt?</p>
+				<p><Picture src={ imageFrontendSkills } formats={['avif', 'webp']} alt="" width="300" class="align-right" />Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum facere eos excepturi, doloremque aliquid, ipsam unde dolorem soluta beatae ut suscipit neque at animi repudiandae labore id itaque, laborum ad similique incidunt aspernatur facilis omnis officia dolores. Reprehenderit, repellat. Quod at adipisci cupiditate perferendis ratione unde sapiente harum molestiae cum distinctio, voluptates dolores et? Consectetur odit labore animi veniam laudantium et blanditiis neque, tenetur eligendi sed voluptatibus accusantium perferendis sint quam aut quisquam? Atque, temporibus necessitatibus? Nisi dolore perferendis, quos distinctio veritatis excepturi aspernatur officiis possimus quidem, aperiam deleniti? Placeat illum voluptatibus voluptate, necessitatibus temporibus fuga id laudantium repudiandae incidunt?</p>
 				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit libero similique necessitatibus vero alias hic perspiciatis nemo, vitae quia deserunt illo, voluptates, explicabo dignissimos. Soluta, amet! Praesentium sint molestiae facilis nostrum in sapiente sequi quod? Id harum porro ex nisi.</p>
 			</div>
 			<div class="col xmedium-5">
+				<hr>
 				<h3>Lorem, ipsum dolor sit amet.</h3>
 				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, consectetur vero. Placeat facilis nam quas voluptate quisquam, minima culpa consequuntur molestias dolorem obcaecati est similique libero repellendus dolorum omnis ducimus doloremque accusantium. Fugit provident laboriosam facilis aperiam sapiente, consectetur quas, excepturi perferendis libero dicta ducimus officiis aliquid natus, sed maiores magnam nulla vitae molestias! Tenetur sint architecto explicabo nesciunt laudantium possimus, doloremque molestias corrupti maiores incidunt aspernatur earum nihil at? Sapiente nobis non aut atque error! Quaerat fuga sequi error quibusdam? Libero, aliquid totam! Maxime nulla tempora fuga architecto, obcaecati repudiandae, minus quis a aperiam totam veritatis omnis ullam molestias iusto necessitatibus ut unde facere non libero ratione perspiciatis exercitationem quod laboriosam! Cumque ducimus itaque minus explicabo saepe dignissimos maiores.</p>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas asperiores tenetur atque? Soluta animi laborum, atque temporibus ab nihil facilis consectetur! Suscipit rerum voluptatum est fugiat quasi eveniet quos ab in nostrum doloribus expedita, perspiciatis itaque voluptatem numquam magnam aspernatur ratione eius pariatur! Ab accusamus facilis aperiam odit voluptas accusantium.</p>
 			</div>
 		</div>
 	</div>
+-->
+	<div class="content-wrapper bg-image">
+		<div class="bg-image-wrapper" data-bg-image-overlay="8" data-bg-image-blur="1">
+			<Picture src={ imageWebDeveloper } formats={['avif', 'webp']} alt="Weaving Digital Journeys" width="1920" loading="eager" />
+		</div>
+		<div class="row padding-500 content-text">
+			<div class="col xmedium-8">
+				<h1>Crafting Digital Experiences</h1>
+
+				<p>Hi! My name is Jeremy. I am a web developer with over a decade of experience in creating stunning and functional websites!</p>
+				<p>I've had the privilege of collaborating with clients from Germany and the Czech Republic and now I am looking forward to working on new projects in Spain - Madrid.</p>
+				<p>Let's connect and explore how I can elevate your next project!</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="content-wrapper bg-tertiary-300">
+		<div class="row content-text padding-500">
+			<div class="col text-center">
+				<h2>My Skill Set: A Reflection of My Passion, Curiosity, and Dedication to Learning</h2>
+			</div>
+			<div class="col">
+				<SkillsShowcase />
+			</div>
+		</div>
+	</div>
+
+	<div class="row content-text padding-top-500">
+		<div class="col xxmedium-6">
+			<h3>HTML, CSS, and JavaScript: The Cornerstones of Web Development</h3>
+
+			<p>
+				HTML, CSS, and JavaScript work in harmony to create the digital world we navigate daily. These three technologies form the bedrock upon which every digital experience is built.<br>
+				As a web developer, I use their combined power to build functional, beautiful, and user friendly websites.
+			</p>
+			<p>
+				Proper HTML structure ensures that each part and element of the website is easily accessible and well organized.
+			</p>
+			<p>
+				With CSS I make sure to add colors, fonts, animations and create layouts that transform plain HTML into visually appealing design. Whether it's a sleek corporate site or a funky portfolio, CSS gives it character.
+				Responsive design? No problem - CSS ensures our websites adapt gracefully to different screen sizes.
+			</p>
+			<p>
+				Using JavaScript I can create interactive forms, build sliders, and fetch data from APIs. It's the language that turns a website into a web application.
+			</p>
+		</div>
+		<div class="col xxmedium-6 content-image b-shadow-bottom border">
+			<div class="content-image-wrapper">
+				<Picture src={ imageFrontendSkills } formats={['avif', 'webp']} alt="Crafting Web Experiences: The Trifecta of HTML, CSS, and JavaScript" width="950" class="skills-image" />
+			</div>
+		</div>
+	</div>
+
+	<div class="row content-text padding-bottom-500 single-row-xxmedium">
+		<div class="col xxmedium-7-12">
+			<h3>PHP and MySQL: The Dynamic Duo of Web Development</h3>
+
+			<p>
+				PHP and MySQL are two powerful technologies that enable web developers to create dynamic and data-driven websites.
+				Together, they form the backbone of many popular web applications, such as WordPress, Facebook, and Wikipedia.
+			</p>
+			<p>
+				Whether it's a blog, a custom portfolio site, or a content management system, I can use both technologies to create robust and scalable web applications that deliver a great user experience and meet the specific needs of my clients.
+			</p>
+			<p>
+				Integrating PHP with other technologies, such as HTML, CSS, JavaScript, and AJAX, allows me to create a rich and interactive web environment.
+			</p>
+		</div>
+		<div class="col xxmedium-1-6 content-image b-shadow-bottom border">
+			<div class="content-image-wrapper">
+				<Picture src={ imageBackendSkills } formats={['avif', 'webp']} alt="Powering Web Applications with PHP and MySQL" width="950" class="skills-image" />
+			</div>
+		</div>
+	</div>
+
+	<div class="content-wrapper bg-accent-300">
+		<div class="row content-text padding-500">
+			<div class="col">
+				<h2>Web Dev Showcase: A Collection of My Projects</h2>
+			</div>
+			<div class="col">
+
+			</div>
+		</div>
+	</div>
 </Layout>
+
+<style lang="scss">
+	@include breakpoint(xmedium, down) {
+		.skills-image {
+			max-height: 300px;
+		}
+	}
+</style>
+
+
+<!-- 
+
+	PHP and MySQL: The Dynamic Duo of Web Development
+PHP and MySQL are two powerful technologies that enable web developers to create dynamic and data-driven websites. PHP is a server-side scripting language that can interact with databases, process user input, and generate HTML output. MySQL is a relational database management system that can store and manipulate large amounts of data efficiently and securely. Together, PHP and MySQL form the backbone of many popular web applications, such as WordPress, Facebook, and Wikipedia.
+As a web developer, I use PHP and MySQL to build custom and complex web solutions that meet the specific needs of my clients. Whether it's a blog, a e-commerce site, or a social network, I can use PHP and MySQL to create a robust and scalable web application that delivers a great user experience. I can also integrate PHP and MySQL with other web technologies, such as HTML, CSS, JavaScript, and AJAX, to create a rich and interactive web environment.
+
+	2. **PHP**: As a server-side scripting language, PHP allows me to develop dynamic websites and applications. I've implemented custom features, streamlined processes, and optimized performance using PHP.
+
+	3. **MySQL**: Database management is crucial for any web project. My proficiency in MySQL ensures efficient data storage, retrieval, and manipulation.
+	
+	4. **Linux Plesk Server Management and Configuration**: I've navigated the intricacies of Linux-based servers, configuring Plesk environments for optimal performance. From security enhancements to server maintenance, I've got it covered.
+
+
+
+	1. **HTML, CSS, and JavaScript**: These are the building blocks of the web, and I've mastered them to create seamless and visually appealing user experiences.
+
+2. **PHP**: As a server-side scripting language, PHP allows me to develop dynamic websites and applications. I've implemented custom features, streamlined processes, and optimized performance using PHP.
+
+3. **MySQL**: Database management is crucial for any web project. My proficiency in MySQL ensures efficient data storage, retrieval, and manipulation.
+
+4. **Linux Plesk Server Management and Configuration**: I've navigated the intricacies of Linux-based servers, configuring Plesk environments for optimal performance. From security enhancements to server maintenance, I've got it covered.
+
+
+
+
+
+
+
+# Web Developer Portfolio
+
+## About Me
+I am a **25-year-old web developer** with over **10 years of experience** in the field. Originally from Germany, I have had the privilege of working with clients from both Germany and the Czech Republic. Currently, I reside in **Madrid, Spain**, where I am excited to take on new projects and contribute to the vibrant tech scene here.
+
+## Skills
+My skill set includes:
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **PHP**
+- **MySQL**
+- **Linux Plesk server management and configuration**
+
+## Experience
+Throughout my career, I have honed my abilities by working on various web applications and desktop projects. From full front-end design to brand identity and graphics, I have a passion for creating seamless user experiences. Additionally, I have contributed to tech articles through my blog, sharing insights and knowledge with the community.
+
+## Continuous Learning
+I am committed to growth and improvement. Currently, I am studying web development to enhance my skills further and earn a diploma. My dedication to staying up-to-date with industry trends ensures that I can deliver high-quality solutions to my clients.
+
+If you're interested in collaborating on exciting projects or need assistance with web development, feel free to reach out! Let's create something remarkable together.
+
+
+
+
+
+
+plaintext
+As a seasoned web developer with over a decade of experience, I have had the privilege of collaborating with clients from both Germany and the Czech Republic. My journey began at an early age, and my passion for coding has only grown stronger over the years. From crafting elegant HTML structures to designing responsive CSS layouts, I thrive on turning ideas into functional web interfaces.
+
+My proficiency extends beyond the front-end—I am equally adept at JavaScript, enabling dynamic interactions that enhance user experiences. Whether it's creating sleek animations or optimizing performance, I take pride in delivering seamless web solutions. My back-end skills include PHP and MySQL, allowing me to build robust databases and implement server-side logic.
+
+Furthermore, my familiarity with Linux Plesk server management ensures smooth deployment and maintenance of web applications. I've configured servers, fine-tuned performance settings, and secured sites against potential threats. As technology evolves, so do my skills—I am currently pursuing formal education in web development to deepen my knowledge and earn a well-deserved diploma.
+
+Now based in Madrid, Spain, I am excited about contributing to innovative projects within this vibrant tech community. Let's collaborate on turning ideas into reality—whether it's a sleek e-commerce platform or an engaging portfolio site. Together, we can create digital experiences that leave a lasting impact.-->
