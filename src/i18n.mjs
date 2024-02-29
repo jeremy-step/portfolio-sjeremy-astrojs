@@ -2,6 +2,7 @@ import { pageConfig } from "./page.config.mjs";
 
 export const i18n = {
 	es: {
+		menu: 'Menú',
 		pages: {
 			home: { text: 'Inicio', title: 'Página principal' },
 			projects: { text: 'Mis proyectos', title: 'El trabajo que he hecho' },
@@ -25,6 +26,7 @@ export const i18n = {
 	},
 
 	en: {
+		menu: 'Menu',
 		pages: {
 			home: { text: 'Home', title: 'Starting page' },
 			projects: { text: 'My projects', title: 'My work till now' },
