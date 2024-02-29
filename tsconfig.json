@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "C:/xampp/htdocs/@CA/SJeremy-Portfolio",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
