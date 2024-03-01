@@ -201,44 +201,35 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 				<div class="timeline">
 					<div class="timeline--item" data-timeline-date="01/01/1970">
 						<div class="timeline--content">
-							<h3>Project 1</h3>
+							<h3>TODO: Find archived projects</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates iure aspernatur dolores eius totam ut beatae quae nesciunt, cupiditate nemo nam inventore. Odit vero sapiente dolore unde provident officia laudantium tenetur eum et.
+								Voy añadiendo los proyectos poco a poco ya que los tengo que buscar en mis backups...
 							</p>
 						</div>
+						<Picture src={ imageBackendSkills } formats={['avif', 'webp']} alt="TODO: Find archived projects" width="950" class="timeline--image" />
 					</div>
-					<div class="timeline--item" data-timeline-date="01/01/1970">
+					<div class="timeline--item" data-timeline-date="03/2016 - 04/2016">
 						<div class="timeline--content">
-							<h3>Project 2</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad voluptatibus harum voluptatum qui laboriosam distinctio hic eaque, autem voluptates expedita odit ex officiis ipsa vitae, illum debitis enim ipsam? Unde quas, consectetur quasi minima provident repellendus accusamus veritatis? Incidunt, adipisci.</p>
-						</div>
-					</div>
-					<div class="timeline--item" data-timeline-date="01/01/1970">
-						<div class="timeline--content">
-							<h3>Project 1</h3>
+							<h3>Mi primer cliente: BDK Hessen Fachverband für Kunstpädagogik</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates iure aspernatur dolores eius totam ut beatae quae nesciunt, cupiditate nemo nam inventore. Odit vero sapiente dolore unde provident officia laudantium tenetur eum et.
+								El primer proyecto de pago que hice para un cliente fue una página para una asociación profesional para la educación artística - BDK Hessen Fachverband für Kunstpädagogik.
+							</p>
+							<p>
+								En esta página los estudiantes subían fotos artísticas para entrar en un sorteo y tener la oportunidad de ganar un premio.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, CSS, PHP, MySQL
 							</p>
 						</div>
+						<Picture src={ imageBackendSkills } formats={['avif', 'webp']} alt="Mi primer cliente: BDK Hessen Fachverband für Kunstpädagogik" width="950" class="timeline--image" />
 					</div>
-					<div class="timeline--item" data-timeline-date="01/01/1970">
+					<div class="timeline--item" data-timeline-date="01/2016 - 06/2020">
 						<div class="timeline--content">
-							<h3>Project 2</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad voluptatibus harum voluptatum qui laboriosam distinctio hic eaque, autem voluptates expedita odit ex officiis ipsa vitae, illum debitis enim ipsam? Unde quas, consectetur quasi minima provident repellendus accusamus veritatis? Incidunt, adipisci.</p>
-						</div>
-					</div>
-					<div class="timeline--item" data-timeline-date="01/01/1970">
-						<div class="timeline--content">
-							<h3>Project 1</h3>
+							<h3>Programador principal en WEREKON</h3>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates iure aspernatur dolores eius totam ut beatae quae nesciunt, cupiditate nemo nam inventore. Odit vero sapiente dolore unde provident officia laudantium tenetur eum et.
+								En 2016, con 16 años, fundamos con mi compañero de Alemania la agencia de publicidad WEREKON y durante los estudios de bachillerato hemos conseguido unos cuántos clientes. La idea fue mudarme a Alemania junto con mi hermano una vez que ambos termináramos los estudios. Durante los últimos 6 meses mi compañero ha encontrado pasión en otro sector laboral y nos hemos separado. Hasta el día de hoy seguimos ofreciendo soporte a los cliente que hemos adquirido durante estos 4 años.
 							</p>
-						</div>
-					</div>
-					<div class="timeline--item" data-timeline-date="01/01/1970">
-						<div class="timeline--content">
-							<h3>Project 2</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad voluptatibus harum voluptatum qui laboriosam distinctio hic eaque, autem voluptates expedita odit ex officiis ipsa vitae, illum debitis enim ipsam? Unde quas, consectetur quasi minima provident repellendus accusamus veritatis? Incidunt, adipisci.</p>
+							<p>Dato curioso: Nuestra agencia tuvo 3 nombres diferentes - Caesar Medien, DIWERF y a finales de 2016 hemos quedado con WEREKON.</p>
 						</div>
 					</div>
 				</div>
@@ -258,7 +249,7 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 		position: relative;
 
 		display: grid;
-		row-gap: var(--spacer-800);
+		row-gap: var(--spacer-600);
 
 		padding-block: var(--spacer-400);
 
@@ -280,12 +271,29 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 		}
 	}
 
+	.timeline--content {
+		grid-row: 1 / -1;
+		grid-column: 1 / 2;
+	}
+
+	.timeline--image {
+		grid-row: 1 / -1;
+		grid-column: 2 / 3;
+
+		margin: 0 !important;
+
+		border: 2px solid currentColor;
+		border-radius: .5rem;
+		box-shadow: var(--box-shadow-bottom);
+	}
+
 	.timeline--item {
 		position: relative;
 
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		column-gap: var(--spacer-800);
+		align-items: center;
+		column-gap: var(--spacer-400);
 
 		&::before {
 			content: '';
@@ -295,10 +303,12 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 			left: 50%;
 			transform: translate(-50%, -50%);
 
-			width: 1rem;
-			height: 1rem;
+			width: 1.25rem;
+			height: 1.25rem;
 			background-color: currentColor;
 			border-radius: 50%;
+
+			z-index: 3;
 		}
 
 		&::after {
@@ -309,14 +319,29 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 			left: 50%;
 			transform: translateY(-50%);
 
-			margin-left: var(--spacer-200);
+			padding: 6px 12px;
+			padding-left: var(--spacer-200);
 
 			font-weight: var(--font-weight-bold);
 			font-size: var(--font-size-1);
+			color: var(--color-font-primary);
+			line-height: 1;
+
+			background-color: var(--color-font-secondary);
+			border-top-right-radius: 100vh;
+			border-bottom-right-radius: 100vh;
+
+			box-shadow: var(--box-shadow-right);
+
+			z-index: 2;
 		}
 
 		&:nth-child(2n) {
-			& > * {
+			& .timeline--image {
+				grid-column: 1 / 2;
+			}
+
+			& .timeline--content {
 				grid-column: 2 / 3;
 			}
 
@@ -324,8 +349,15 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 				left: auto;
 				right: 50%;
 
-				margin-left: 0;
-				margin-right: var(--spacer-200);
+				padding: 6px 12px;
+				padding-right: var(--spacer-200);
+
+				border-top-left-radius: 100vh;
+				border-bottom-left-radius: 100vh;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+
+				box-shadow: var(--box-shadow-left);
 			}
 		}
 	}
