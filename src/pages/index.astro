@@ -6,6 +6,34 @@ import { Picture } from 'astro:assets';
 import imageWebDeveloper from '@/images/web-developer.jpg';
 import imageFrontendSkills from '@/images/frontend-skills.jpg';
 import imageBackendSkills from '@/images/backend-skills.jpg';
+
+import imageBdkHessen from '@/images/projects/bdk-hessen.png';
+import imageDiwerf from '@/images/projects/diwerf.png';
+import imageFahrdienstNanka from '@/images/projects/fahrdienst-nanka.png';
+import imageFriseurKingFrankfurt from '@/images/projects/friseur-king-frankfurt.png';
+import imageTschechischDolmetscher from '@/images/projects/tschechisch-dolmetscher.png';
+import imageWerekon from '@/images/projects/werekon.png';
+import imageAutoguenstigkaufen from '@/images/projects/autoguenstigkaufen.png';
+import imageWaffenversandKlausing from '@/images/projects/waffenversand-klausing.png';
+import imageWaffenversandKlausingAmp from '@/images/projects/waffenversand-klausing-amp.png';
+import imageVorlageKlausing from '@/images/projects/vorlage-klausing.png';
+import imageVorlageAntes from '@/images/projects/vorlage-antes.png';
+import imageAvenirKids from '@/images/projects/avenirkids.png';
+import imageYalcin from '@/images/projects/schluesselnotdienst-yalcin.png';
+import imageMainhattanHandwerker from '@/images/projects/mainhattan-handwerker.png';
+import imageBerlinImmobilien24 from '@/images/projects/berlinimmobilien24.png';
+import imageLengemannSoehne from '@/images/projects/lengemann-und-soehne.png';
+import imageYilmaz from '@/images/projects/yilmaz-gebaeudereinigung.png';
+import imageAsmWassertechnik from '@/images/projects/asm-wassertechnik.png';
+import image2Faces from '@/images/projects/2faces-cosmetics.png';
+import imageNwmTv from '@/images/projects/nwm-tv.png';
+import imageAbBauserviceBerlin from '@/images/projects/ab-bauservice-berlin.png';
+import imageElektrotechnikAt from '@/images/projects/elektrotechnik-at.png';
+import imageFahrzeugtechnikRester from '@/images/projects/fahrzeugtechnik-rester.png';
+import imageRasenroboterTest from '@/images/projects/rasenroboter-test.png';
+import imageVyresimeOnline from '@/images/projects/vyresime-online.png';
+import imageVestkyneOnline from '@/images/projects/vestirna-galaxie.png';
+import imageDevetSlunci from '@/images/projects/devet-slunci.png';
 ---
 
 <Layout>
@@ -90,20 +118,430 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 			</div>
 			<div class="col">
 				<div class="timeline">
-					<div class="timeline--item" data-timeline-date="01/01/1970">
+					<div class="timeline--item" data-timeline-date="06/2022">
 						<div class="timeline--content">
-							<h3>TODO: Find archived projects</h3>
+							<h3>Tarot Devíti Sluncí</h3>
 							<p>
-								Voy añadiendo los proyectos poco a poco ya que los tengo que buscar en mis backups...
+								Una página interactiva para Věštírna Galaxie que ofrece un servicio de lectura de tarjetas tarot automatizado.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, AJAX, PHP, MySQL, Redaxo
+								<br>
+								<a href="https://www.devet-slunci.cz/" target="_blank" rel="nofollow" title="Tarot Devíti Sluncí">www.devet-slunci.cz</a>
 							</p>
 						</div>
-						<Picture src={ imageBackendSkills } formats={['avif', 'webp']} alt="TODO: Find archived projects" width="950" class="timeline--image" />
+						<Picture src={ imageDevetSlunci } formats={['avif', 'webp']} alt="Tarot Devíti Sluncí" width="950" class="timeline--image" />
 					</div>
-					<div class="timeline--item" data-timeline-date="03/2016 - 04/2016">
+					<div class="timeline--item" data-timeline-date="02/2021">
+						<div class="timeline--content">
+							<h3>Věštírna Galaxie</h3>
+							<p>
+								Un portfolio / tienda online para Věštírna Galaxie. El diseño y los colores son un poco extravagantes, pero según el cliente, está bien para el tema de las lecturas tarot.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Redaxo
+								<br>
+								<a href="https://www.vestkyneonline.cz/" target="_blank" rel="nofollow" title="Věštírna Galaxie">www.vestkyneonline.cz</a>
+							</p>
+						</div>
+						<Picture src={ imageVestkyneOnline} formats={['avif', 'webp']} alt="Věštírna Galaxie" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="07/2020">
+						<div class="timeline--content">
+							<h3>Vyřešíme Online</h3>
+							<p>
+								Un portfolio para Vyřešíme Online.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Redaxo
+							</p>
+						</div>
+						<Picture src={ imageVyresimeOnline } formats={['avif', 'webp']} alt="Vyřešíme Online" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="02/2020 - 01/2024">
+						<div class="timeline--content">
+							<h3>Administrador IT para la empresa familiar</h3>
+							<p>
+								Durante estos 4 años he trabajado como el administrador de servidores Plesk Linux, páginas web, bases de datos y seguridad en la empresa de mi familia.
+								<br>
+								Además he hecho un par de proyectos para clientes en República Checa.
+							</p>
+						</div>
+					</div>
+					<div class="timeline--item" data-timeline-date="04/2019 - 01/2020">
+						<div class="timeline--content">
+							<h3>El fin de WEREKON</h3>
+							<p>
+								Por cambios de interes hemos decidio cerrar nuestra agencia y durante los últimos 6 meses ya nos centrabamos solo en terminar los últimos proyectos y ofrecer soporte durante el perido de transición de nuestros clientes a otras agencias. Aún así, en el caso de que algún cliente necesite corregir por ejemplo errores de PHP por actualizaciones, seguimos dando soporte, auqnue ya no suele pasar mucho.
+							</p>
+						</div>
+						<Picture src={ imageWerekon } formats={['avif', 'webp']} alt="El fin de WEREKON" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="03/2019">
+						<div class="timeline--content">
+							<h3>Elektrotechnik AT</h3>
+							<p>
+								Un portfolio para Elektrotechnik AT.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Wordpress
+							</p>
+						</div>
+						<Picture src={ imageElektrotechnikAt } formats={['avif', 'webp']} alt="Elektrotechnik AT" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="02/2019">
+						<div class="timeline--content">
+							<h3>Fahrzeugtechnik Rester</h3>
+							<p>
+								Una tienda online a medida para Fahrzeugtechnik Rester basada en el CMS Redaxo. Por desgracia, es el único proyecto que nunca se llegó a publicar.
+							</p>
+							<p>
+								La tienda no se pudó lanzar con un sistema como Shopify por la complejidad de las bases de datos. Cada proveedor de productos tenía otro sistema de bases de datos lo que causó que la página era demasiado lenta.
+								<br>
+								Aunque hemos indicado al cliente que la rapidéz de la página web no sería adecuada y las bases de datos necesitaban ser optimizadas, el cliente decidió continuar sin hacer estas mejoras.
+								<br>
+								Esto resultó en que el sitio web realmente no era usable y la tienda no se desplegó hasta que los cambios necesarios eran realizados. La versión actual fue hecha por otra agencia.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, AJAX, PHP, MySQL, Redaxo
+							</p>
+						</div>
+						<Picture src={ imageFahrzeugtechnikRester } formats={['avif', 'webp']} alt="Fahrzeugtechnik Rester" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="01/2019">
+						<div class="timeline--content">
+							<h3>AB Bauservice Berlin</h3>
+							<p>
+								Un portfolio para AB Bauservice Berlin.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Wordpress
+							</p>
+						</div>
+						<Picture src={ imageAbBauserviceBerlin } formats={['avif', 'webp']} alt="AB Bauservice Berlin" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="12/2018">
+						<div class="timeline--content">
+							<h3>Nord-West-Media TV</h3>
+							<p>
+								Nord-West-Media TV es una agencia de noticias y producción de vídeos y fotos alemana que proporciona material a noticias que, por ejemplo, podéis ver en la televisión.
+								<br>
+								Nos pidieron actualización de su sistema a medida del PHP 5.4 a la versión 7. Decidieron dejar el mismo diseño, ya que los usuarios estaban acostumbrados a la interfaz.
+							</p>
+							<p>
+								Esto requirió rehacer el sistema entero porque muchas de las funciones no eran compatibles. Además cambiamos la estructura de la base de datos para mejorar la velocidad.
+							</p>
+							<p>
+								Funciones destacadas entre otras:
+							</p>
+							<ul>
+								<li>
+									Registro y administración de usuarios
+								</li>
+								<li>
+									Añadir y editar noticias, marcar la disponibilidad del material y cargar contenido directamente de un servidor FTP
+								</li>
+								<li>
+									Generar facturas PDF
+								</li>
+								<li>
+									Logs de acceso y descargas de material
+								</li>
+								<li>
+									Archivar noticias después de cierto tiempo
+								</li>
+							</ul>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, AJAX, PHP, MySQL, Redaxo
+								<br>
+								<a href="https://www.nwm-tv.de/" target="_blank" rel="nofollow" title="Nord-West-Media TV">www.nwm-tv.de</a>
+							</p>
+						</div>
+						<Picture src={ imageNwmTv } formats={['avif', 'webp']} alt="Nord-West-Media TV" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="10/2018">
+						<div class="timeline--content">
+							<h3>2Faces Cosmetics</h3>
+							<p>
+								2Faces Cosmetics era otra empresa de ASM Wassertechnik. Creamos un portfolio para presentar sus productos y servicios.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Wordpress
+							</p>
+						</div>
+						<Picture src={ image2Faces } formats={['avif', 'webp']} alt="2Faces Cosmetics" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="10/2018">
+						<div class="timeline--content">
+							<h3>ASM Wassertechnik</h3>
+							<p>
+								Para ASM Wassertechnik creamos una landing page para presentar su sistema de filtración de agua.
+							</p>
+							<p>
+								El formulario para pedir un presupuesto es interactivo. El usuario debe introducir ciertos datos para conseguir un presupuesto de la instalación de los filtros de agua.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, AJAX, PHP, MySQL, Wordpress
+								<br>
+								<a href="https://asm-wassertechnik.de/angebot/" target="_blank" rel="nofollow" title="ASM Wassertechnik">asm-wassertechnik.de</a>
+							</p>
+						</div>
+						<Picture src={ imageAsmWassertechnik } formats={['avif', 'webp']} alt="ASM Wassertechnik" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="08/2018">
+						<div class="timeline--content">
+							<h3>Gebäudereinigung Yilmaz</h3>
+							<p>
+								Un portfolio para Gebäudereinigung Yilmaz.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, Nette Latte
+							</p>
+						</div>
+						<Picture src={ imageYilmaz } formats={['avif', 'webp']} alt="Gebäudereinigung Yilmaz" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="07/2018">
+						<div class="timeline--content">
+							<h3>Lengemann & Söhne</h3>
+							<p>
+								Lengemann & Söhne era otra página para Waffenversand Klausing. Un portfolio para presentar armas de lujo.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Wordpress
+							</p>
+						</div>
+						<Picture src={ imageLengemannSoehne } formats={['avif', 'webp']} alt="Lengemann & Söhne" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="06/2018">
+						<div class="timeline--content">
+							<h3>Berlinimmobilien24</h3>
+							<p>
+								Para Berlinimmobilien24 hicimos mantenimiento de su página existente. Actualizamos el código PHP para corregir errores después de cambiar a la versión 7.
+							</p>
+							<p>
+								También hicimos cambios en el diseño, contenido, efectos y animaciones.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP
+							</p>
+						</div>
+						<Picture src={ imageBerlinImmobilien24 } formats={['avif', 'webp']} alt="Berlinimmobilien24" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="04/2018">
+						<div class="timeline--content">
+							<h3>Rasenroboter Test</h3>
+							<p>
+								Esta fue nuestra página para ofrecer accesorios para robots cortacésped. Hemos invertido dinero en stock de productos y los vendimos en Amazon. También creamos tablas de comparación de diferentes modelos de robots y los ofrecimos a través del programa de afiliados de Amazon.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, AJAX, PHP, MySQL, Wordpress, Amazon API
+							</p>
+						</div>
+						<Picture src={ imageRasenroboterTest } formats={['avif', 'webp']} alt="Rasenroboter Test" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="02/2018">
+						<div class="timeline--content">
+							<h3>Mainhattan Handwerker</h3>
+							<p>
+								Un portfolio para Mainhattan Handwerker. Este proyecto también incluyó la versión AMP del sitio web.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, AMP, Nette Latte
+							</p>
+						</div>
+						<Picture src={ imageMainhattanHandwerker } formats={['avif', 'webp']} alt="Mainhattan Handwerker" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="02/2018">
+						<div class="timeline--content">
+							<h3>Schlüsseldienst Yalcin</h3>
+							<p>
+								Un portfolio para Schlüsseldienst Yalcin.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, Nette Latte
+							</p>
+						</div>
+						<Picture src={ imageYalcin } formats={['avif', 'webp']} alt="Schlüsseldienst Yalcin" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="01/2018">
+						<div class="timeline--content">
+							<h3>Avenir Kids</h3>
+							<p>
+								Para Avenir Kids, una empresa de China a nivel global, creamos un portfolio multilingual para presentar sus productos con una portada animada.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Wordpress
+							</p>
+						</div>
+						<Picture src={ imageAvenirKids } formats={['avif', 'webp']} alt="Avenir Kids" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="01/2018">
+						<div class="timeline--content">
+							<h3>Waffen Antes: Vorlage</h3>
+							<p>
+								Waffen Antes nos pidió el mismo sistema para generar HTML para egun.de como el de Waffenversand Klausing.
+							</p>
+							<p>
+								Además del diferente diseño, también hay posibilidad de elegir entre diferentes plantillas del HTML generado.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, Speech to Text, PHP, MySQL
+							</p>
+						</div>
+						<Picture src={ imageVorlageAntes } formats={['avif', 'webp']} alt="Waffen Antes: Vorlage" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="09/2017">
+						<div class="timeline--content">
+							<h3>Waffenversand Klausing versión AMP</h3>
+							<p>
+								La versión AMP (Accelerated Mobile Pages) de Waffenversand Klausing sirvió como una landing page con enlaces a la versión normal de la página.
+							</p>
+							<p>
+								AMP es una herramienta para hacer un sitio web más rápido. Se necesitan menos recursos para cargar la página web - esto permite lograr una mejor posición en los motores de búsqueda, aunque hoy en día ya no se suele usar por los avances de las tecnologías y es posible que dentro de poco AMP se va a quedar obsoleto.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, JS, AMP
+							</p>
+						</div>
+						<Picture src={ imageWaffenversandKlausingAmp } formats={['avif', 'webp']} alt="Waffenversand Klausing versión AMP" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="07/2017">
+						<div class="timeline--content">
+							<h3>Waffenversand Klausing: Vorlage</h3>
+							<p>
+								Waffenversand Klausing: Vorlage era un sistema a medida para generar HTML para la página de subastas de armas egun.de.
+							</p>
+							<p>
+								El usuario añade un arma al sistema junto con la información y fotos. El sistema genera HTML que se puede copiar y pegar en la página egun.de.
+								<br>
+								Además el contenido generado se puede ver y editar. El HTML tiene que seguir ciertas reglas de egun.de, no es posible usar técnicas modernas ni responsivas.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, Speech to Text, PHP, MySQL
+							</p>
+						</div>
+						<Picture src={ imageVorlageKlausing } formats={['avif', 'webp']} alt="Waffenversand Klausing: Vorlage" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="06/2017">
+						<div class="timeline--content">
+							<h3>Waffenversand Klausing</h3>
+							<p>
+								Para Waffenversand Klausing hicimos un sitio web multilingual a medida con un sistema de pedidos de transporte de armas legal - nacional e internacional.
+							</p>
+							<p>
+								Integramos XML API de DHL para crear etiquetas y pedir fechas de recogida para los clientes. Al principio el sistema de pago era simplemente generar una factura y hacer transferencia bancaria.
+								<br>
+								Con tiempo añadimos métodos de pago más avanzados como tarjetas de crédito, PayPal Plus y Klarna.
+							</p>
+							<p>
+								Los clientes también tenían la opción de registrarse para tener sus datos guardados y poder ver el status de sus pedidos.
+								<br>
+								En la administración, era posible ver, editar y exportar los pedidos en formato CSV para poder subirlos al sistema de DHL.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Wordpress, DHL XML API
+							</p>
+						</div>
+						<Picture src={ imageWaffenversandKlausing } formats={['avif', 'webp']} alt="Waffenversand Klausing" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="04/2017">
+						<div class="timeline--content">
+							<h3>Autobasar Amir</h3>
+							<p>
+								La página de Autobasar Amir necesitó un sistema a medida para ofrecer un servicio de evaluar el precio de un coche de segunda mano.
+							</p>
+							<p>
+								Para cargar toda la información de los coches que existen usamos el XML API de mobile.de. El cliente selecciona su coche, añade información, fotos y una vez enviado, recibirá la oferta por parte de Autobasar Amir.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, AJAX, PHP, MySQL, Wordpress, mobile.de XML API
+								<br>
+								<a href="https://www.autoguenstigkaufen.de" target="_blank" rel="nofollow" title="Autobasar Amir">www.autoguenstigkaufen.de</a>
+							</p>
+						</div>
+						<Picture src={ imageAutoguenstigkaufen } formats={['avif', 'webp']} alt="Autobasar Amir" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="02/2017">
+						<div class="timeline--content">
+							<h3>WEREKON: La versión final de nuestra página</h3>
+							<p>
+								Cambiamos el nombre de nustra agencia de DIWERF a WEREKON (Werbung, Erfolg, Konzept) por la pronunciación de DIWERF en Alemán.
+							</p>
+							<p>
+								Con este cambio también mejoramos el diseño junto con el sistema del contendio y la optimización del SEO.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Wordpress
+							</p>
+						</div>
+						<Picture src={ imageWerekon } formats={['avif', 'webp']} alt="WEREKON: La versión final de nuestra página" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="12/2016">
+						<div class="timeline--content">
+							<h3>Tschechisch Dolmetscher Frankfurt</h3>
+							<p>
+								Un portfolio para la traductora Dr. phil. Olga Postulkova. Ésta fue mi primera página con múltiples lenguajes - Alemán, Inglés, Ruso y Checo.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP
+								<br>
+								<a href="https://www.tschechisch-dolmetscher.de/" target="_blank" rel="nofollow" title="Tschechisch Dolmetscher Frankfurt">www.tschechisch-dolmetscher.de</a>
+							</p>
+						</div>
+						<Picture src={ imageTschechischDolmetscher } formats={['avif', 'webp']} alt="Tschechisch Dolmetscher Frankfurt" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="12/2016">
+						<div class="timeline--content">
+							<h3>Friseur King Frankfurt</h3>
+							<p>
+								Una landing page muy simple para la barbería Friseur King Frankfurt. Fue una "tarjeta de visita" con información de contacto y horario de apertura.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, PHP
+								<br>
+								<a href="https://www.friseur-king-frankfurt.de/" target="_blank" rel="nofollow" title="Friseur King Frankfurt">www.friseur-king-frankfurt.de</a>
+							</p>
+						</div>
+						<Picture src={ imageFriseurKingFrankfurt } formats={['avif', 'webp']} alt="Friseur King Frankfurt" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="08/2016">
+						<div class="timeline--content">
+							<h3>Fahrdienst Nanka</h3>
+							<p>
+								La empresa Fahrdienst Nanka nos pidió una página en la que gente con dishabilidad podían pedir transporte especializado.
+							</p>
+							<p>
+								El backend era un sistema a medida para administrar los pedidos, clientes y exportar tablas CSV junto con la posiblidad de generar facturas PDF.
+								A lo largo del tiempo hicimos muchos cambios y mejoras al sistema.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, PHP, MySQL, Wordpress
+								<br>
+								<a href="https://www.fahrdienst-nanka.de" target="_blank" rel="nofollow" title="Fahrdienst Nanka">www.fahrdienst-nanka.de</a>
+							</p>
+						</div>
+						<Picture src={ imageFahrdienstNanka } formats={['avif', 'webp']} alt="Fahrdienst Nanka" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="06/2016">
+						<div class="timeline--content">
+							<h3>DIWERF: La evolución de nuestra agencia</h3>
+							<p>
+								DIWERF (Design, Werbung, Erfolg) fue la segunda versión de nuestra página web. La combinación de colores fue más seria y el diseño en general más profesional.
+							</p>
+							<p>
+								Aunque nos gustó el nombre, en 2017 un cliente nos preguntó por qué nos llamamos así. Resulta que la pronunciación en alemán fue rara y decidimos cambiarlo a WEREKON.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, jQuery, PHP, MySQL, Wordpress
+							</p>
+						</div>
+						<Picture src={ imageDiwerf } formats={['avif', 'webp']} alt="DIWERF: La evolución de nuestra agencia" width="950" class="timeline--image" />
+					</div>
+					<div class="timeline--item" data-timeline-date="03/2016">
 						<div class="timeline--content">
 							<h3>Mi primer cliente: BDK Hessen Fachverband für Kunstpädagogik</h3>
 							<p>
-								El primer proyecto de pago que hice para un cliente fue una página para una asociación profesional para la educación artística - BDK Hessen Fachverband für Kunstpädagogik.
+								El primer proyecto de pago (150&euro;) que hice para un cliente fue una página para una asociación profesional para la educación artística - BDK Hessen Fachverband für Kunstpädagogik.
 							</p>
 							<p>
 								En esta página los estudiantes subían fotos artísticas para entrar en un sorteo y tener la oportunidad de ganar un premio.
@@ -112,15 +550,29 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 								Tecnologías usadas: HTML, CSS, PHP, MySQL
 							</p>
 						</div>
-						<Picture src={ imageBackendSkills } formats={['avif', 'webp']} alt="Mi primer cliente: BDK Hessen Fachverband für Kunstpädagogik" width="950" class="timeline--image" />
+						<Picture src={ imageBdkHessen } formats={['avif', 'webp']} alt="Mi primer cliente: BDK Hessen Fachverband für Kunstpädagogik" width="950" class="timeline--image" />
 					</div>
-					<div class="timeline--item" data-timeline-date="01/2016 - 06/2020">
+					<div class="timeline--item" data-timeline-date="03/2016">
+						<div class="timeline--content">
+							<h3>Publicación de nuestro sitio web Caesar Medien</h3>
+							<p>
+								Caesar Medien fue la primera iteración de nuestra agencia. La página era simple y lujosa, haciendo juego con el nombre de nuestra agencia.
+							</p>
+							<p>
+								El problema fue que el diseño se percía a una página de un hotel y dentro de pocos meses hemos cambiado el sitio por completo.
+							</p>
+							<p>
+								Tecnologías usadas: HTML, SCSS, PHP, MySQL, Nette Framework
+							</p>
+						</div>
+					</div>
+					<div class="timeline--item" data-timeline-date="01/2016 - 01/2020">
 						<div class="timeline--content">
 							<h3>Programador principal en WEREKON</h3>
 							<p>
-								En 2016, con 16 años, fundamos con mi compañero de Alemania la agencia de publicidad WEREKON y durante los estudios de bachillerato hemos conseguido unos cuántos clientes. La idea fue mudarme a Alemania junto con mi hermano una vez que ambos termináramos los estudios. Durante los últimos 6 meses mi compañero ha encontrado pasión en otro sector laboral y nos hemos separado. Hasta el día de hoy seguimos ofreciendo soporte a los cliente que hemos adquirido durante estos 4 años.
+								En 2016, con 16 años, fundamos con mi compañero de Alemania la agencia de publicidad WEREKON y durante los estudios de bachillerato hemos conseguido unos cuantos clientes. La idea fue mudarme a Alemania junto con mi hermano una vez que ambos termináramos los estudios. Durante los últimos 6 meses mi compañero ha encontrado pasión en otro sector laboral y nos hemos separado. Hasta el día de hoy seguimos ofreciendo soporte a los clientes que hemos adquirido durante estos 4 años.
 							</p>
-							<p>Dato curioso: Nuestra agencia tuvo 3 nombres diferentes - Caesar Medien, DIWERF y a finales de 2016 hemos quedado con WEREKON.</p>
+							<p>Dato curioso: Nuestra agencia tuvo 3 nombres diferentes - Caesar Medien, DIWERF y en 2017 hemos quedado con WEREKON.</p>
 						</div>
 					</div>
 				</div>
@@ -214,7 +666,7 @@ import imageBackendSkills from '@/images/backend-skills.jpg';
 			padding-left: var(--spacer-200);
 
 			font-weight: var(--font-weight-bold);
-			font-size: var(--font-size-1);
+			font-size: 1.1rem;
 			color: var(--color-font-primary);
 			line-height: 1;
 
