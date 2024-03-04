@@ -1,3 +1,4 @@
+import { pageConfig } from '@/page.config.mjs';
 import Layout from '@/layouts/Layout.astro';
 import ThirdPartyPrivacy from '@/components/ThirdPartyPrivacy.astro';
 
@@ -58,8 +59,7 @@ import ThirdPartyPrivacy from '@/components/ThirdPartyPrivacy.astro';
 
 			*Última actualización: [Date]*
 
-			[Your Portfolio Website Name]
-			[Website URL]
+			*{ pageConfig.siteName }*<br /><a href={ pageConfig.site } target="_blank" title={ pageConfig.siteName }>{ pageConfig.site }</a>
 		</div>
 	</div>
 </Layout>
