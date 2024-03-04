@@ -1,8 +1,16 @@
+const locales = {
+	es: 'es-ES',
+	en: 'en-US'
+};
+
+const localesSimple = Object.keys(locales).map((key) => key);
+
 export const pageConfig = {
 	site: 'https://portfolio.sjeremy.dev',
 	siteName: 'Jeremy\'s Portfolio',
 	defaultLocale: 'es',
-	locales: ['es', 'en'],
+	locales: locales,
+	localesSimple: localesSimple,
 	address: 'Madrid Capital, 28013',
 	email: 'contact@sjeremy.dev',
 	privacy: {
