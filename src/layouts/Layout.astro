@@ -57,6 +57,8 @@ title = !title ? pageConfig.siteName : title + ' | ' + pageConfig.siteName;
 		<meta name="audience" content="All">
 		<meta name="language" content={ currentLocale }>
 
+		<link rel="sitemap" href={ pageConfig.site + '/sitemap-index.xml' } />
+
 		<title>{ title }</title>
 
 		<script>
@@ -70,7 +72,7 @@ title = !title ? pageConfig.siteName : title + ' | ' + pageConfig.siteName;
 
 				locale = locale ? locale[1] ?? pageConfig.defaultLocale : pageConfig.defaultLocale;
 
-				return !pageConfig.locales.includes(locale) ? pageConfig.defaultLocale : locale;
+				return !pageConfig.localesSimple.includes(locale) ? pageConfig.defaultLocale : locale;
 			}
 
 			declare global {
