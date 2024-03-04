@@ -2,6 +2,7 @@ import { pageConfig } from "./page.config.mjs";
 
 export const i18n = {
 	es: {
+		metaKeywords: 'desarrollador web, sitios web impresionantes y funcionales, HTML, CSS, JavaScript, PHP, MySQL, administrador servidores plesk linux, Madrid, España',
 		menu: 'Menú',
 		pages: {
 			home: { text: 'Inicio', title: 'Página principal' },
@@ -26,6 +27,7 @@ export const i18n = {
 	},
 
 	en: {
+		metaKeywords: 'web developer, awesome and functional websites, HTML, CSS, JavaScript, PHP, MySQL, plesk linux servers administrator, Madrid, Spain',
 		menu: 'Menu',
 		pages: {
 			home: { text: 'Home', title: 'Starting page' },
