@@ -1,0 +1,31 @@
+---
+import { pageConfig } from '@/page.config.mjs';
+import { getCurrentLocale } from '@/i18n.mjs';
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+
+const currentLocale = getCurrentLocale(Astro);
+const locales = pageConfig.localesSimple;
+const localesRegex = locales.join('|');
+let currentPath: any = Astro.url.pathname.match(new RegExp('(?:\/(?:' + localesRegex + ')\/)?(.*)$'));
+
+if (currentPath) {
+	currentPath = currentPath[1].replace(/\/+$/, '').replace(/^\/+/, '');
+}
+let routeData: any = Object.getOwnPropertySymbols(Astro.request).find(
+    (s) => s.description === 'astro.routeData'
+);
+
+routeData = Astro.request[routeData];
+
+const responseStatus = routeData.pathname.search(new RegExp('(?:\/(?:' + localesRegex + ')\/)?(404)/?$'));
+---
+
+{ responseStatus === -1 && 
+	<>
+	{ locales.map(locale => ( 
+		<link rel="alternate" href={ getAbsoluteLocaleUrl(locale, currentPath) } hreflang={ locale } >
+	)) }
+	</>
+	<link rel="alternate" href={ getAbsoluteLocaleUrl(pageConfig.defaultLocale, currentPath) } hreflang="x-default">
+	<link rel="canonical" href={ getAbsoluteLocaleUrl(currentLocale, currentPath) }>
+}
