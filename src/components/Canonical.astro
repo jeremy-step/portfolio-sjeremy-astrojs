@@ -13,11 +13,12 @@ if (currentPath) {
 }
 let routeData: any = Object.getOwnPropertySymbols(Astro.request).find(
     (s) => s.description === 'astro.routeData'
-);
+) ?? {};
 
-routeData = Astro.request[routeData];
+routeData = Astro.request[routeData as keyof typeof Astro.request];
 
-const responseStatus = routeData.pathname.search(new RegExp('(?:\/(?:' + localesRegex + ')\/)?(404)/?$'));
+const routePath = routeData ? routeData.pathname : '/';
+const responseStatus = routePath.search(new RegExp('(?:\/(?:' + localesRegex + ')\/)?(404)/?$'));
 ---
 
 { responseStatus === -1 && 
