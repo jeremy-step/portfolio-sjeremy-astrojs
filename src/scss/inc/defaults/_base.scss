@@ -47,6 +47,10 @@ html {
 
 	scroll-behavior: smooth;
 	scroll-padding-block: 1em;
+
+	@include breakpoint(xmedium, up) {
+		scroll-padding-block: calc(var(--header-height) + 2em + 3px);
+	}
 }
 
 body {
