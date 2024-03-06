@@ -98,7 +98,7 @@ title = !title ? pageConfig.siteName : title + ' | ' + pageConfig.siteName;
 		<div class="layout-wrapper">
 			<Header />
 
-			<main class="layout-content">
+			<main class="layout-content" data-site-name={ pageConfig.siteName }>
 				<slot />
 			</main>
 
