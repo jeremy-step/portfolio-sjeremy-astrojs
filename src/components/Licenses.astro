@@ -10,6 +10,57 @@ import { FaSquareGithub, FaSquareXTwitter, FaSquareInstagram } from 'react-icons
 const currentLocale = getCurrentLocale(Astro);
 ---
 
+<h3>{ translate(currentLocale, 'licenses.assetsLicenses') }</h3>
+
+<h4>Unsplash</h4>
+
+<ul>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.website') }</strong>: 
+			<a href="https://unsplash.com/" title={ translate(currentLocale, 'licenses.assets.unsplash.website') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://unsplash.com
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.license') }</strong>: 
+			<a href="https://unsplash.com/license" title={ translate(currentLocale, 'licenses.assets.unsplash.license') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://unsplash.com/license
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<a href="https://unsplash.com/photos/person-typing-on-silver-macbook-kUqqaRjJuw0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" title="Person typing on silver macbook" class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://unsplash.com/photos/person-typing-on-silver-macbook-kUqqaRjJuw0
+			</a> &nbsp; (by: <a href="https://unsplash.com/@burst?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" title="Burst on Unsplash" target="_blank" rel="noopener noreferrer nofollow">Burst</a>)
+		</span>
+	</li>
+	<li>
+		<span>
+			<a href="https://unsplash.com/photos/blue-and-white-elephant-plush-toy-on-black-laptop-computer-4wxWBy8Jo1I?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" title="Blue and white PHP elephant plush toy on black laptop computer" class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://unsplash.com/photos/blue-and-white-elephant-plush-toy-on-black-laptop-computer-4wxWBy8Jo1I
+			</a> &nbsp; (by: <a href="https://unsplash.com/@benofthenorth?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" title="Ben Griffiths on Unsplash" target="_blank" rel="noopener noreferrer nofollow">Ben Griffiths</a>)
+		</span>
+	</li>
+	<li>
+		<span>
+			<a href="https://unsplash.com/photos/black-computer-keyboard-DuHKoV44prg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" title="Black computer keyboard" class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://unsplash.com/photos/black-computer-keyboard-DuHKoV44prg
+			</a> &nbsp; (by: <a href="https://unsplash.com/@ffstop?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" title="Fotis Fotopoulos on Unsplash" target="_blank" rel="noopener noreferrer nofollow">Fotis Fotopoulos</a>)
+		</span>
+	</li>
+	<li>
+		<span>
+			<a href="https://unsplash.com/photos/silver-imac-turned-on-inside-room-DtDlVpy-vvQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" title="Silver iMac turned on inside room" class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://unsplash.com/photos/silver-imac-turned-on-inside-room-DtDlVpy-vvQ
+			</a> &nbsp; (by: <a href="https://unsplash.com/@leecampbell?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" title="Lee  Campbell on Unsplash" target="_blank" rel="noopener noreferrer nofollow">Lee  Campbell</a>)
+		</span>
+	</li>
+</ul>
+
 <h3>{ translate(currentLocale, 'licenses.iconsLicenses') }</h3>
 
 <h4>Font Awesome</h4>
@@ -31,7 +82,7 @@ const currentLocale = getCurrentLocale(Astro);
 			</a>
 		</span>
 	</li>
-	<li>
+	<!-- <li>
 		<span>
 			v6: <FaSquareXTwitter /> square-x-twitter (X / Twitter)
 		</span>
@@ -49,6 +100,11 @@ const currentLocale = getCurrentLocale(Astro);
 	<li>
 		<span>
 			v5: <FaExternalLinkAlt /> external-link-alt (External link icon)
+		</span>
+	</li> -->
+	<li>
+		<span>
+			<FaSquareXTwitter /> <FaSquareGithub /> <FaSquareInstagram /> <FaExternalLinkAlt />
 		</span>
 	</li>
 </ul>
@@ -72,7 +128,7 @@ const currentLocale = getCurrentLocale(Astro);
 			</a>
 		</span>
 	</li>
-	<li>
+	<!-- <li>
 		<span>
 			<SiAstro /> Astro
 		</span>
@@ -85,6 +141,11 @@ const currentLocale = getCurrentLocale(Astro);
 	<li>
 		<span>
 			<SiPlesk /> Plesk
+		</span>
+	</li> -->
+	<li>
+		<span>
+			<SiAstro /> <SiNette /> <SiPlesk />
 		</span>
 	</li>
 </ul>
@@ -108,7 +169,7 @@ const currentLocale = getCurrentLocale(Astro);
 			</a>
 		</span>
 	</li>
-	<li>
+	<!-- <li>
 		<span>
 			<DiHtml5 /> HTML 5
 		</span>
@@ -132,6 +193,11 @@ const currentLocale = getCurrentLocale(Astro);
 		<span>
 			<DiPhp /> PHP
 		</span>
+	</li> -->
+	<li>
+		<span>
+			<DiHtml5 /> <DiCss3 /> <DiJavascript /> <DiSass /> <DiPhp />
+		</span>
 	</li>
 </ul>
 
@@ -154,9 +220,14 @@ const currentLocale = getCurrentLocale(Astro);
 			</a>
 		</span>
 	</li>
-	<li>
+	<!-- <li>
 		<span>
 			<BsFiletypeSql /> File Type SQL
+		</span>
+	</li> -->
+	<li>
+		<span>
+			<BsFiletypeSql />
 		</span>
 	</li>
 </ul>
@@ -233,15 +304,7 @@ const currentLocale = getCurrentLocale(Astro);
 <style lang="scss">
 	li {
 		span {
-			position: relative;
-			padding-right: calc(1.5em + var(--spacer-100));
-			
 			svg {
-				position: absolute;
-				right: 0;
-				top: 50%;
-				transform: translateY(-50%);
-
 				font-size: 1.5em;
 			}
 		}

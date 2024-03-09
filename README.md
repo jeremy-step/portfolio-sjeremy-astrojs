@@ -19,4 +19,3 @@ In the future I plan to change this to work via AJAX and return a JSON response 
 - Fix contact form
 - Add call to action buttons to home page banner and featured projects timeline
 - Add ability to disable some animations on page load
-- Improve intersection observer animations timings
