@@ -309,7 +309,7 @@ const currentLocale = getCurrentLocale(Astro);
 			--__icon-finish: polygon(25% 12.5%, 50% 37.5%, 75% 12.5%, 87.5% 12.5%, 87.5% 25%, 62.5% 50%, 87.5% 75%, 87.5% 87.5%, 75% 87.5%, 50% 62.5%, 25% 87.5%, 12.5% 87.5%, 12.5% 75%, 37.5% 50%, 37.5% 50%, 37.5% 50%, 37.5% 50%, 37.5% 50%, 12.5% 25%, 12.5% 12.5%);
 
 			--__animation-speed: 275ms;
-			--__animation-timing: ease-in;
+			--__animation-timing: cubic-bezier(.5,0,.5,1);
 
 			// From left to right to cross
 			/* 
@@ -384,11 +384,11 @@ const currentLocale = getCurrentLocale(Astro);
 			&[data-status="opened"] {
 				display: block;
 
-				animation: primaryNavOpen 350ms ease-in-out forwards;
+				animation: primaryNavOpen 350ms cubic-bezier(.5,0,.5,1) forwards;
 			}
 
 			&[data-status="closing"] {
-				animation: primaryNavClose 350ms ease-in-out forwards;
+				animation: primaryNavClose 350ms cubic-bezier(.5,0,.5,1) forwards;
 			}
 
 			&[data-status="closed"] {

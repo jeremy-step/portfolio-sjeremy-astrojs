@@ -1,4 +1,6 @@
+import { pageConfig } from '@/page.config.mjs';
 import Layout from '@/layouts/Layout.astro';
+import Licenses from '@/components/Licenses.astro';
 
 <Layout title="Terms of Service" robots="noindex, nofollow">
 	<div class="row">
@@ -7,28 +9,30 @@ import Layout from '@/layouts/Layout.astro';
 
 			## Introduction
 
-			Welcome to [Your Portfolio Website Name]! These terms and conditions outline the rules and regulations for the use of our website.
+			Welcome to *"{ pageConfig.siteName }"* ! These terms and conditions outline the rules and regulations for the use of our website.
 
-			By accessing this website, we assume you accept these terms and conditions. Do not continue to use [Your Portfolio Website Name] if you do not agree to take all of the terms and conditions stated on this page.
+			By accessing this website, we assume you accept these terms and conditions. Do not continue to use *"{ pageConfig.siteName }"* if you do not agree to take all of the terms and conditions stated on this page.
 
 			## License
 
-			Unless otherwise stated, [Your Portfolio Website Name] and/or its licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved.
+			Unless otherwise stated, *"{ pageConfig.siteName }"* and/or its licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved.
+
+			<Licenses />
 
 			## You Must Not
 
-			* Republish material from [Your Portfolio Website Name]
-			* Sell, rent, or sub-license material from [Your Portfolio Website Name]
-			* Reproduce, duplicate, or copy material from [Your Portfolio Website Name]
-			* Redistribute content from [Your Portfolio Website Name]
+			* <span>Republish material from *"{ pageConfig.siteName }"*</span>
+			* <span>Sell, rent, or sub-license material from *"{ pageConfig.siteName }"*</span>
+			* <span>Reproduce, duplicate, or copy material from *"{ pageConfig.siteName }"*</span>
+			* <span>Redistribute content from *"{ pageConfig.siteName }"*</span>
 
 			## User Content
 
-			Your use of [Your Portfolio Website Name] grants us a non-exclusive, worldwide, irrevocable license to use, reproduce, adapt, publish, translate, and distribute any user-generated content you submit to us. This includes but is not limited to comments, messages, emails, or form submissions.
+			Your use of *"{ pageConfig.siteName }"* grants us a non-exclusive, worldwide, irrevocable license to use, reproduce, adapt, publish, translate, and distribute any user-generated content you submit to us. This includes but is not limited to comments, messages, emails, or form submissions.
 
 			## Limitation of Liability
 
-			In no event shall [Your Portfolio Website Name], nor any of its officers, directors, and employees be liable for anything arising out of or in any way connected with your use of this website.
+			In no event shall *"{ pageConfig.siteName }"*, nor any of its officers, directors, and employees be liable for anything arising out of or in any way connected with your use of this website.
 
 			## Changes to Terms of Service
 
@@ -44,8 +48,7 @@ import Layout from '@/layouts/Layout.astro';
 
 			*Last updated: [Date]*
 
-			[Your Portfolio Website Name]
-			[Website URL]
+			*{ pageConfig.siteName }*<br /><a href={ pageConfig.site } target="_blank" title={ pageConfig.siteName }>{ pageConfig.site }</a>
 		</div>
 	</div>
 </Layout>
