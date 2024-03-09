@@ -1,6 +1,7 @@
 ---
-import { DiHtml5, DiCss3, DiSass, DiJavascript, DiMysql, DiPhp } from "react-icons/di";
+import { DiHtml5, DiCss3, DiSass, DiJavascript, DiPhp } from "react-icons/di";
 import { SiAstro, SiNette, SiPlesk } from 'react-icons/si';
+import { BsFiletypeSql } from "react-icons/bs";
 ---
 
 <div class="skills-showcase">
@@ -24,7 +25,7 @@ import { SiAstro, SiNette, SiPlesk } from 'react-icons/si';
 	</div>
 	<div class="skill">
 		<div class="skill-icon">
-			<SiAstro size="54" title="Astro JS" role="img" />
+			<SiAstro size="52" title="Astro JS" role="img" />
 		</div>
 		<strong>Astro JS</strong>
 	</div>
@@ -54,13 +55,73 @@ import { SiAstro, SiNette, SiPlesk } from 'react-icons/si';
 	</div>
 	<div class="skill">
 		<div class="skill-icon">
-			<DiMysql size="64" title="MySQL" role="img" />
+			<BsFiletypeSql size="52" title="MySQL" role="img" />
 		</div>
 		<strong>MySQL</strong>
 	</div>
 </div>
 
+<script>
+	const skills = document.querySelectorAll('.skills-showcase .skill');
+	let animated: any = [];
+	let animationPlaying = 0;
+	let animationElapsedTime = 0;
+
+	const skillObserver = new IntersectionObserver((entries) => {
+		let intersected = entries.filter(entry => entry.isIntersecting);
+		
+		intersected.forEach((entry) => {
+			animated.push(entry);
+
+			const animationDelay = (entry.target as HTMLElement).style.getPropertyValue('--__animation-duration').match(new RegExp('([\-\.0-9]+)([a-zA-Z])'));
+			const animationDelayNumber: number = animationDelay ? parseInt(animationDelay[1] ?? '150') : 150;
+			const animationDelayUnit: string = animationDelay ? animationDelay[2] ?? 'ms' : 'ms';
+
+			(entry.target as HTMLElement).style.setProperty('--__animation-delay', ((animationDelayNumber - animationElapsedTime) * (animationPlaying + 1) * .9) + animationDelayUnit);
+
+			entry.target.setAttribute('data-skill-animate', 'true');
+
+			animationPlaying++;
+
+			entry.target.addEventListener('animationend', (event) => {
+				console.log(event);
+				animationPlaying--;
+			}, { once: true });
+
+			skillObserver.unobserve(entry.target);
+		});
+
+		if (animated.filter((entry: any) => entry.isIntersecting).length === skills.length) {
+			skillObserver.disconnect();
+		}
+	}, {
+		root: null,
+		rootMargin: (document.querySelector('.layout-header')?.clientHeight ?? 0) * -1 + 'px 0px',
+		threshold: 1.0
+	});
+
+	skills.forEach((skill) => {
+		skillObserver.observe(skill);
+	});
+</script>
+
 <style lang="scss">
+	@keyframes skills-showcase-show {
+		0% {
+			transform: translateY(100%);
+			opacity: 0;
+		}
+
+		25% {
+			opacity: 0;
+		}
+
+		100% {
+			transform: translateY(0%);
+			opacity: 1;
+		}
+	}
+
 	.skills-showcase {
 		display: flex;
 		justify-content: center;
@@ -68,16 +129,21 @@ import { SiAstro, SiNette, SiPlesk } from 'react-icons/si';
 		gap: var(--spacer-200) var(--spacer-500);
 
 		.skill {
+			--__animation-duration: 150ms;
+			--__animation-delay: var(--__animation-duration);
+
 			display: grid;
 			justify-items: center;
 			row-gap: 5px;
+			transform: translateY(0%);
+			opacity: 0;
 
 			.skill-icon {
 				display: grid;
-				align-content: end;
+				align-content: center;
 				height: 64px;
 
-				transition: transform 100ms linear;
+				transition: transform 100ms ease-in-out;
 
 				filter: drop-shadow(0 0 4px hsl(0 0% 0% / 0.25));
 			}
@@ -94,8 +160,14 @@ import { SiAstro, SiNette, SiPlesk } from 'react-icons/si';
 			&:hover {
 				.skill-icon {
 					transform: scale(1.2);
+					transition-timing-function: cubic-bezier(0,0,.5,2.5);
 				}
 			}
+
+			&[data-skill-animate="true"] {
+				animation: skills-showcase-show	var(--__animation-duration) cubic-bezier(.5,0,.5,1.25) var(--__animation-delay) forwards;
+			}
 		}
+
 	}
 </style>

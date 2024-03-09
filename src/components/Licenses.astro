@@ -1,0 +1,249 @@
+---
+import { translate, getCurrentLocale } from '@/i18n.mjs';
+
+import { DiHtml5, DiCss3, DiSass, DiJavascript, DiPhp } from "react-icons/di";
+import { SiAstro, SiNette, SiPlesk } from 'react-icons/si';
+import { BsFiletypeSql } from "react-icons/bs";
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import { FaSquareGithub, FaSquareXTwitter, FaSquareInstagram } from 'react-icons/fa6';
+
+const currentLocale = getCurrentLocale(Astro);
+---
+
+<h3>{ translate(currentLocale, 'licenses.iconsLicenses') }</h3>
+
+<h4>Font Awesome</h4>
+
+<ul>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.website') }</strong>:
+			<a href="https://fontawesome.com/" title={ translate(currentLocale, 'licenses.icons.fontAwesome.website') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://fontawesome.com
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.license') }</strong>: 
+			<a href="https://fontawesome.com/license/free" title={ translate(currentLocale, 'licenses.icons.fontAwesome.license') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://fontawesome.com/license/free
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			v6: <FaSquareXTwitter /> square-x-twitter (X / Twitter)
+		</span>
+	</li>
+	<li>
+		<span>
+			v6: <FaSquareGithub /> square-github (GitHub)
+		</span>
+	</li>
+	<li>
+		<span>
+			v6: <FaSquareInstagram /> square-instagram (Instagram)
+		</span>
+	</li>
+	<li>
+		<span>
+			v5: <FaExternalLinkAlt /> external-link-alt (External link icon)
+		</span>
+	</li>
+</ul>
+
+<h4>Simple Icons</h4>
+
+<ul>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.website') }</strong>: 
+			<a href="https://simpleicons.org/" title={ translate(currentLocale, 'licenses.icons.simpleIcons.website') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://simpleicons.org
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.license') }</strong>: 
+			<a href="https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md" title={ translate(currentLocale, 'licenses.icons.simpleIcons.license') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<SiAstro /> Astro
+		</span>
+	</li>
+	<li>
+		<span>
+			<SiNette /> Nette
+		</span>
+	</li>
+	<li>
+		<span>
+			<SiPlesk /> Plesk
+		</span>
+	</li>
+</ul>
+			
+<h4>Devicons</h4>
+
+<ul>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.website') }</strong>: 
+			<a href="https://vorillaz.github.io/devicons/" title={ translate(currentLocale, 'licenses.icons.devicons.website') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://vorillaz.github.io/devicons
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.license') }</strong>: 
+			<a href="https://opensource.org/licenses/MIT" title={ translate(currentLocale, 'licenses.icons.devicons.license') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://opensource.org/licenses/MIT
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<DiHtml5 /> HTML 5
+		</span>
+	</li>
+	<li>
+		<span>
+			<DiCss3 /> CSS 3
+		</span>
+	</li>
+	<li>
+		<span>
+			<DiJavascript /> JavaScript
+		</span>
+	</li>
+	<li>
+		<span>
+			<DiSass /> SASS
+		</span>
+	</li>
+	<li>
+		<span>
+			<DiPhp /> PHP
+		</span>
+	</li>
+</ul>
+
+<h4>Bootstrap Icons</h4>
+
+<ul>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.website') }</strong>: 
+			<a href="https://github.com/twbs/icons" title={ translate(currentLocale, 'licenses.icons.bootstrapIcons.website') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://github.com/twbs/icons
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>{ translate(currentLocale, 'licenses.license') }</strong>: 
+			<a href="https://github.com/twbs/icons/blob/main/LICENSE" title={ translate(currentLocale, 'licenses.icons.bootstrapIcons.license') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://github.com/twbs/icons/blob/main/LICENSE
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<BsFiletypeSql /> File Type SQL
+		</span>
+	</li>
+</ul>
+
+<h3>{ translate(currentLocale, 'licenses.brandsGuidelines') }</h3>
+
+<ul>
+	<li>
+		<span>
+			<strong>X / Twitter</strong>: 
+			<a href="https://about.x.com/en/who-we-are/brand-toolkit" title={ translate(currentLocale, 'licenses.brands.twitter') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://about.x.com/en/who-we-are/brand-toolkit
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>GitHub</strong>: 
+			<a href="https://github.com/logos" title={ translate(currentLocale, 'licenses.brands.github') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://github.com/logos
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>Instagram</strong>: 
+			<a href="https://about.meta.com/brand/resources/instagram/instagram-brand/" title={ translate(currentLocale, 'licenses.brands.instagram') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://about.meta.com/brand/resources/instagram/instagram-brand
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>Astro</strong>: 
+			<a href="https://astro.build/press/" title={ translate(currentLocale, 'licenses.brands.astro') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://astro.build/press
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>Nette</strong>: 
+			<a href="https://nette.org/en/logo" title={ translate(currentLocale, 'licenses.brands.nette') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://nette.org/en/logo
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>Plesk</strong>: 
+			<a href="https://www.plesk.com/brand/" title={ translate(currentLocale, 'licenses.brands.plesk') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://www.plesk.com/brand
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>SASS</strong>: 
+			<a href="https://sass-lang.com/styleguide/brand/" title={ translate(currentLocale, 'licenses.brands.sass') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://sass-lang.com/styleguide/brand
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>PHP</strong>: 
+			<a href="https://www.php.net/download-logos.php" title={ translate(currentLocale, 'licenses.brands.php') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://www.php.net/download-logos.php
+			</a>
+		</span>
+	</li>
+</ul>
+
+<style lang="scss">
+	li {
+		span {
+			position: relative;
+			padding-right: calc(1.5em + var(--spacer-100));
+			
+			svg {
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translateY(-50%);
+
+				font-size: 1.5em;
+			}
+		}
+	}
+</style>

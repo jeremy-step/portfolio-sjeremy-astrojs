@@ -103,41 +103,41 @@
 @mixin grid-spacings() {
 	@each $spacer, $space in $spacers {
 		&.padding-#{$spacer} {
-			padding-top: $space;
-			padding-bottom: $space;
+			padding-top: var(--spacer-#{$spacer});
+			padding-bottom: var(--spacer-#{$spacer});
 		}
 
 		&.padding-top-#{$spacer} {
-			padding-top: $space;
+			padding-top: var(--spacer-#{$spacer});
 		}
 
 		&.padding-bottom-#{$spacer} {
-			padding-bottom: $space;
+			padding-bottom: var(--spacer-#{$spacer});
 		}
 
 		&.margin-#{$spacer} {
-			margin-top: $space;
-			margin-bottom: $space;
+			margin-top: var(--spacer-#{$spacer});
+			margin-bottom: var(--spacer-#{$spacer});
 		}
 
 		&.margin-top-#{$spacer} {
-			margin-top: $space;
+			margin-top: var(--spacer-#{$spacer});
 		}
 
 		&.margin-bottom-#{$spacer} {
-			margin-bottom: $space;
+			margin-bottom: var(--spacer-#{$spacer});
 		}
 
 		&.gap-#{$spacer} {
-			gap: $space;
+			gap: var(--spacer-#{$spacer});
 		}
 
 		&.col-gap-#{$spacer} {
-			column-gap: $space;
+			column-gap: var(--spacer-#{$spacer});
 		}
 
 		&.row-gap-#{$spacer} {
-			row-gap: $space;
+			row-gap: var(--spacer-#{$spacer});
 		}
 	}
 }

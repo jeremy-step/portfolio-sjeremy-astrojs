@@ -49,7 +49,7 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 						<hr />
 						<ul>
 							{ data.technologies && <li><span>{ data.technologies }</span></li>}	
-							{ data.link && <li><span><a href={ data.link } target="_blank" rel="nofollow" title={ data.title }>{ data.linkDisplay } <FaExternalLinkAlt /></a></span></li> }
+							{ data.link && <li><span><a href={ data.link } target="_blank" rel="noopener noreferrer" title={ data.title }>{ data.linkDisplay } <FaExternalLinkAlt /></a></span></li> }
 						</ul>
 						}
 					</div>
