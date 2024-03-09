@@ -287,7 +287,7 @@ const currentLocale = getCurrentLocale(Astro);
 					&::after {
 						clip-path: var(--__icon-finish);
 
-						animation: primaryNavButtonOpen var(--__animation-speed) var(--__animation-timing) forwards;
+						animation-name: primaryNavButtonOpen;
 					}
 				}
 			}
@@ -338,7 +338,11 @@ const currentLocale = getCurrentLocale(Astro);
 
 				clip-path: var(--__icon-start);
 				
-				animation: primaryNavButtonClose var(--__animation-speed) var(--__animation-timing) forwards;
+				//animation: primaryNavButtonClose var(--__animation-speed) var(--__animation-timing) forwards;
+				animation-name: primaryNavButtonClose;
+				animation-duration: var(--__animation-speed);
+				animation-timing-function: var(--__animation-timing);
+				animation-fill-mode: forwards;
 			}
 
 			&::before {

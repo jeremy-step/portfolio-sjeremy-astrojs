@@ -19,16 +19,20 @@ export const i18n = {
 			cloudflare2: 'Privacidad y protección de datos de Cloudflare',
 		},
 		licenses: {
-			iconsLicenses: 'Licencias de iconos',
 			website: 'Sitio web',
 			license: 'Licencia',
+			assetsLicenses: 'Licencias de archivos',
+			iconsLicenses: 'Licencias de iconos',
+			brandsGuidelines: 'Directrices de marcas',
+			assets: {
+				unsplash: { website: 'Sitio web de Unsplash', license: 'Licencia de Unsplash'},
+			},
 			icons: {
 				fontAwesome: { website: 'Sitio web de Font Awesome', license: 'Licencia de Font Awesome'},
 				simpleIcons: { website: 'Sitio web de Simple Icons', license: 'Licencia de Simple Icons'},
 				devicons: { website: 'Sitio web de Devicons', license: 'Licencia de Devicons'},
 				bootstrapIcons: { website: 'Sitio web de Bootstrap Icons', license: 'Licencia de Bootstrap Icons'},
-			},
-			brandsGuidelines: 'Directrices de marcas',
+			},	
 			brands: {
 				twitter: 'X / Twitter - Directrices de marca',
 				github: 'GitHub - Directrices de marca',
@@ -66,16 +70,20 @@ export const i18n = {
 			cloudflare2: 'Cloudflare privacy and data protection',
 		},
 		licenses: {
-			iconsLicenses: 'Icons Licenses',
 			website: 'Website',
 			license: 'License',
+			assetsLicenses: 'Assets Licenses',
+			iconsLicenses: 'Icons Licenses',
+			brandsGuidelines: 'Brands Guidelines',
+			assets: {
+				unsplash: { website: 'Unsplash website', license: 'Unsplash license'},
+			},
 			icons: {
 				fontAwesome: { website: 'Font Awesome website', license: 'Font Awesome license'},
 				simpleIcons: { website: 'Simple Icons website', license: 'Simple Icons license'},
 				devicons: { website: 'Devicons website', license: 'Devicons license'},
 				bootstrapIcons: { website: 'Bootstrap Icons website', license: 'Bootstrap Icons license'},
-			},
-			brandsGuidelines: 'Brands Guidelines',
+			},	
 			brands: {
 				twitter: 'X / Twitter - Brand guidelines',
 				github: 'GitHub - Brand guidelines',
