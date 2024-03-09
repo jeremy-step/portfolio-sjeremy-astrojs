@@ -6,37 +6,24 @@ import { Gallery } from './packages/gallery';
 window.EventHandler = EventHandler;
 window.Util = Util;
 window.Layout = Layout;
-window.isSiteLoaded = () => document.querySelector('html').dataset.siteLoaded !== undefined;
-window.getMotionStatus = () => document.querySelector('html').dataset.disableMotion === undefined;
-
-window.SiteLoadedEvent = new CustomEvent('siteLoaded', {
-	detail: {
-		loaded: window.isSiteLoaded
-	}
-});
-
-window.MotionStatusEvent = new CustomEvent('motionStatus', {
-	detail: {
-		enabled: window.getMotionStatus,
-		disabled: !window.getMotionStatus
-	}
-});
 
 // let disableMotionTimer = null;
+
+// function setDisableMotionElements(value) {
+// 	document.querySelectorAll('[data-disable-motion]').forEach(element => {
+// 		element.setAttribute('data-disable-motion', value);
+// 	});
+// }
 
 window.addEventListener('load', () => {
 	const html = document.querySelector('html');
 	
 	html.toggleAttribute('data-site-loaded', true);
 	
-	document.dispatchEvent(window.SiteLoadedEvent);
-	
 	// disableMotionTimer = setTimeout(() => {
-	// 	html.removeAttribute('data-disable-motion');
+	// 	setDisableMotionElements(false);
 		
 	// 	disableMotionTimer = null;
-		
-	// 	document.dispatchEvent(window.MotionStatusEvent);
 	// }, 100);
 });
 
