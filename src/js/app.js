@@ -6,40 +6,63 @@ import { Gallery } from './packages/gallery';
 window.EventHandler = EventHandler;
 window.Util = Util;
 window.Layout = Layout;
+window.isSiteLoaded = () => document.querySelector('html').dataset.siteLoaded !== undefined;
+window.getMotionStatus = () => document.querySelector('html').dataset.disableMotion === undefined;
 
-let disableMotionTimer = null;
+window.SiteLoadedEvent = new CustomEvent('siteLoaded', {
+	detail: {
+		loaded: window.isSiteLoaded
+	}
+});
+
+window.MotionStatusEvent = new CustomEvent('motionStatus', {
+	detail: {
+		enabled: window.getMotionStatus,
+		disabled: !window.getMotionStatus
+	}
+});
+
+// let disableMotionTimer = null;
 
 window.addEventListener('load', () => {
 	const html = document.querySelector('html');
-
+	
 	html.toggleAttribute('data-site-loaded', true);
 	
-	disableMotionTimer = setTimeout(() => {
-		html.removeAttribute('data-disable-motion');
-
-		disableMotionTimer = null;
-	}, 100);
+	document.dispatchEvent(window.SiteLoadedEvent);
+	
+	// disableMotionTimer = setTimeout(() => {
+	// 	html.removeAttribute('data-disable-motion');
+		
+	// 	disableMotionTimer = null;
+		
+	// 	document.dispatchEvent(window.MotionStatusEvent);
+	// }, 100);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
 	Layout.init();
 	Gallery.init();
 	
-	window.addEventListener('resize', () => {
-		const html = document.querySelector('html');
+	// window.addEventListener('resize', () => {
+	// 	const html = document.querySelector('html');
 	
-		if (disableMotionTimer) {
-			clearTimeout(disableMotionTimer);
+	// 	if (disableMotionTimer) {
+	// 		clearTimeout(disableMotionTimer);
 	
-			disableMotionTimer = null;
-		} else {
-			html.toggleAttribute('data-disable-motion');
-		}
+	// 		disableMotionTimer = null;
+	// 	} else {
+	// 		//html.toggleAttribute('data-disable-motion');
+
+	// 		document.dispatchEvent(window.MotionStatusEvent);
+	// 	}
 	
-		disableMotionTimer = setTimeout(() => {
-			html.removeAttribute('data-disable-motion');
-	
-			disableMotionTimer = null;
-		}, 100);
-	}, { passive: true });
+	// 	disableMotionTimer = setTimeout(() => {
+	// 		html.removeAttribute('data-disable-motion');
+			
+	// 		disableMotionTimer = null;
+
+	// 		document.dispatchEvent(window.MotionStatusEvent);
+	// 	}, 100);
+	// }, { passive: true });
 });

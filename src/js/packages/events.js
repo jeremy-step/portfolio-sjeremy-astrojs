@@ -3,7 +3,7 @@ class EventHandlerClass {
 
 	addEventListener(element, event, func, options = {}) {
 		this.functionMap[event] = func;
-
+		
 		element.addEventListener(event.split('.')[0], this.functionMap[event], options);
 	}
 
