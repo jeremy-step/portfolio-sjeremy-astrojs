@@ -15,7 +15,7 @@ In the future I plan to change this to work via AJAX and return a JSON response 
 
 ---
 
-([portfolio.sjeremy.dev](https://portfolio.sjeremy.dev))
+Web: [portfolio.sjeremy.dev](https://portfolio.sjeremy.dev)
 
 ---
 
