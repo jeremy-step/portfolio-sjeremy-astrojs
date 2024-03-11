@@ -3,7 +3,7 @@ import { translate, getCurrentLocale } from '@/i18n.mjs';
 
 import { DiHtml5, DiCss3, DiSass, DiJavascript, DiPhp } from "react-icons/di";
 import { SiAstro, SiNette, SiPlesk } from 'react-icons/si';
-import { BsFiletypeSql } from "react-icons/bs";
+// import { BsFiletypeSql } from "react-icons/bs";
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { FaSquareGithub, FaSquareXTwitter, FaSquareInstagram } from 'react-icons/fa6';
 
@@ -201,7 +201,7 @@ const currentLocale = getCurrentLocale(Astro);
 	</li>
 </ul>
 
-<h4>Bootstrap Icons</h4>
+<!-- <h4>Bootstrap Icons</h4>
 
 <ul>
 	<li>
@@ -220,17 +220,12 @@ const currentLocale = getCurrentLocale(Astro);
 			</a>
 		</span>
 	</li>
-	<!-- <li>
-		<span>
-			<BsFiletypeSql /> File Type SQL
-		</span>
-	</li> -->
 	<li>
 		<span>
 			<BsFiletypeSql />
 		</span>
 	</li>
-</ul>
+</ul> -->
 
 <h3>{ translate(currentLocale, 'licenses.brandsGuidelines') }</h3>
 
@@ -296,6 +291,14 @@ const currentLocale = getCurrentLocale(Astro);
 			<strong>PHP</strong>: 
 			<a href="https://www.php.net/download-logos.php" title={ translate(currentLocale, 'licenses.brands.php') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
 				https://www.php.net/download-logos.php
+			</a>
+		</span>
+	</li>
+	<li>
+		<span>
+			<strong>MariaDB</strong>: 
+			<a href="https://mariadb.com/about-us/logos/" title={ translate(currentLocale, 'licenses.brands.mariadb') } class="word-break" target="_blank" rel="noopener noreferrer nofollow">
+				https://mariadb.com/about-us/logos
 			</a>
 		</span>
 	</li>

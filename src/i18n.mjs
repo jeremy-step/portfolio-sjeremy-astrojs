@@ -42,6 +42,7 @@ export const i18n = {
 				plesk: 'Plesk - Directrices de marca',
 				sass: 'SASS - Directrices de marca',
 				php: 'PHP - Directrices de marca',
+				mariadb: 'MariaDB - Directrices de marca',
 			}
 		},
 		name: 'Nombre',
@@ -93,6 +94,7 @@ export const i18n = {
 				plesk: 'Plesk - Brand guidelines',
 				sass: 'SASS - Brand guidelines',
 				php: 'PHP - Brand guidelines',
+				mariadb: 'MariaDB - Brand guidelines',
 			}
 		},
 		name: 'Name',
