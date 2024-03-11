@@ -21,6 +21,5 @@ Web: [portfolio.sjeremy.dev](https://portfolio.sjeremy.dev)
 
 ### TODO
 
-- Fix timeline styles on mobile
 - Fix contact form
 - Add call to action buttons to home page banner and featured projects timeline
