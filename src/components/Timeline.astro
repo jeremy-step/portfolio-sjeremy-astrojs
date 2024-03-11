@@ -33,27 +33,29 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 ---
 
 <section class="row content-text padding-500" role="contentinfo" aria-label={ title }>
-	<div class="col timeline-title text-center">
+	<div class="col medium-2-11 xxmedium-12 timeline--title text-center">
 		<h2>{ title }</h2>
 	</div>
-	<div class="col">
+	<div class="col medium-2-11 xxmedium-12">
 		<div class="timeline">
 			{ timeline.map(({ data, Content }) => (
 				<div class="timeline--item" data-timeline-date={ data.date }>
-					<div class="timeline--content">
-						<h3>{ data.title }</h3>
+					<div class="timeline-item--wrapper">
+						<div class="timeline--content">
+							<h3>{ data.title }</h3>
 
-						<Content />
+							<Content />
 
-						{ (data.technologies || data.link) &&
-						<hr />
-						<ul>
-							{ data.technologies && <li><span>{ data.technologies }</span></li>}	
-							{ data.link && <li><span><a href={ data.link } target="_blank" rel="noopener noreferrer" title={ data.title }>{ data.linkDisplay } <FaExternalLinkAlt /></a></span></li> }
-						</ul>
-						}
+							{ (data.technologies || data.link) &&
+							<hr />
+							<ul>
+								{ data.technologies && <li><span>{ data.technologies }</span></li>}	
+								{ data.link && <li><span><a href={ data.link } target="_blank" rel="noopener noreferrer" title={ data.title }>{ data.linkDisplay } <FaExternalLinkAlt /></a></span></li> }
+							</ul>
+							}
+						</div>
+						{ data.image && <Picture src={ data.image } formats={['avif', 'webp']} alt={ data.title } loading={ data.imageLoading ?? 'lazy' } width="950" class="timeline--image" /> }
 					</div>
-					{ data.image && <Picture src={ data.image } formats={['avif', 'webp']} alt={ data.title } loading={ data.imageLoading ?? 'lazy' } width="950" class="timeline--image" /> }
 				</div>
 			)) }
 		</div>
@@ -61,15 +63,13 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 </section>
 
 <style lang="scss">
-	.timeline-title {
-		margin-bottom: var(--spacer-200);
-	}
-
 	.timeline {
+		--__timeline-row-gap: var(--spacer-600);
+
 		position: relative;
 
 		display: grid;
-		row-gap: var(--spacer-600);
+		row-gap: var(--__timeline-row-gap);
 
 		padding-block: var(--spacer-400);
 
@@ -81,8 +81,6 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 			position: absolute;
 			
 			top: 0;
-			left: 50%;
-			transform: translateX(-50%);
 
 			width: 2px;
 			height: 100%;
@@ -90,48 +88,23 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 		}
 	}
 
-	.timeline--content {
-		grid-row: 1 / -1;
-		grid-column: 1 / 2;
-
-		hr {
-			margin: .7em 0;
-
-			& + * {
-				margin-top: 0;
-			}
-		}
-	}
-
-	.timeline--image {
-		grid-row: 1 / -1;
-		grid-column: 2 / 3;
-
-		margin: 0 !important;
-
-		border: 2px solid currentColor;
-		border-radius: .5rem;
-		box-shadow: var(--box-shadow-bottom);
-	}
-
 	.timeline--item {
+		--__date-padding-block: 4px;
+		--__date-padding-inline: 12px;
+		--__date-padding-side: var(--spacer-200);
+
 		position: relative;
 
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		align-items: center;
-		column-gap: var(--spacer-400);
+		&::before, &::after {
+			position: absolute;
+		}
 
 		&::before {
 			content: '';
 
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-
 			width: 1.25rem;
 			height: 1.25rem;
+
 			background-color: currentColor;
 			border-radius: 50%;
 
@@ -141,50 +114,221 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 		&::after {
 			content: attr(data-timeline-date);
 
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translateY(-50%);
-
-			padding: 6px 12px;
-			padding-left: var(--spacer-200);
-
 			font-weight: var(--font-weight-bold);
 			font-size: 1.1rem;
 			color: var(--color-font-secondary);
-			line-height: 1;
+			line-height: 1.4;
 
 			background-color: var(--color-font-primary);
-			border-top-right-radius: 100vh;
-			border-bottom-right-radius: 100vh;
-
-			box-shadow: var(--box-shadow-right);
 
 			z-index: 2;
 		}
+	}
 
-		&:nth-child(2n) {
-			& .timeline--image {
-				grid-column: 1 / 2;
+	.timeline--image {
+		margin: 0 !important;
+
+		border: 2px solid currentColor;
+		border-radius: .5rem;
+		box-shadow: var(--box-shadow-bottom);
+	}
+
+	.timeline--content {
+		hr {
+			margin: .7em 0;
+
+			& + * {
+				margin-top: 0;
+			}
+		}
+	}
+
+	@include breakpoint(xxmedium, up) {
+		.timeline--title {
+			margin-bottom: var(--spacer-200);
+		}
+
+		.timeline {
+			&::before {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
+		.timeline--content {
+			grid-row: 1 / -1;
+			grid-column: 1 / 2;
+		}
+
+		.timeline--image {
+			grid-row: 1 / -1;
+			grid-column: 2 / 3;
+		}
+
+		.timeline--item {
+			&::before, &::after {
+				top: 50%;
+				left: 50%;
 			}
 
-			& .timeline--content {
-				grid-column: 2 / 3;
+			&::before {
+				transform: translate(-50%, -50%);
 			}
 
 			&::after {
-				left: auto;
-				right: 50%;
+				transform: translateY(-50%);
+				padding-block: var(--__date-padding-block);
+				padding-inline: var(--__date-padding-side) var(--__date-padding-inline);
 
-				padding: 6px 12px;
-				padding-right: var(--spacer-200);
+				border-radius: 0 100vh 100vh 0;
+				box-shadow: var(--box-shadow-right);
+			}
 
-				border-top-left-radius: 100vh;
-				border-bottom-left-radius: 100vh;
-				border-top-right-radius: 0;
-				border-bottom-right-radius: 0;
+			&:nth-child(2n) {
+				& .timeline--image {
+					grid-column: 1 / 2;
+				}
 
-				box-shadow: var(--box-shadow-left);
+				& .timeline--content {
+					grid-column: 2 / 3;
+				}
+
+				&::after {
+					left: auto;
+					right: 50%;
+
+					padding-inline: var(--__date-padding-inline) var(--__date-padding-side);
+
+					border-radius: 100vh 0 0 100vh;
+
+					box-shadow: var(--box-shadow-left);
+				}
+			}
+		}
+
+		.timeline-item--wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			column-gap: var(--spacer-400);
+		}
+	}
+
+	@include breakpoint(xmedium, down) {
+		.timeline {
+			--__timeline-row-gap: var(--spacer-1000);
+
+			&::before {
+				right: 90px;
+			}
+		}
+
+		.timeline--item {
+			padding-right: 120px;
+
+			&::before {
+				top: 50%;
+				right: 90px;
+				transform: translate(50%, -50%);
+			}
+
+			&::after {
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+
+				width: 90px;
+				padding-block: var(--__date-padding-block);
+
+				border-radius: 0 .5rem .5rem 0;
+				box-shadow: var(--box-shadow-right);
+
+				text-align: center;
+				font-size: .9rem;
+			}
+
+			&:last-of-type {
+				.timeline-item--wrapper {
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.timeline--content:not(:last-child) {
+			padding-bottom: var(--spacer-300);
+		}
+
+		.timeline-item--wrapper {
+			position: relative;
+
+			&::before {
+				content: '';
+
+				position: absolute;
+				bottom: calc(var(--__timeline-row-gap) / -2);
+				left: 0;
+				transform: translateY(50%);
+				
+				width: calc(100% + 120px);
+				height: 2px;
+
+				background-color: currentColor;
+			}
+		}
+	}
+
+	@include breakpoint(medium, down) {
+		.timeline {
+			&::before {
+				display: none;
+			}
+
+			padding: 0 0 var(--spacer-500);
+		}
+
+		.timeline--item {
+			padding-right: 0;
+
+			&::after {
+				top: auto;
+				right: auto;
+				bottom: calc(var(--__timeline-row-gap) / -2);
+				left: 50%;
+				transform: translateX(-50%);
+
+				width: auto;
+				padding: var(--__date-padding-block) var(--__date-padding-inline);
+
+				border-radius: .5rem .5rem 0 0;
+				box-shadow: var(--box-shadow-top);
+
+				z-index: 3;
+			}
+			
+			&::before {
+				top: auto;
+				right: auto;
+				bottom: calc((var(--__timeline-row-gap) / -2) + 2px);
+				left: 50%;
+				transform: translate(-50%, 50%);
+
+				z-index: 2;
+			}
+
+			&:last-of-type {
+				.timeline-item--wrapper {
+					&::before {
+						display: block;
+					}
+				}
+			}
+		}
+
+		.timeline-item--wrapper {
+			&::before {
+				width: 100%;
 			}
 		}
 	}

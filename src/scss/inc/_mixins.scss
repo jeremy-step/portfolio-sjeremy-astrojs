@@ -142,11 +142,11 @@
 	}
 }
 
-@mixin single-row() {
+@mixin row-dense() {
 	@each $breakpoint, $width in $breakpoints {
 		@include breakpoint($breakpoint, up) {
-			&.single-row-#{$breakpoint} .col {
-				grid-row: 1 / -1;
+			&.#{$breakpoint}-dense {
+				grid-auto-flow: row dense;
 			}
 		}
 	}
