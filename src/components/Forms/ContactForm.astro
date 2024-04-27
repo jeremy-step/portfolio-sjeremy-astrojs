@@ -43,6 +43,8 @@ const { Content } = await entry[0].render();
 </Form>
 
 <script>
+	const currentLocale = document.querySelector('html')?.dataset.lang ?? 'en';
+
 	{
 		type Entries<T> = {
 			[K in keyof T]: [key: K, value: T[K]];
@@ -58,7 +60,8 @@ const { Content } = await entry[0].render();
 			try {
 				const response = await fetch('https://portfolio.sjeremy.dev/contact/', {
 					method: 'POST',
-					body: formData
+					body: formData,
+					headers: new Headers({"x-portfolio-lang": currentLocale})
 				});
 
 				const result = await response.json();
