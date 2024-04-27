@@ -18,18 +18,7 @@ const entry = await getCollection('forms', ({ slug }) => {
 const { Content } = await entry[0].render();
 ---
 
-<Form action="contact" query="?form=contact#contact-form" method="post" novalidate id="contact-form">
-	<p class="bg-alert info-message" style="display: none">Error</p>
-	<script>
-		const query = new URLSearchParams(location.search);
-		
-		if (query.get('form') === 'contact') {
-			const msg: HTMLElement | null = document.querySelector('.info-message');
-			if (msg) {
-				msg.style.display = '';
-			}
-		}
-	</script>
+<Form action="contact" method="post" novalidate id="contact-form">
 	<div class="row">
 		<div class="col medium-6">
 			<Input type="text" name="name" label={ translate(currentLocale, 'name')} />
@@ -45,10 +34,78 @@ const { Content } = await entry[0].render();
 		</div>
 		<div class="col">
 			<Content />
-			<InputInline type="checkbox" name="legal" label={ translate(currentLocale, 'accept')} value="1" />
+			<InputInline type="checkbox" name="legal" label={ translate(currentLocale, 'accept')} />
 		</div>
 		<div class="col justify-right">
-			<Submit label={ translate(currentLocale, 'sendMessage')} />
+			<Submit label={ translate(currentLocale, 'sendMessage') } />
 		</div>
 	</div>
 </Form>
+
+<script>
+	{
+		type Entries<T> = {
+			[K in keyof T]: [key: K, value: T[K]];
+		}[keyof T][];
+
+		const form: HTMLFormElement|null = document.querySelector('#contact-form');
+
+		form?.addEventListener('submit', async event => {
+			event.preventDefault();
+
+			const formData = new FormData(form);
+
+			try {
+				const response = await fetch('https://portfolio.sjeremy.dev/contact/', {
+					method: 'POST',
+					body: formData
+				});
+
+				const result = await response.json();
+
+				processForm(form, result);
+			} catch (e) {
+				console.error(e);
+			}
+		});
+
+		function processForm(form: HTMLFormElement, result: any) {
+			form.querySelectorAll('.info-message').forEach(error => {
+				error.remove();
+			});
+
+			form.querySelectorAll('[data-error]').forEach(error => {
+				error.removeAttribute('data-error');
+			});
+
+			if (result.status === 1) {
+				const message = document.createElement('p');
+				
+				message.classList.add('bg-success', 'info-message');
+				message.textContent = result.message;
+
+				form.prepend(message);
+				//form.reset();
+			}
+
+			if (result.status === -1) {
+				result.formErrors.forEach((error: string) => {
+					const message = document.createElement('p');
+				
+					message.classList.add('bg-alert', 'info-message');
+					message.textContent = error;
+
+					form.prepend(message);
+				});
+				
+				for (const [input, errors] of Object.entries(result.inputErrors) as Entries<typeof result.inputErrors>) {
+					if (errors.length >= 1) {
+						const formInput = form.querySelector(`[name="${input}"]`);
+						
+						formInput?.parentElement?.setAttribute('data-error', errors.join("\n\n"));
+					}
+				}
+			}
+		}
+	}
+</script>

@@ -1,8 +1,10 @@
 ---
+import { IoInformationCircleSharp } from "react-icons/io5";
+
 const { label, name } = Astro.props;
 ---
 
 <label>
-	<div class="form-label">{ label }</div>
+	<div class="form-label">{ label } <span class="error-indicator"><IoInformationCircleSharp /></span></div>
 	<textarea name={ name }>{ Astro.slots.render('default') }</textarea>
 </label>
