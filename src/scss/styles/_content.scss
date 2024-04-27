@@ -291,7 +291,7 @@
 
 		&:focus {
 			outline: none;
-			border-color: var(--color-accent-500);
+			border-color: var(--color-accent-500) !important;
 		}
 	}
 
