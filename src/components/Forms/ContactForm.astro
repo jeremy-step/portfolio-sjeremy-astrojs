@@ -92,22 +92,24 @@ const { Content } = await entry[0].render();
 			}
 
 			if (result.status === -1) {
-				result.formErrors.forEach((error: string) => {
-					const message = document.createElement('p');
-				
-					message.classList.add('bg-alert', 'info-message');
-					message.textContent = error;
+				setTimeout(() => {
+					result.formErrors.forEach((error: string) => {
+						const message = document.createElement('p');
+					
+						message.classList.add('bg-alert', 'info-message');
+						message.textContent = error;
 
-					form.prepend(message);
-				});
-				
-				for (const [input, errors] of Object.entries(result.inputErrors) as Entries<typeof result.inputErrors>) {
-					if (errors.length >= 1) {
-						const formInput = form.querySelector(`[name="${input}"]`);
-						
-						formInput?.parentElement?.setAttribute('data-error', errors.join("\n\n"));
+						form.prepend(message);
+					});
+					
+					for (const [input, errors] of Object.entries(result.inputErrors) as Entries<typeof result.inputErrors>) {
+						if (errors.length >= 1) {
+							const formInput = form.querySelector(`[name="${input}"]`);
+							
+							formInput?.parentElement?.setAttribute('data-error', errors.join("\n\n"));
+						}
 					}
-				}
+				}, 100);
 			}
 		}
 	}
