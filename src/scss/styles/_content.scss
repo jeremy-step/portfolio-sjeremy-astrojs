@@ -244,6 +244,21 @@
 
 	--__select-arrow-width: 30px;
 
+	.info-message {
+		margin-bottom: 1em !important;
+	}
+
+	.error-indicator {
+		opacity: 0;
+
+		color: var(--color-alert);
+
+		svg {
+			position: relative;
+			top: 2px;
+		}
+	}
+
 	.form-label {
 		padding-bottom: var(--__label-padding-bottom);
 
@@ -277,6 +292,73 @@
 		&:focus {
 			outline: none;
 			border-color: var(--color-accent-500);
+		}
+	}
+
+	label[data-error] {
+		position: relative;
+		display: block;
+
+		.error-indicator {
+			opacity: 1;
+		}
+
+		input:not([type="checkbox"], [type="radio"], [type="submit"]), select, textarea {
+			border-color: var(--color-alert);
+		}
+
+		&::after {
+			content: attr(data-error);
+
+			position: absolute;
+			top: 100%;
+			left: 0;
+			z-index: 5;
+
+			margin-top: .5em;
+			width: 100%;
+
+			padding: 5px 8px;
+			border: 1px solid var(--color-alert);
+			border-radius: 3px;
+			box-shadow: inset 0 0 2px 1px hsl(0 0% 0% / .15), 0 0 2px 1px hsl(0 0% 0% / .15);
+			background-color: var(--color-alert);
+
+			font-size: var(--font-size--1);
+			color: var(--color-white);
+			white-space: pre-wrap;
+
+			opacity: 0;
+			pointer-events: none;
+
+			transition: opacity 150ms linear;
+		}
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			top: 100%;
+			left: 1em;
+			z-index: 10;
+
+			margin-top:calc(-.5em - 1px);
+			width: 0;
+			height: 0;
+
+			border: .5em solid;
+			border-color: transparent transparent var(--color-alert) transparent;
+
+			opacity: 0;
+			pointer-events: none;
+
+			transition: opacity 150ms linear;
+		}
+
+		&:focus-within {
+			&::before, &::after {
+				opacity: 1;
+			}
 		}
 	}
 
