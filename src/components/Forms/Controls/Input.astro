@@ -1,8 +1,10 @@
 ---
+import { IoInformationCircleSharp } from "react-icons/io5";
+
 const { label, type, name, value, checked } = Astro.props;
 ---
 
 <label>
-	<div class="form-label">{ label }</div>
+	<div class="form-label">{ label } <span class="error-indicator"><IoInformationCircleSharp /></span></div>
 	<input type={ type } name={ name ?? null } value={ value ?? null } checked={ checked ?? null }>
 </label>

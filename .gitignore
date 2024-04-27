@@ -134,3 +134,6 @@ dist
 **/.history
 
 .astro
+
+vendor
+**/vendor/**
