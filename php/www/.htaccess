@@ -1,0 +1,10 @@
+Require all granted
+
+ErrorDocument 403 /index.php?%{QUERY_STRING}
+ErrorDocument 404 /index.php?%{QUERY_STRING}
+
+<IfModule mod_autoindex.c>
+	Options -Indexes
+</IfModule>
+
+Header set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
