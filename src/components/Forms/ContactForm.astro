@@ -43,7 +43,7 @@ const { Content } = await entry[0].render();
 </Form>
 
 <script>
-	const currentLocale = document.querySelector('html')?.dataset.lang ?? 'en';
+	const currentLocale = document.querySelector('html')?.getAttribute('lang') ?? 'en';
 
 	{
 		type Entries<T> = {
