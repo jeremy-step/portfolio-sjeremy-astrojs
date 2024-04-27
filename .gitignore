@@ -135,5 +135,7 @@ dist
 
 .astro
 
-vendor
-**/vendor/**
+php/vendor
+php/**/vendor/**
+php/**/*.local.ini
+php/**/log/**
