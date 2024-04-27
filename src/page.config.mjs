@@ -1,6 +1,6 @@
 const locales = {
 	es: 'es-ES',
-	en: 'en-US'
+	//en: 'en-US'
 };
 
 const localesSimple = Object.keys(locales).map((key) => key);
