@@ -8,7 +8,7 @@ class FormTranslator implements Nette\Localization\Translator {
 	public function __construct(private array $translations) {}
 
 	public function translate(string|\Stringable $message, mixed ...$parameters): string|\Stringable {
-		return $this->formatMessage($this->translations[$message], ...$parameters) ?? $message;
+		return $this->formatMessage($this->translations[$message] ?? $message, ...$parameters);
 	}
 
 	private function formatMessage(string $string, ...$parameters): string {

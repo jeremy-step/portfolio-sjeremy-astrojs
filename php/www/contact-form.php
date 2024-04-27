@@ -58,7 +58,7 @@ $form->addCheckbox('legal')
 	->setRequired();
 
 $form->onError[] = function(Form $form) use ($translator): void {
-	$form->addError($translator->translate('formError'));
+	$form->addError('formError');
 	
 	$errors = [];
 
@@ -119,7 +119,7 @@ $form->onSuccess[] = function(Form $form) use ($translator): void {
 	} catch (Exception $e) {
 		Debugger::log($e);
 
-		$form->addError($translator->translate('formError'));
+		$form->addError('formError');
 
 		echo json_encode(['status' => -1, 'formErrors' => $form->getOwnErrors(), 'inputErrors' => []]);
 
