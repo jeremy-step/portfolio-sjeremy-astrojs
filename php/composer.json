@@ -1,0 +1,7 @@
+{
+    "require": {
+        "nette/forms": "^3.2",
+        "nette/mail": "^4.0",
+        "tracy/tracy": "^2.10"
+    }
+}
