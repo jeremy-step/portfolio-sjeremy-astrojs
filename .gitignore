@@ -139,3 +139,5 @@ php/vendor
 php/**/vendor/**
 php/**/*.local.ini
 php/**/log/**
+
+src/pages/en
