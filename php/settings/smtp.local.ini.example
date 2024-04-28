@@ -1,0 +1,5 @@
+host = "host"
+username = "username"
+password = "password"
+encryption = "ssl"
+port = "465"
