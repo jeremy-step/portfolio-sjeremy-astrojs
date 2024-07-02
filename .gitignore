@@ -141,3 +141,5 @@ php/**/*.local.ini
 php/**/log/**
 
 src/pages/en
+
+.unlighthouse
