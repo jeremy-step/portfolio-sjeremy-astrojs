@@ -1,6 +1,6 @@
 ---
 import Link from './Link.astro';
-import { FaSquareGithub, FaSquareXTwitter, FaSquareInstagram } from 'react-icons/fa6';
+import { FaSquareGithub, FaSquareXTwitter, FaSquareInstagram, FaLinkedin } from 'react-icons/fa6';
 
 import { getCollection } from 'astro:content';
 import { pageConfig } from '@/page.config.mjs';
@@ -38,6 +38,7 @@ const footer = footerCollection.map(async (entry: any) => {
 	<div class="layout-footer--bar">
 		<div class="footer-bar">
 			<ul class="footer-bar--social">
+				<li><a href={ pageConfig.social.linkedIn } title="LinkedIn" rel="noopener noreferrer" target="_blank"><FaLinkedin title="LinkedIn" role="img" /></a></li>
 				<li><a href={ pageConfig.social.github } title="GitHub" rel="noopener noreferrer" target="_blank"><FaSquareGithub title="GitHub" role="img" /></a></li>
 				<li><a href={ pageConfig.social.twitter } title="X (Twitter)" rel="noopener noreferrer" target="_blank"><FaSquareXTwitter title="X (Twitter)" role="img" /></a></li>
 				<li><a href={ pageConfig.social.instagram } title="Instagram" rel="noopener noreferrer" target="_blank"><FaSquareInstagram title="Instagram" role="img" /></a></li>
@@ -123,7 +124,7 @@ const footer = footerCollection.map(async (entry: any) => {
 		display: grid;
 		grid-template-columns: auto minmax(50%, 1fr);
 		align-items: center;
-		column-gap: var(--spacer-400);
+		column-gap: var(--spacer-100);
 
 		width: min(var(--content-width), 100%);
 	}
