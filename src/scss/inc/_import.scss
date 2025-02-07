@@ -1,13 +1,12 @@
-@import 'mixins';
-@import 'fonts';
-@import 'reset';
+@use "fonts";
+@use "reset";
 
-@import 'defaults/import';
+@use "defaults/import";
 
-@import 'utils';
+@use "utils";
 
-@import '../styles/layout';
+@use "../styles/layout";
 
-@import 'override';
+@use "override";
 
-@import 'dev';
+// @use 'dev';

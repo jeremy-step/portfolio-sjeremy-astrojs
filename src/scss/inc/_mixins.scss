@@ -1,153 +1,155 @@
-@function breakpoint-value($size, $direction, $height: 'none') {
-	$size_current: '';
-	$size_next: '';
-	$breakpoint_prev: '';
-	$rule: '';
+@use "defaults/vars-sass" as vars;
 
-	@each $breakpoint, $width in $breakpoints {
-		@if $breakpoint == $size {
-			$size_current: $width;    
-		}
+@function breakpoint-value($size, $direction, $height: "none") {
+    $size_current: "";
+    $size_next: "";
+    $breakpoint_prev: "";
+    $rule: "";
 
-		@if $breakpoint_prev == $size {
-			$size_next: $width;
-		}
+    @each $breakpoint, $width in vars.$breakpoints {
+        @if $breakpoint == $size {
+            $size_current: $width;
+        }
 
-		$breakpoint_prev: $breakpoint;
-	}
+        @if $breakpoint_prev == $size {
+            $size_next: $width;
+        }
 
-	@if $direction == 'up' {
-		$rule: '(min-width: #{$size_current})';
-	}
+        $breakpoint_prev: $breakpoint;
+    }
 
-	@if $direction == 'down' {
-		$size_next: $size_next - 1;
-		$rule: '(max-width: #{$size_next})';
-	}
+    @if $direction == "up" {
+        $rule: "(min-width: #{$size_current})";
+    }
 
-	@if $direction == 'only' {
-		$size_next: $size_next - 1;
-		$rule: '(min-width: #{$size_current}) and (max-width: #{$size_next})';
-	}
+    @if $direction == "down" {
+        $size_next: $size_next - 1;
+        $rule: "(max-width: #{$size_next})";
+    }
 
-	@if $height == 'min' {
-		$rule: '#{$rule} and (min-height: 640px)';
-	}
+    @if $direction == "only" {
+        $size_next: $size_next - 1;
+        $rule: "(min-width: #{$size_current}) and (max-width: #{$size_next})";
+    }
 
-	@if $height == 'max' {
-		$rule: '#{$rule} and (max-height: 639px)';
-	}
+    @if $height == "min" {
+        $rule: "#{$rule} and (min-height: 640px)";
+    }
 
-	@if $height == 'ormin' {
-		$rule: '#{$rule}, (min-height: 640px)';
-	}
+    @if $height == "max" {
+        $rule: "#{$rule} and (max-height: 639px)";
+    }
 
-	@if $height == 'ormax' {
-		$rule: '#{$rule}, (max-height: 639px)';
-	}
+    @if $height == "ormin" {
+        $rule: "#{$rule}, (min-height: 640px)";
+    }
 
-	@return $rule;
+    @if $height == "ormax" {
+        $rule: "#{$rule}, (max-height: 639px)";
+    }
+
+    @return $rule;
 }
 
-@mixin breakpoint($size, $direction, $height: 'none') {
-	$size_current: '';
-	$rule: breakpoint-value($size, $direction, $height);
+@mixin breakpoint($size, $direction, $height: "none") {
+    $size_current: "";
+    $rule: breakpoint-value($size, $direction, $height);
 
-	@each $breakpoint, $width in $breakpoints {
-		@if $breakpoint == $size {
-			$size_current: $width;    
-		}
-	}
+    @each $breakpoint, $width in vars.$breakpoints {
+        @if $breakpoint == $size {
+            $size_current: $width;
+        }
+    }
 
-	@if $direction != 'up' or ($direction == 'up' and $size_current > 0) {
-		@media all and #{$rule} {
-			@content;
-		}
-	} @else {
-		@content;
-	}
+    @if $direction != "up" or ($direction == "up" and $size_current > 0) {
+        @media all and #{$rule} {
+            @content;
+        }
+    } @else {
+        @content;
+    }
 }
 
 @mixin breakpoint-vars() {
-	@each $breakpoint, $width in $breakpoints {
-		--breakpoint-#{$breakpoint}: #{$width};
-	}
+    @each $breakpoint, $width in vars.$breakpoints {
+        --breakpoint-#{$breakpoint}: #{$width};
+    }
 }
 
 @mixin spacer-vars() {
-	@each $spacer, $space in $spacers {
-		--spacer-#{$spacer}: #{$space};
-	}
+    @each $spacer, $space in vars.$spacers {
+        --spacer-#{$spacer}: #{$space};
+    }
 }
 
 @mixin grid-columns() {
-	@each $breakpoint, $width in $breakpoints {
-		@include breakpoint($breakpoint, up) {
-			@for $i from 1 through 12 {
-				@for $c from 1 through 12 {
-					@if $c >= $i {
-						.col.#{$breakpoint}-#{$i}-#{$c} {
-							grid-column: #{$i} / #{$c + 1};
-						}
-					}
-				}
+    @each $breakpoint, $width in vars.$breakpoints {
+        @include breakpoint($breakpoint, up) {
+            @for $i from 1 through 12 {
+                @for $c from 1 through 12 {
+                    @if $c >= $i {
+                        .col.#{$breakpoint}-#{$i}-#{$c} {
+                            grid-column: #{$i} / #{$c + 1};
+                        }
+                    }
+                }
 
-				.col.#{$breakpoint}-#{$i} {
-					grid-column: auto / span #{$i};
-				}
-			}
-		}
-	}
+                .col.#{$breakpoint}-#{$i} {
+                    grid-column: auto / span #{$i};
+                }
+            }
+        }
+    }
 }
 
 @mixin grid-spacings() {
-	@each $spacer, $space in $spacers {
-		&.padding-#{$spacer} {
-			padding-top: var(--spacer-#{$spacer});
-			padding-bottom: var(--spacer-#{$spacer});
-		}
+    @each $spacer, $space in vars.$spacers {
+        &.padding-#{$spacer} {
+            padding-top: var(--spacer-#{$spacer});
+            padding-bottom: var(--spacer-#{$spacer});
+        }
 
-		&.padding-top-#{$spacer} {
-			padding-top: var(--spacer-#{$spacer});
-		}
+        &.padding-top-#{$spacer} {
+            padding-top: var(--spacer-#{$spacer});
+        }
 
-		&.padding-bottom-#{$spacer} {
-			padding-bottom: var(--spacer-#{$spacer});
-		}
+        &.padding-bottom-#{$spacer} {
+            padding-bottom: var(--spacer-#{$spacer});
+        }
 
-		&.margin-#{$spacer} {
-			margin-top: var(--spacer-#{$spacer});
-			margin-bottom: var(--spacer-#{$spacer});
-		}
+        &.margin-#{$spacer} {
+            margin-top: var(--spacer-#{$spacer});
+            margin-bottom: var(--spacer-#{$spacer});
+        }
 
-		&.margin-top-#{$spacer} {
-			margin-top: var(--spacer-#{$spacer});
-		}
+        &.margin-top-#{$spacer} {
+            margin-top: var(--spacer-#{$spacer});
+        }
 
-		&.margin-bottom-#{$spacer} {
-			margin-bottom: var(--spacer-#{$spacer});
-		}
+        &.margin-bottom-#{$spacer} {
+            margin-bottom: var(--spacer-#{$spacer});
+        }
 
-		&.gap-#{$spacer} {
-			gap: var(--spacer-#{$spacer});
-		}
+        &.gap-#{$spacer} {
+            gap: var(--spacer-#{$spacer});
+        }
 
-		&.col-gap-#{$spacer} {
-			column-gap: var(--spacer-#{$spacer});
-		}
+        &.col-gap-#{$spacer} {
+            column-gap: var(--spacer-#{$spacer});
+        }
 
-		&.row-gap-#{$spacer} {
-			row-gap: var(--spacer-#{$spacer});
-		}
-	}
+        &.row-gap-#{$spacer} {
+            row-gap: var(--spacer-#{$spacer});
+        }
+    }
 }
 
 @mixin row-dense() {
-	@each $breakpoint, $width in $breakpoints {
-		@include breakpoint($breakpoint, up) {
-			&.#{$breakpoint}-dense {
-				grid-auto-flow: row dense;
-			}
-		}
-	}
+    @each $breakpoint, $width in vars.$breakpoints {
+        @include breakpoint($breakpoint, up) {
+            &.#{$breakpoint}-dense {
+                grid-auto-flow: row dense;
+            }
+        }
+    }
 }
