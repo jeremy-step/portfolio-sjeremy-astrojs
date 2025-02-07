@@ -143,7 +143,7 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 		}
 	}
 
-	@include breakpoint(xxmedium, up) {
+	@include mixins.breakpoint(xxmedium, up) {
 		.timeline--title {
 			margin-bottom: var(--spacer-200);
 		}
@@ -214,7 +214,7 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 		}
 	}
 
-	@include breakpoint(xmedium, down) {
+	@include mixins.breakpoint(xmedium, down) {
 		.timeline {
 			--__timeline-row-gap: var(--spacer-1000);
 
@@ -279,7 +279,7 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 		}
 	}
 
-	@include breakpoint(medium, down) {
+	@include mixins.breakpoint(medium, down) {
 		.timeline {
 			&::before {
 				display: none;
