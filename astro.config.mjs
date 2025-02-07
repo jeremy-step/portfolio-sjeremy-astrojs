@@ -30,6 +30,7 @@ export default defineConfig({
         css: {
             preprocessorOptions: {
                 scss: {
+                    api: "modern-compiler",
                     additionalData: `
 						@use "@/scss/inc/defaults/vars-sass";
 						@use "@/scss/inc/mixins";
