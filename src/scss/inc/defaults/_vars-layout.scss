@@ -1,15 +1,19 @@
-:root, ::before, ::after {
-	/* Spacing */
+@use "../mixins";
 
-	@include spacer-vars();
+:root,
+::before,
+::after {
+    /* Spacing */
 
-	/* Layout */
+    @include mixins.spacer-vars();
 
-	--header-height: 55px;
-	--header-space-block: var(--spacer-100);
+    /* Layout */
 
-	/* Content */
+    --header-height: 55px;
+    --header-space-block: var(--spacer-100);
 
-	--content-width: 75rem;
-	--content-width-expanded: 100%;
+    /* Content */
+
+    --content-width: 75rem;
+    --content-width-expanded: 100%;
 }

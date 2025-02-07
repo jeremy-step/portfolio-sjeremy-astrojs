@@ -8,7 +8,7 @@ import { getCurrentLocale } from '@/i18n.mjs';
 
 const currentLocale = getCurrentLocale(Astro);
 
-const footerCollection = await getCollection('footer', ({ id }) => {
+const footerCollection = await getCollection('footer', ({ id }: { id: any }) => {
   	return id.startsWith(currentLocale + '/');
 });
 
@@ -89,12 +89,12 @@ const footer = footerCollection.map(async (entry: any) => {
 		padding: var(--spacer-200);
 
 		&:nth-child(2) {
-			@include breakpoint(xmedium, up) {
+			@include mixins.breakpoint(xmedium, up) {
 				border-left: 1px solid var(--color-primary-500);
 				border-right: 1px solid var(--color-primary-500);
 			}
 
-			@include breakpoint(medium, down) {
+			@include mixins.breakpoint(medium, down) {
 				border-top: 1px solid var(--color-primary-500);
 				border-bottom: 1px solid var(--color-primary-500);
 			}

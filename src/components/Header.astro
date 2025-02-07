@@ -45,7 +45,7 @@ const currentLocale = getCurrentLocale(Astro);
 		background-color: var(--color-secondary-300);
 		background: linear-gradient(var(--color-secondary-500), var(--color-secondary-200));
 
-		@include breakpoint(medium, down) {
+		@include mixins.breakpoint(medium, down) {
 			position: relative;
 		}
 	}
@@ -90,7 +90,7 @@ const currentLocale = getCurrentLocale(Astro);
 		align-self: center;
 	}
 
-	@include breakpoint(xxmedium, up) {
+	@include mixins.breakpoint(xxmedium, up) {
 		.primary-nav--button {
 			display: none;
 		}
@@ -256,7 +256,7 @@ const currentLocale = getCurrentLocale(Astro);
 		}
 	}
 
-	@include breakpoint(xmedium, down) {
+	@include mixins.breakpoint(xmedium, down) {
 		.primary-nav {
 			display: grid;
 			align-items: center;

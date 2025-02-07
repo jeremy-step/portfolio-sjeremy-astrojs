@@ -1,7 +1,7 @@
 ---
 import { DiHtml5, DiCss3, DiSass, DiJavascript, DiPhp } from "react-icons/di";
 import { SiAstro, SiNette, SiPlesk } from 'react-icons/si';
-import { BsFiletypeSql } from "react-icons/bs";
+// import { BsFiletypeSql } from "react-icons/bs";
 ---
 
 <div class="skills-showcase">
@@ -96,7 +96,7 @@ import { BsFiletypeSql } from "react-icons/bs";
 
 			animationPlaying++;
 
-			entry.target.addEventListener('animationend', (event) => {
+			entry.target.addEventListener('animationend', () => {
 				animationPlaying--;
 			}, { once: true });
 
