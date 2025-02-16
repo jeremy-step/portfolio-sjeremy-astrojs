@@ -23,7 +23,7 @@ export const pageConfig = {
     },
     social: {
         twitter: "https://twitter.com/YoSoyJ3R3MIAS",
-        instagram: "https://www.instagram.com/el_j3r3mias",
+        instagram: "https://www.instagram.com/el_jere.mias",
         github: "https://github.com/cima-alfa",
         linkedIn: "https://www.linkedin.com/in/adam-jeremy-stepanek",
     },
