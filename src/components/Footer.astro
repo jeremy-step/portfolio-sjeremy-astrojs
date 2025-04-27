@@ -2,7 +2,7 @@
 import Link from './Link.astro';
 import { FaSquareGithub, FaSquareXTwitter, FaSquareInstagram, FaLinkedin } from 'react-icons/fa6';
 
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { pageConfig } from '@/page.config.mjs';
 import { getCurrentLocale } from '@/i18n.mjs';
 
@@ -13,7 +13,7 @@ const footerCollection = await getCollection('footer', ({ id }: { id: any }) => 
 });
 
 const footer = footerCollection.map(async (entry: any) => {
-	const { Content } = await entry.render();
+	const { Content } = await render(entry);
 
 	return { entry: entry, Content: Content };
 });

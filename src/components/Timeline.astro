@@ -5,30 +5,27 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 const { title, featured } = Astro.props;
 
 import { getCurrentLocale } from '@/i18n.mjs';
+import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
 
 const currentLocale = getCurrentLocale(Astro);
 
-const timelineCollection = await Astro.glob('@/content/timeline/*/*.mdx');
+const timelineCollection = await getCollection('timeline');
 
-const timeline = timelineCollection.reverse().filter((entry: any) => {
-	if (entry.file.search(new RegExp('/src/content/timeline/' + currentLocale + '/.*.mdx$')) === -1) {
+const timeline = timelineCollection.reverse().filter((entry) => {
+    if (entry.filePath === undefined) {
+        return false;
+    }
+
+	if (entry.filePath.search(new RegExp('src/content/timeline/' + currentLocale + '/.*.mdx$')) === -1) {
 		return false;
 	}
 
-	if (featured === true && entry.frontmatter.featured !== true) {
+	if (featured === true && entry.data.featured !== true) {
 		return false;
 	}
 
 	return true;
-}).map((entry: any) => {
-	let data = entry.frontmatter;
-
-	data.image = entry.image;
-
-	return {
-		data: data,
-		Content: entry.Content
-	};
 });
 ---
 
@@ -38,26 +35,31 @@ const timeline = timelineCollection.reverse().filter((entry: any) => {
 	</div>
 	<div class="col medium-2-11 xxmedium-12">
 		<div class="timeline">
-			{ timeline.map(({ data, Content }) => (
-				<div class="timeline--item" data-timeline-date={ data.date }>
-					<div class="timeline-item--wrapper">
-						<div class="timeline--content">
-							<h3>{ data.title }</h3>
+			{ timeline.map(async (entry) => {
+                const { Content } = await render(entry);
+                const data = entry.data;
+                
+                return (
+                    <div class="timeline--item" data-timeline-date={ data.date }>
+                        <div class="timeline-item--wrapper">
+                            <div class="timeline--content">
+                                <h3>{ data.title }</h3>
 
-							<Content />
+                                <Content />
 
-							{ (data.technologies || data.link) &&
-							<hr />
-							<ul>
-								{ data.technologies && <li><span>{ data.technologies }</span></li>}	
-								{ data.link && <li><span><a href={ data.link } target="_blank" rel="noopener noreferrer" title={ data.title }>{ data.linkDisplay } <FaExternalLinkAlt /></a></span></li> }
-							</ul>
-							}
-						</div>
-						{ data.image && <Picture src={ data.image } formats={['avif', 'webp']} alt={ data.title } loading={ data.imageLoading ?? 'lazy' } width="950" class="timeline--image" /> }
-					</div>
-				</div>
-			)) }
+                                { (data.technologies || data.link) &&
+                                <hr />
+                                <ul>
+                                    { data.technologies && <li><span>{ data.technologies }</span></li>}	
+                                    { data.link && <li><span><a href={ data.link } target="_blank" rel="noopener noreferrer" title={ data.title }>{ data.linkDisplay } <FaExternalLinkAlt /></a></span></li> }
+                                </ul>
+                                }
+                            </div>
+                            { data.image && <Picture src={ data.image } formats={['avif', 'webp']} alt={ data.title ?? "" } loading={ data.imageLoading ?? "lazy" } class:list={["timeline--image"]} width="950" /> }
+                        </div>
+                    </div>
+                );
+			}) }
 		</div>
 	</div>
 </section>
