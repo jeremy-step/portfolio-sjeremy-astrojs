@@ -8,14 +8,15 @@ import TextArea from './Controls/TextArea.astro';
 import Submit from './Controls/Submit.astro';
 
 import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
 
 const currentLocale = getCurrentLocale(Astro);
 
-const entry = await getCollection('forms', ({ slug }) => {
-  	return slug === currentLocale + '/contact/legaltext';
+const entry = await getCollection('forms', ({ id }: { id: any }) => {
+  	return id.startsWith(currentLocale + '/contact/legaltext');
 });
 
-const { Content } = await entry[0].render();
+const { Content } = await render(entry[0]);
 ---
 
 <Form action="contact" method="post" novalidate id="contact-form">
