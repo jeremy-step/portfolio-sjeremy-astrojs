@@ -65,7 +65,7 @@ ErrorDocument 404 /404.html?%{QUERY_STRING}
 	# START - Remove index.html #
 
 	RewriteCond %{REQUEST_URI} (.*\/)index\.html$
-    RewriteRule .* $1 [R=301,L]
+    RewriteRule ^ %1 [R=302,L]
 	
 	# END #
 </IfModule>
