@@ -44,7 +44,7 @@ import imageContact from '@/images/contact.jpg';
 			
 			<div class="content-image b-shadow-bottom border">
 				<div class="content-image-wrapper">
-					<Picture src={ imageContact } formats={['avif', 'webp']} alt="Contactame" width="800" class="contact-image" />
+					<Picture src={ imageContact } formats={['avif', 'webp']} alt="Contactame" width="800" loading="eager" class:list={["contact-image"]} />
 					<style>
 						.contact-image {
 							max-height: 325px;
