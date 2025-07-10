@@ -24,7 +24,7 @@ export const pageConfig = {
     social: {
         twitter: "https://twitter.com/YoSoyJ3R3MIAS",
         instagram: "https://www.instagram.com/el_jere.mias",
-        github: "https://github.com/cima-alfa",
+        github: "https://github.com/jeremy-step",
         linkedIn: "https://www.linkedin.com/in/adam-jeremy-stepanek",
     },
 };
