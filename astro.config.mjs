@@ -32,8 +32,8 @@ export default defineConfig({
                 scss: {
                     api: "modern-compiler",
                     additionalData: `
-						@use "@/scss/inc/defaults/vars-sass";
-						@use "@/scss/inc/mixins";
+						@use "@/scss/inc/defaults/_vars-sass.scss";
+						@use "@/scss/inc/_mixins.scss";
 					`,
                 },
             },
