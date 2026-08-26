@@ -1,0 +1,11 @@
+services:
+  node:
+    build:
+      dockerfile: ./.docker/node/Dockerfile
+      args:
+        USER_ID: 1000
+        GROUP_ID: 1000
+    volumes:
+      - ./:/app:z
+    ports:
+      - "4321:4321"
