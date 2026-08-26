@@ -3,7 +3,6 @@
     "type": "module",
     "version": "1.0.0",
     "scripts": {
-        "preinstall": "pnpx only-allow@1.2.2 pnpm",
         "dev": "astro dev",
         "start": "astro dev",
         "build": "astro check && astro build",
@@ -11,23 +10,29 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/check": "^0.9.8",
-        "@astrojs/mdx": "^5.0.3",
-        "@astrojs/react": "^5.0.3",
-        "@astrojs/sitemap": "^3.7.2",
-        "@types/react": "^19.2.14",
-        "@types/react-dom": "^19.2.3",
-        "astro": "^6.1.4",
-        "autoprefixer": "^10.4.27",
-        "react": "^19.2.4",
-        "react-dom": "^19.2.4",
-        "react-icons": "^5.6.0",
-        "sass": "^1.99.0",
-        "sass-embedded": "^1.99.0",
-        "sharp": "^0.34.5",
-        "typescript": "^6.0.2"
+        "@astrojs/check": "^0.9.10",
+        "@astrojs/mdx": "^7.0.7",
+        "@astrojs/react": "^6.0.4",
+        "@astrojs/sitemap": "^3.7.3",
+        "@types/react": "^19.2.18",
+        "@types/react-dom": "^19.2.4",
+        "astro": "^7.2.4",
+        "autoprefixer": "^10.5.4",
+        "react": "^19.2.8",
+        "react-dom": "^19.2.8",
+        "react-icons": "^5.7.0",
+        "sass": "^1.103.1",
+        "sass-embedded": "^1.103.1",
+        "sharp": "^0.35.3",
+        "typescript": "^6.0.3"
     },
+    "engineStrict": true,
     "engines": {
-        "pnpm": "^10.32.0"
+        "pnpm": "^11",
+        "node": "^26"
+    },
+    "volta": {
+        "node": "26.7.0",
+        "pnpm": "11.24.0"
     }
 }

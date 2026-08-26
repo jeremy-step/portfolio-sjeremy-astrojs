@@ -41,6 +41,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+.pnpm-store/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -126,8 +127,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-### VisualStudioCode ###
+### IDE ###
 **/.vscode/
+**/.idea/
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
